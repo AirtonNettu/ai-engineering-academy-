@@ -1,0 +1,772 @@
+{
+  "areas": [
+    {
+      "id": "fundamentos",
+      "title": "Fundamentos de engenharia",
+      "label": "01",
+      "description": "A base para construir sistemas: código, contratos e integração.",
+      "topics": [
+        "Pensamento computacional",
+        "Python",
+        "APIs HTTP",
+        "JSON",
+        "Git",
+        "Linux",
+        "SQL",
+        "Arquitetura de software",
+        "Redes e integração de sistemas"
+      ]
+    },
+    {
+      "id": "ia",
+      "title": "Fundamentos de IA",
+      "label": "02",
+      "description": "Entenda o que acontece entre o texto e a próxima previsão.",
+      "topics": [
+        "Inteligência artificial",
+        "Machine Learning",
+        "Deep Learning",
+        "Redes neurais",
+        "NLP",
+        "Transformers",
+        "Tokens e tokenização",
+        "Embeddings",
+        "Inferência",
+        "Context window",
+        "Modelos de linguagem",
+        "Treinamento e fine-tuning"
+      ]
+    },
+    {
+      "id": "aplicacoes",
+      "title": "Engenharia de aplicações",
+      "label": "03",
+      "description": "Conecte modelos, conhecimento e ferramentas com critério.",
+      "topics": [
+        "LLMs",
+        "Prompt engineering",
+        "Context engineering",
+        "RAG",
+        "Bancos vetoriais",
+        "MCP",
+        "Tool calling",
+        "Agentes de IA",
+        "Orquestração multiagente",
+        "LangGraph",
+        "Ollama",
+        "FastAPI",
+        "Integração de modelos",
+        "Avaliação",
+        "Observabilidade",
+        "Segurança"
+      ]
+    },
+    {
+      "id": "operacao",
+      "title": "Operação e infraestrutura",
+      "label": "04",
+      "description": "Sistemas confiáveis, observáveis e seguros ao longo do tempo.",
+      "topics": [
+        "Docker",
+        "CI/CD",
+        "Serving de modelos",
+        "MLOps",
+        "LLMOps",
+        "Monitoramento",
+        "Custos",
+        "Desempenho",
+        "Escalabilidade",
+        "Privacidade e proteção de dados"
+      ]
+    }
+  ],
+  "chapters": [
+    {
+      "id": "http-apis",
+      "title": "HTTP, APIs e contratos",
+      "category": "fundamentos",
+      "description": "Da requisição ao contrato: métodos, validação, erros e limites de confiança.",
+      "minutes": 18,
+      "tags": ["HTTP", "JSON", "APIs", "FastAPI"],
+      "concepts": ["http", "json"],
+      "sources": [
+        {
+          "title": "MDN — HTTP",
+          "url": "https://developer.mozilla.org/pt-BR/docs/Web/HTTP"
+        },
+        {
+          "title": "FastAPI — validação",
+          "url": "https://fastapi.tiangolo.com/tutorial/body/"
+        }
+      ],
+      "reviewedAt": "2026-10-20",
+      "status": "revisado-tecnicamente",
+      "codeFiles": [
+        "app/main.py",
+        "app/config.py",
+        "app/models.py",
+        "app/routes/chat.py",
+        "app/integrations/ollama.py"
+      ],
+      "diagrams": ["http"],
+      "related": ["python-backend"]
+    },
+    {
+      "id": "python-backend",
+      "title": "Python e separação de responsabilidades",
+      "category": "fundamentos",
+      "description": "Tipos, dependências, execução assíncrona e testes de uma API real.",
+      "minutes": 20,
+      "tags": ["Python", "FastAPI", "testes", "arquitetura"],
+      "concepts": ["http"],
+      "sources": [
+        {
+          "title": "Python — asyncio",
+          "url": "https://docs.python.org/3/library/asyncio.html"
+        },
+        {
+          "title": "HTTPX — transports",
+          "url": "https://www.python-httpx.org/advanced/transports/"
+        }
+      ],
+      "reviewedAt": "2026-10-20",
+      "status": "revisado-tecnicamente",
+      "codeFiles": [
+        "app/main.py",
+        "app/config.py",
+        "app/models.py",
+        "app/routes/chat.py",
+        "app/integrations/ollama.py"
+      ],
+      "diagrams": ["http"],
+      "related": ["http-apis", "ollama-fastapi"]
+    },
+    {
+      "id": "llm-inferencia",
+      "title": "Por dentro de uma resposta de um LLM",
+      "category": "ia",
+      "description": "Tokens, atenção, contexto e geração autoregressiva sem mistificar o modelo.",
+      "minutes": 22,
+      "tags": ["LLM", "inferência", "tokens", "transformers"],
+      "concepts": ["inferencia", "token", "contexto", "embedding"],
+      "sources": [
+        {
+          "title": "Attention Is All You Need",
+          "url": "https://arxiv.org/abs/1706.03762"
+        },
+        {
+          "title": "Hugging Face — transformers",
+          "url": "https://huggingface.co/docs/transformers/index"
+        }
+      ],
+      "reviewedAt": "2026-10-20",
+      "status": "revisado-tecnicamente",
+      "codeFiles": [],
+      "diagrams": ["llm"],
+      "related": ["rag"]
+    },
+    {
+      "id": "rag",
+      "title": "RAG: da pergunta à evidência",
+      "category": "aplicacoes",
+      "description": "Projete recuperação, montagem de contexto e avaliação com rastreabilidade.",
+      "minutes": 26,
+      "tags": [
+        "RAG",
+        "embeddings",
+        "busca",
+        "avaliação",
+        "context engineering"
+      ],
+      "concepts": ["rag", "embedding", "contexto"],
+      "sources": [
+        {
+          "title": "Retrieval-Augmented Generation",
+          "url": "https://arxiv.org/abs/2005.11401"
+        },
+        {
+          "title": "Sentence Transformers",
+          "url": "https://www.sbert.net/"
+        }
+      ],
+      "reviewedAt": "2026-10-20",
+      "status": "revisado-tecnicamente",
+      "codeFiles": [],
+      "diagrams": ["rag"],
+      "related": ["llm-inferencia", "seguranca-avaliacao"]
+    },
+    {
+      "id": "ollama-fastapi",
+      "title": "FastAPI + Ollama, do contrato ao teste",
+      "category": "aplicacoes",
+      "description": "Uma integração executável, com camadas, timeout e testes sem modelo online.",
+      "minutes": 24,
+      "tags": ["FastAPI", "Ollama", "Python", "integração"],
+      "concepts": ["inferencia", "http"],
+      "sources": [
+        {
+          "title": "Ollama — chat API",
+          "url": "https://docs.ollama.com/api/chat"
+        },
+        {
+          "title": "FastAPI — testes",
+          "url": "https://fastapi.tiangolo.com/tutorial/testing/"
+        }
+      ],
+      "reviewedAt": "2026-10-20",
+      "status": "revisado-tecnicamente",
+      "codeFiles": [
+        "app/main.py",
+        "app/config.py",
+        "app/models.py",
+        "app/routes/chat.py",
+        "app/integrations/ollama.py"
+      ],
+      "diagrams": ["http"],
+      "related": ["python-backend", "seguranca-avaliacao"]
+    },
+    {
+      "id": "seguranca-avaliacao",
+      "title": "Avaliação, segurança e operação responsável",
+      "category": "operacao",
+      "description": "Teste o sistema inteiro: evidências, limites de confiança, privacidade e regressões.",
+      "minutes": 23,
+      "tags": [
+        "segurança",
+        "avaliação",
+        "LLMOps",
+        "observabilidade",
+        "MCP",
+        "agentes"
+      ],
+      "concepts": ["mcp", "rag", "contexto"],
+      "sources": [
+        {
+          "title": "OWASP — GenAI",
+          "url": "https://genai.owasp.org/"
+        },
+        {
+          "title": "MCP — documentação",
+          "url": "https://modelcontextprotocol.io/docs/getting-started/intro"
+        }
+      ],
+      "reviewedAt": "2026-10-20",
+      "status": "revisado-tecnicamente",
+      "codeFiles": [],
+      "diagrams": ["rag"],
+      "related": ["rag", "ollama-fastapi"]
+    }
+  ],
+  "glossary": [
+    {
+      "id": "token",
+      "title": "Token",
+      "definition": "Unidade discreta produzida por um tokenizer. Pode representar um fragmento, uma palavra ou outros padrões; não existe equivalência fixa com palavras.",
+      "chapters": ["llm-inferencia"]
+    },
+    {
+      "id": "embedding",
+      "title": "Embedding",
+      "definition": "Representação vetorial aprendida. A utilidade de similaridade depende do modelo e do objetivo de treinamento; espaços de modelos diferentes não são intercambiáveis.",
+      "chapters": ["llm-inferencia", "rag"]
+    },
+    {
+      "id": "inferencia",
+      "title": "Inferência",
+      "definition": "Uso de um modelo treinado para calcular saídas a partir de entradas, normalmente sem atualizar seus pesos.",
+      "chapters": ["llm-inferencia", "ollama-fastapi"]
+    },
+    {
+      "id": "contexto",
+      "title": "Janela de contexto",
+      "definition": "Orçamento de tokens processáveis pelo modelo em uma sequência; inclui instruções, histórico, evidências e saída conforme a arquitetura e o servidor.",
+      "chapters": ["llm-inferencia", "rag"]
+    },
+    {
+      "id": "rag",
+      "title": "RAG",
+      "definition": "Arquitetura que recupera evidências externas e as fornece como contexto para geração; precisa avaliar recuperação e fidelidade separadamente.",
+      "chapters": ["rag"]
+    },
+    {
+      "id": "mcp",
+      "title": "MCP",
+      "definition": "Model Context Protocol: protocolo para conectar aplicações de IA a ferramentas, recursos e prompts de servidores. Não substitui autorização nem revisão de segurança.",
+      "chapters": ["seguranca-avaliacao"]
+    },
+    {
+      "id": "http",
+      "title": "HTTP",
+      "definition": "Protocolo de requisição e resposta entre clientes e servidores, com métodos, status e representações definidos por contrato.",
+      "chapters": ["http-apis"]
+    },
+    {
+      "id": "json",
+      "title": "JSON",
+      "definition": "Formato textual de intercâmbio de dados. Sintaxe válida não garante aderência ao schema esperado pelo sistema.",
+      "chapters": ["http-apis"]
+    }
+  ],
+  "roadmaps": [
+    {
+      "id": "application",
+      "title": "AI Application Engineer",
+      "description": "Construa aplicações com modelos existentes. O foco é produto, integração e qualidade de respostas.",
+      "focus": "Aplicações com modelos existentes",
+      "steps": [
+        {
+          "title": "Python e APIs",
+          "description": "Domine contratos, código assíncrono e limites de entrada.",
+          "chapters": ["python-backend", "http-apis"]
+        },
+        {
+          "title": "LLMs e contexto",
+          "description": "Entenda inferência antes de projetar prompts e orçamentos.",
+          "chapters": ["llm-inferencia"]
+        },
+        {
+          "title": "RAG e conhecimento",
+          "description": "Recupere evidências e meça a qualidade do contexto.",
+          "chapters": ["rag"]
+        },
+        {
+          "title": "Integração de modelos",
+          "description": "Construa uma fronteira explícita entre aplicação e modelo.",
+          "chapters": ["ollama-fastapi"]
+        },
+        {
+          "title": "MCP, agentes e segurança",
+          "description": "Revise permissões e avalie o sistema inteiro.",
+          "chapters": ["seguranca-avaliacao"]
+        }
+      ]
+    },
+    {
+      "id": "operations",
+      "title": "MLOps / LLMOps Engineer",
+      "description": "Opere sistemas de ML com confiabilidade. O foco é infraestrutura, ciclo de vida e desempenho.",
+      "focus": "Operação de sistemas de ML",
+      "steps": [
+        {
+          "title": "Linux, redes e Docker",
+          "description": "Pré-requisitos; capítulos específicos ainda não publicados.",
+          "chapters": ["http-apis"]
+        },
+        {
+          "title": "Pipelines e serving",
+          "description": "Automação de build, versões e disponibilização; cobertura dedicada pendente.",
+          "chapters": []
+        },
+        {
+          "title": "Inferência e capacidade",
+          "description": "Entenda prefill, decodificação e memória.",
+          "chapters": ["llm-inferencia"]
+        },
+        {
+          "title": "Observabilidade e avaliação",
+          "description": "Meça erros, latência e regressões sem expor dados.",
+          "chapters": ["seguranca-avaliacao"]
+        },
+        {
+          "title": "Confiabilidade e escala",
+          "description": "Planeje carga, rollback e recuperação; cobertura dedicada pendente.",
+          "chapters": []
+        }
+      ]
+    },
+    {
+      "id": "models",
+      "title": "Machine Learning / AI Engineer",
+      "description": "Desenvolva e avalie modelos. O foco é matemática, experimentação e treinamento.",
+      "focus": "Desenvolvimento e treinamento de modelos",
+      "steps": [
+        {
+          "title": "Matemática e estatística",
+          "description": "Álgebra linear, probabilidade e cálculo; conteúdo dedicado pendente.",
+          "chapters": []
+        },
+        {
+          "title": "Python e experimentação",
+          "description": "Organize código e testes; notebooks não substituem avaliação.",
+          "chapters": ["python-backend"]
+        },
+        {
+          "title": "ML, redes e PyTorch",
+          "description": "Aprendizado supervisionado e otimização; conteúdo dedicado pendente.",
+          "chapters": []
+        },
+        {
+          "title": "Transformers e treinamento",
+          "description": "Estude arquitetura e diferencie treinamento de inferência.",
+          "chapters": ["llm-inferencia"]
+        },
+        {
+          "title": "Avaliação de modelos",
+          "description": "Versione dados, métricas e critérios.",
+          "chapters": ["seguranca-avaliacao"]
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "id": "fastapi",
+      "title": "FastAPI",
+      "category": "Backend",
+      "url": "https://fastapi.tiangolo.com/",
+      "description": "Documentação oficial de validação, rotas e testes de APIs Python.",
+      "kind": "Recurso",
+      "compatibility": "Documentação oficial; consulte os requisitos da versão escolhida."
+    },
+    {
+      "id": "react",
+      "title": "React",
+      "category": "Frontend",
+      "url": "https://react.dev/",
+      "description": "Componentes, estado e composição na documentação oficial.",
+      "kind": "Recurso",
+      "compatibility": "Documentação oficial; consulte os requisitos da versão escolhida."
+    },
+    {
+      "id": "playwright",
+      "title": "Playwright",
+      "category": "QA",
+      "url": "https://playwright.dev/",
+      "description": "Testes de ponta a ponta com navegadores reais.",
+      "kind": "Recurso",
+      "compatibility": "Documentação oficial; consulte os requisitos da versão escolhida."
+    },
+    {
+      "id": "owasp",
+      "title": "OWASP GenAI",
+      "category": "Segurança",
+      "url": "https://genai.owasp.org/",
+      "description": "Riscos e orientações para aplicações com IA generativa.",
+      "kind": "Recurso",
+      "compatibility": "Documentação oficial; consulte os requisitos da versão escolhida."
+    },
+    {
+      "id": "docker",
+      "title": "Docker",
+      "category": "DevOps",
+      "url": "https://docs.docker.com/",
+      "description": "Containers, imagens e operação reproduzível.",
+      "kind": "Recurso",
+      "compatibility": "Documentação oficial; consulte os requisitos da versão escolhida."
+    },
+    {
+      "id": "c4",
+      "title": "C4 Model",
+      "category": "Arquitetura",
+      "url": "https://c4model.com/",
+      "description": "Modelo de documentação visual de arquitetura de software.",
+      "kind": "Recurso",
+      "compatibility": "Documentação oficial; consulte os requisitos da versão escolhida."
+    },
+    {
+      "id": "langgraph",
+      "title": "LangGraph",
+      "category": "Orquestração",
+      "url": "https://docs.langchain.com/oss/python/langgraph/overview",
+      "description": "Grafos e estado para orquestrar aplicações com modelos.",
+      "kind": "Recurso",
+      "compatibility": "Documentação oficial; consulte os requisitos da versão escolhida."
+    },
+    {
+      "id": "ollama",
+      "title": "Ollama",
+      "category": "Engenharia de IA",
+      "url": "https://docs.ollama.com/",
+      "description": "Execução e integração local de modelos; hardware e licenças variam.",
+      "kind": "Recurso",
+      "compatibility": "Documentação oficial; consulte os requisitos da versão escolhida."
+    },
+    {
+      "id": "pytorch",
+      "title": "PyTorch",
+      "category": "Engenharia de IA",
+      "url": "https://docs.pytorch.org/docs/stable/index.html",
+      "description": "Tensores, autograd e treinamento de redes neurais.",
+      "kind": "Recurso",
+      "compatibility": "Documentação oficial; consulte os requisitos da versão escolhida."
+    },
+    {
+      "id": "diataxis",
+      "title": "Diátaxis",
+      "category": "Documentação",
+      "url": "https://diataxis.fr/",
+      "description": "Estrutura para tutoriais, guias, referência e explicação.",
+      "kind": "Recurso",
+      "compatibility": "Documentação oficial; consulte os requisitos da versão escolhida."
+    },
+    {
+      "id": "github-review",
+      "title": "GitHub — revisão de PRs",
+      "category": "Revisão de código",
+      "url": "https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests",
+      "description": "Revisão humana e rastreabilidade de alterações.",
+      "kind": "Recurso",
+      "compatibility": "Documentação oficial; consulte os requisitos da versão escolhida."
+    },
+    {
+      "id": "mcp",
+      "title": "Model Context Protocol",
+      "category": "Engenharia de IA",
+      "url": "https://modelcontextprotocol.io/",
+      "description": "Especificação e guias do protocolo MCP.",
+      "kind": "Recurso",
+      "compatibility": "Documentação oficial; consulte os requisitos da versão escolhida."
+    },
+    {
+      "id": "skills-directory",
+      "title": "skills.sh — diretório de skills",
+      "category": "Orquestração",
+      "url": "https://skills.sh/",
+      "description": "Catálogo externo de skills. Revise cada autor, licença, scripts e permissões antes de instalar.",
+      "kind": "Skill",
+      "compatibility": "Compatibilidade varia por item e agente; não verificada pela Academy."
+    },
+    {
+      "id": "agent-skills",
+      "title": "Agent Skills — especificação",
+      "category": "Documentação",
+      "url": "https://agentskills.io/specification",
+      "description": "Formato aberto de skills: organização, metadados e convenções de SKILL.md.",
+      "kind": "Skill",
+      "compatibility": "Especificação de formato; suporte depende do agente e da versão. Não é uma skill instalável."
+    },
+    {
+      "id": "frontend-design",
+      "title": "frontend-design — Anthropic",
+      "category": "Frontend",
+      "url": "https://github.com/anthropics/skills/tree/main/skills/frontend-design",
+      "description": "Orientações para identidade visual e implementação de interfaces. Fonte SKILL.md consultada; revise os termos em LICENSE.txt.",
+      "kind": "Skill",
+      "compatibility": "Instruções no formato SKILL.md. Suporte depende do agente; não homologada pela Academy."
+    },
+    {
+      "id": "webapp-testing",
+      "title": "webapp-testing — Anthropic",
+      "category": "QA",
+      "url": "https://github.com/anthropics/skills/tree/main/skills/webapp-testing",
+      "description": "Scripts e orientações de testes de aplicações locais com Playwright. Consulte o código e a licença antes de executar.",
+      "kind": "Skill",
+      "compatibility": "A fonte descreve scripts Python e Playwright. Integração com cada agente não testada pela Academy."
+    },
+    {
+      "id": "skill-creator",
+      "title": "skill-creator — Anthropic",
+      "category": "Documentação",
+      "url": "https://github.com/anthropics/skills/tree/main/skills/skill-creator",
+      "description": "Criação, avaliação e revisão iterativa de skills. Fonte verificada no repositório do autor, sem instalação automática.",
+      "kind": "Skill",
+      "compatibility": "O fluxo do autor cita Claude e ferramentas de avaliação próprias. Não verificado em outros agentes."
+    }
+  ],
+  "projects": [
+    {
+      "id": "fastapi-ollama",
+      "title": "API de chat com FastAPI + Ollama",
+      "description": "Integração Python real com validação, camadas, timeout e testes com mocks.",
+      "files": [
+        {
+          "path": "app/main.py",
+          "role": "Raiz de composição e ciclo de vida das conexões.",
+          "symbols": "create_app: conecta configuração, cliente HTTP e rotas; lifespan: abre e fecha o cliente.",
+          "imports": ["FastAPI", "HTTPX", "Settings", "OllamaService", "router"]
+        },
+        {
+          "path": "app/config.py",
+          "role": "Configuração validada exclusivamente no servidor.",
+          "symbols": "Settings: valida host/modelo/timeout; from_env: lê somente as variáveis suportadas.",
+          "imports": ["os", "Pydantic"]
+        },
+        {
+          "path": "app/models.py",
+          "role": "Contratos públicos de entrada e saída.",
+          "symbols": "ChatRequest: valida texto e rejeita campos extras; ChatResponse: resposta estável.",
+          "imports": ["Pydantic"]
+        },
+        {
+          "path": "app/routes/chat.py",
+          "role": "Fronteira HTTP e tradução de falhas conhecidas.",
+          "symbols": "chat: chama o serviço e converte ServiceError em HTTPException.",
+          "imports": [
+            "APIRouter",
+            "Request",
+            "ChatRequest",
+            "ChatResponse",
+            "ServiceError"
+          ]
+        },
+        {
+          "path": "app/integrations/ollama.py",
+          "role": "Adaptador do protocolo HTTP do Ollama.",
+          "symbols": "OllamaService.generate: envia mensagem e valida resposta; ServiceError: falha pública controlada.",
+          "imports": ["HTTPX"]
+        },
+        {
+          "path": "tests/test_chat.py",
+          "role": "Verificação do contrato HTTP sem Ollama online.",
+          "symbols": "Testes: sucesso, entrada inválida, timeout, conexão, status e corpo upstream.",
+          "imports": ["pytest", "MockTransport", "TestClient", "create_app"]
+        },
+        {
+          "path": "requirements.txt",
+          "role": "Dependências fixadas para reprodução do exemplo.",
+          "symbols": "Instalação: python -m pip install -r requirements.txt",
+          "imports": []
+        },
+        {
+          "path": ".env.example",
+          "role": "Exemplo de configuração sem segredos.",
+          "symbols": "OLLAMA_BASE_URL, OLLAMA_MODEL, OLLAMA_TIMEOUT_SECONDS",
+          "imports": []
+        },
+        {
+          "path": "README.md",
+          "role": "Como executar e limites da implementação.",
+          "symbols": "Ambiente virtual, pytest, Uvicorn e curl.",
+          "imports": []
+        },
+        {
+          "path": "app/__init__.py",
+          "role": "Define o pacote Python da aplicação.",
+          "symbols": "Arquivo vazio: marca o pacote, sem efeitos colaterais.",
+          "imports": []
+        },
+        {
+          "path": "app/routes/__init__.py",
+          "role": "Define o pacote de rotas.",
+          "symbols": "Arquivo vazio: nenhum código executado no import.",
+          "imports": []
+        },
+        {
+          "path": "app/integrations/__init__.py",
+          "role": "Define o pacote de integrações.",
+          "symbols": "Arquivo vazio: integrações são criadas na composição.",
+          "imports": []
+        },
+        {
+          "path": "requirements.lock.txt",
+          "role": "Snapshot das versões usadas na validação.",
+          "symbols": "Dependências diretas e transitivas fixadas com pip freeze.",
+          "imports": []
+        }
+      ]
+    }
+  ],
+  "diagrams": [
+    {
+      "id": "rag",
+      "title": "Pipeline de RAG",
+      "description": "Da pergunta à resposta apoiada em evidências. Simulação didática, sem chamadas a modelos.",
+      "nodes": [
+        {
+          "id": "question",
+          "title": "Pergunta",
+          "description": "Defina a intenção e aplique filtros de acesso antes de recuperar documentos.",
+          "file": null
+        },
+        {
+          "id": "retrieve",
+          "title": "Recuperação",
+          "description": "Busque candidatos lexicais ou vetoriais. Similaridade não garante evidência correta.",
+          "file": null
+        },
+        {
+          "id": "context",
+          "title": "Contexto",
+          "description": "Deduplicate, selecione fontes e respeite o orçamento de tokens.",
+          "file": null
+        },
+        {
+          "id": "generate",
+          "title": "Geração",
+          "description": "O modelo recebe pergunta e evidências; ainda pode cometer erros.",
+          "file": null
+        },
+        {
+          "id": "evaluate",
+          "title": "Avaliação",
+          "description": "Verifique apoio nas fontes, correção e possibilidade de abstenção.",
+          "file": null
+        }
+      ]
+    },
+    {
+      "id": "http",
+      "title": "FastAPI + Ollama",
+      "description": "Fluxo do projeto executável. A animação representa etapas; não faz uma requisição real.",
+      "nodes": [
+        {
+          "id": "request",
+          "title": "Cliente HTTP",
+          "description": "Envia POST /api/chat com JSON. A biblioteca pública não realiza essa chamada.",
+          "file": "app/models.py"
+        },
+        {
+          "id": "validate",
+          "title": "Validação",
+          "description": "Pydantic valida mensagem não vazia, tamanho e ausência de campos extras.",
+          "file": "app/routes/chat.py"
+        },
+        {
+          "id": "adapter",
+          "title": "Adaptador",
+          "description": "Envia o contrato esperado pelo Ollama com timeout e sem streaming.",
+          "file": "app/integrations/ollama.py"
+        },
+        {
+          "id": "model",
+          "title": "Ollama",
+          "description": "Executa inferência local no modelo definido pelo operador.",
+          "file": "app/config.py"
+        },
+        {
+          "id": "response",
+          "title": "Resposta",
+          "description": "O backend valida o payload upstream e traduz falhas em status públicos.",
+          "file": "app/main.py"
+        }
+      ]
+    },
+    {
+      "id": "llm",
+      "title": "Como um LLM gera texto",
+      "description": "Visão conceitual autoregressiva. Não representa uma tokenização específica nem execução real.",
+      "nodes": [
+        {
+          "id": "text",
+          "title": "Texto",
+          "description": "Instruções e mensagem formam a entrada dentro de um orçamento.",
+          "file": null
+        },
+        {
+          "id": "tokens",
+          "title": "Tokenização",
+          "description": "O tokenizer específico do modelo converte texto em ids.",
+          "file": null
+        },
+        {
+          "id": "vectors",
+          "title": "Embeddings",
+          "description": "Ids são mapeados a vetores e combinados com informação de posição.",
+          "file": null
+        },
+        {
+          "id": "transformer",
+          "title": "Transformer",
+          "description": "Atenção causal e camadas transformam as representações.",
+          "file": null
+        },
+        {
+          "id": "decode",
+          "title": "Decodificação",
+          "description": "Logits e política de amostragem escolhem o próximo token; o ciclo continua.",
+          "file": null
+        }
+      ]
+    }
+  ]
+}
