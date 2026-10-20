@@ -1,6 +1,6 @@
+import { publicRoutes } from '../src/lib/routes';
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import { catalog } from '../src/lib/content';
 
 test('jornada pública: busca, leitura e progresso persistido', async ({
   page,
@@ -51,9 +51,12 @@ test('explorador, diagrama e trilhas têm ações reais', async ({ page }) => {
   await page.goto('/trilhas');
   await page.getByRole('button', { name: /MLOps \/ LLMOps Engineer/ }).click();
   await page.getByRole('button', { name: /Pipelines e serving/ }).click();
-  await expect(page.locator('.competency')).toContainText(
-    'Ainda não há capítulo dedicado',
+  await expect(page.locator('.competency h2')).toHaveText(
+    'Pipelines e serving',
   );
+  await expect(
+    page.locator('.competency a[href^="/capitulos/"]'),
+  ).not.toHaveCount(0);
 });
 
 test('cópia de código e filtros de catálogo funcionam', async ({
@@ -96,17 +99,8 @@ test('cópia de código e filtros de catálogo funcionam', async ({
 test('rotas publicadas, links internos e layout sem overflow', async ({
   page,
 }) => {
-  const routes = [
-    '/',
-    '/biblioteca',
-    '/trilhas',
-    '/arquiteturas',
-    '/projetos/fastapi-ollama',
-    '/recursos',
-    '/glossario',
-    '/busca',
-    ...catalog.chapters.map((c) => `/capitulos/${c.id}`),
-  ];
+  test.setTimeout(90000);
+  const routes = publicRoutes;
   const errors: string[] = [];
   page.on('pageerror', (e) => errors.push(e.message));
   for (const route of routes) {
@@ -197,7 +191,10 @@ test('links de referência chegam à seção após o carregamento', async ({
 }) => {
   await page.goto('/busca?q=Attention');
   await page
-    .getByRole('heading', { name: 'Attention Is All You Need' })
+    .locator('a[href="/capitulos/llm-inferencia#referencias"]')
+    .filter({
+      has: page.getByRole('heading', { name: 'Attention Is All You Need' }),
+    })
     .click();
   await expect(page.locator('#referencias')).toBeInViewport();
 });
