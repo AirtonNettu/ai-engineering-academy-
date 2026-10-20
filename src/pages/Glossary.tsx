@@ -1,9 +1,11 @@
+import { useHashScroll } from '../lib/useHashScroll';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { catalog, chapterById, chapterUrl } from '../lib/content';
 import { normalize } from '../lib/search';
 import { PageIntro, Empty } from '../components/Cards';
 export default function Glossary() {
+  useHashScroll();
   const [q, setQ] = useState('');
   const terms = catalog.glossary
     .filter((t) =>

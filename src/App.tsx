@@ -28,11 +28,6 @@ export default function App() {
       ? chapterById(location.pathname.split('/')[2])
       : undefined;
     document.title = `${chapter?.title || routeTitles[location.pathname] || 'Página não encontrada'} — IA Engineer Academy`;
-    if (location.hash) {
-      requestAnimationFrame(() =>
-        document.getElementById(location.hash.slice(1))?.scrollIntoView(),
-      );
-    }
   }, [location.pathname, location.hash]);
   return (
     <Layout>

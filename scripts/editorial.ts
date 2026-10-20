@@ -1,3 +1,4 @@
+import { catalog } from '../src/lib/content';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { z } from 'zod';
 import { proposalSchema, validateProposal } from '../src/lib/editorial';
@@ -9,7 +10,15 @@ if (file === '--schema') {
   );
   console.log('Schema gerado.');
 } else if (file) {
-  const p = validateProposal(JSON.parse(readFileSync(file, 'utf8')));
+  const p = validateProposal(
+    JSON.parse(readFileSync(file, 'utf8')),
+    Object.fromEntries(
+      catalog.chapters.map((c) => [
+        c.id,
+        readFileSync(`content/chapters/${c.id}.md`, 'utf8'),
+      ]),
+    ),
+  );
   console.log(
     `Proposta válida: ${p.id}; revisão humana obrigatória. Nenhum arquivo editorial alterado.`,
   );

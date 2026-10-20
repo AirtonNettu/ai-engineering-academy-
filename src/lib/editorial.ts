@@ -28,14 +28,22 @@ export const proposalSchema = z.strictObject({
     .min(1)
     .max(20),
 });
-export function validateProposal(input: unknown) {
+export function validateProposal(
+  input: unknown,
+  documents: Record<string, string> = {},
+) {
   const p = proposalSchema.parse(input);
   const ids = new Set(catalog.chapters.map((c) => c.id));
   if (new Set(p.changes.map((c) => c.chapterId)).size !== p.changes.length)
     throw Error('Alteração duplicada');
   for (const c of p.changes) {
     if (!ids.has(c.chapterId)) throw Error('Capítulo alvo inexistente');
-    validateMarkdownLinks(c.markdown, c.chapterId);
+    validateMarkdownLinks(c.markdown, c.chapterId, {
+      ...documents,
+      ...Object.fromEntries(
+        p.changes.map((change) => [change.chapterId, change.markdown]),
+      ),
+    });
   }
   return p;
 }

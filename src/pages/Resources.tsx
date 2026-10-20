@@ -1,9 +1,11 @@
+import { useHashScroll } from '../lib/useHashScroll';
 import { useState } from 'react';
 import { ArrowUpRight, ShieldCheck } from 'lucide-react';
 import { catalog } from '../lib/content';
 import { normalize } from '../lib/search';
 import { PageIntro, Empty } from '../components/Cards';
 export default function Resources() {
+  useHashScroll();
   const [category, setCategory] = useState('Todas');
   const [query, setQuery] = useState('');
   const resources = catalog.resources.filter(

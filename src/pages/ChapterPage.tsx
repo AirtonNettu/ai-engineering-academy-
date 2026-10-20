@@ -1,3 +1,4 @@
+import { useHashScroll } from '../lib/useHashScroll';
 import { useEffect, useState, type CSSProperties } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import {
@@ -43,6 +44,7 @@ export default function ChapterPage() {
       active = false;
     };
   }, [id]);
+  useHashScroll(document.id === id && !!document.body);
   if (!chapter)
     return (
       <Empty
