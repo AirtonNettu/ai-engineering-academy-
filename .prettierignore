@@ -1,0 +1,7 @@
+node_modules
+dist
+package-lock.json
+.venv
+playwright-report
+test-results
+examples/**/*.py
