@@ -1,3 +1,9 @@
+## Fundamentação
+
+Segurança e avaliação se encontram na definição de comportamento permitido. Uma resposta útil não basta se revela dados de outra pessoa; uma resposta segura não basta se falha sistematicamente na tarefa prometida. Escreva limites, critérios de qualidade e ações proibidas antes de procurar uma métrica única. O risco depende da informação, do usuário e dos efeitos que o sistema pode produzir.
+
+Modelos podem gerar texto convincente e errado, seguir instruções maliciosas presentes em dados ou propor ferramentas fora de escopo. O controle deve estar também no código: identidade, autorização, validação de argumentos, limites e isolamento. Um prompt pedindo cuidado é uma orientação de comportamento, não uma barreira de acesso. O site estático da Academy não executa ferramentas remotas e não coleta telemetria de estudo.
+
 ## Qualidade é uma propriedade do sistema
 
 Um modelo forte não garante uma aplicação confiável. O resultado depende de entrada, contexto, permissões, ferramentas, recuperação e apresentação. Avalie o caminho completo. Uma integração pode passar em testes HTTP e ainda produzir respostas sem fundamento; um modelo pode acertar uma pergunta e ainda vazar informação em outra.
@@ -22,6 +28,12 @@ MCP padroniza interfaces entre clientes e servidores que oferecem recursos, prom
 
 Um agente combina um modelo com um ciclo de decisão e ferramentas. Quanto maior o conjunto de ações, maior a superfície de falhas. Use orçamento de passos, tempo e chamadas; registre decisões sem expor segredos. Orquestração multiagente adiciona coordenação e comunicação, não uma garantia de correção.
 
+## Funcionamento intermediário
+
+Divida avaliação em contratos determinísticos e comportamento probabilístico. Teste rotas, formatos, cálculos e permissões com casos controlados. Para respostas abertas, use conjuntos versionados e rubricas com exemplos de acerto e erro. Reporte tamanho da amostra e categorias; uma média pode esconder falhas graves em situações raras.
+
+Observe o sistema com dados mínimos: versão, duração, tipo de erro e identificador de operação podem ser suficientes em muitos casos. Logs completos de prompts criam uma cópia adicional de informação sensível. Redação deve ocorrer antes do envio e abranger erros de integração. A utilidade operacional de um trace não justifica automaticamente reter todo conteúdo que passou pelo modelo.
+
 ## Skills de terceiros
 
 Uma skill pode conter instruções, scripts e solicitações de permissões. Antes de instalar, revise origem, licença, manutenção, código executável e destinos de rede. Não cole tokens em prompts nem execute comandos só porque um catálogo os recomenda. O catálogo da Academy aponta fontes; ele não certifica itens externos.
@@ -43,3 +55,11 @@ Para o exemplo Python, testes mockados são uma etapa anterior à validação em
 ## Exercício de revisão
 
 Escolha uma competência da trilha de LLMOps e escreva um modo de falha verificável. Por exemplo: se o modelo retorna um corpo inválido com status 200, o backend deve responder 502 sem vazar a resposta bruta. Esse é um teste de engenharia. Para uma pergunta factual, defina fontes esperadas e um critério de abstenção: esse é um caso de avaliação.
+
+## Análise avançada
+
+Uma avaliação adversarial deve incluir documentos com instruções indevidas, consultas entre tenants e ferramentas com argumentos formalmente válidos, porém não autorizados. Descobrir um ataque exige reduzir capacidade ou corrigir a fronteira afetada, e depois adicionar regressão. Apenas acrescentar uma frase ao prompt pode reduzir o exemplo observado sem resolver a classe de falha.
+
+Automação editorial futura conserva revisão humana. n8n e Ollama podem preparar propostas privadas com fontes e diff, mas publicação exige issue ou PR revisável. O leitor não precisa desses serviços. Esse desenho reduz dependências operacionais e impede que geração de texto seja confundida com validação técnica ou aprovação editorial.
+
+Estude [MCP e agentes](/capitulos/mcp-agentes), [produção e evals](/capitulos/producao-evals) e o [teste de contrato real](/projetos/fastapi-ollama?file=tests/test_chat.py). Os mocks verificam fronteiras de software; não medem resistência de um modelo a prompt injection. Uma decisão de produção deve registrar lacunas e riscos residuais com responsável e plano de recuperação, sem alegar uma garantia absoluta de segurança.

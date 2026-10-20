@@ -1,3 +1,5 @@
+import { validateChapterDepths } from '../src/lib/editorial-depths';
+import { flashcards } from '../src/learning/content';
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { catalog } from '../src/lib/content';
 import { validateMarkdownLinks } from '../src/lib/routes';
@@ -20,6 +22,14 @@ for (const c of catalog.chapters) {
   if (new Set(headings).size !== headings.length)
     throw Error(`Títulos duplicados: ${c.id}`);
   validateMarkdownLinks(body, c.id, documents);
+  validateChapterDepths(body, c.depths);
+  validateMarkdownLinks(
+    `[Implementação](${c.implementation.url})`,
+    c.id,
+    documents,
+  );
+  if (flashcards.filter((f) => f.chapterId === c.id).length < 3)
+    throw Error(`Cartões editoriais insuficientes: ${c.id}`);
 }
 for (const p of catalog.projects) {
   if (new Set(p.files.map((f) => f.path)).size !== p.files.length)

@@ -1,3 +1,4 @@
+import { validateChapterDepths } from './editorial-depths';
 import { z } from 'zod';
 import { catalog } from './content';
 import { validateMarkdownLinks } from './routes';
@@ -38,6 +39,10 @@ export function validateProposal(
     throw Error('Alteração duplicada');
   for (const c of p.changes) {
     if (!ids.has(c.chapterId)) throw Error('Capítulo alvo inexistente');
+    validateChapterDepths(
+      c.markdown,
+      catalog.chapters.find((ch) => ch.id === c.chapterId)!.depths,
+    );
     validateMarkdownLinks(c.markdown, c.chapterId, {
       ...documents,
       ...Object.fromEntries(

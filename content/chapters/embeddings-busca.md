@@ -1,0 +1,29 @@
+## Fundamentação
+
+Um embedding é uma representação vetorial aprendida ou construída para uma finalidade. Em busca semântica, queremos aproximar consultas e documentos relevantes segundo uma função de treinamento e um domínio. Vetores não são significados universais. Dois modelos com a mesma dimensão podem produzir espaços incompatíveis; misturar embeddings de versões diferentes no mesmo índice pode destruir o ranking mesmo sem gerar erro de tipo.
+
+O vetor interno de um token em um LLM não é automaticamente um bom embedding de documento. Um modelo de busca pode usar treinamento contrastivo, pooling e instruções específicas para consulta e passagem. Nesse caso, formato da entrada e normalização fazem parte do contrato. Escolher a dimensão olhando apenas o consumo de armazenamento ignora como os dados e a tarefa foram representados. Comece pela relevância que deseja medir.
+
+O [Embedding Explorer](/laboratorios/embeddings) usa vetores pequenos determinísticos e documentos de exemplo. Essa decisão permite conferir números no navegador; não significa que os vetores vieram de um modelo real. A projeção bidimensional é uma ajuda visual: distância na tela pode não preservar distância original. Arrastar pontos, quando muda coordenadas de apresentação, não deve ser interpretado como reentreinar embeddings. Observe a explicação do controle e os valores usados no ranking.
+
+Recuperação procura candidatos, não prova que uma afirmação é verdadeira. Um documento pode ser semanticamente próximo e estar desatualizado, sem permissão de acesso ou conter instruções maliciosas. Por isso um pipeline de [RAG](/capitulos/rag) inclui metadados, autorização, seleção de contexto e avaliação. A biblioteca usa busca textual local para sua escala editorial; ensinar banco vetorial não exige implantar um serviço externo no site.
+
+## Funcionamento intermediário
+
+A similaridade cosseno é cos(a,b) = (a·b)/(||a|| ||b||). O numerador é soma de produtos das componentes; as normas medem comprimento. Para a=(1,0) e b=(1,1), a similaridade é 1/√2, aproximadamente 0,707. Isso mede alinhamento angular, não uma probabilidade de relevância. Vetor nulo exige política explícita porque a divisão por zero é indefinida. O laboratório define um comportamento seguro para entradas válidas em vez de esconder NaN.
+
+Quando vetores têm norma unitária, produto escalar e cosseno coincidem. Distância euclidiana, produto escalar e cosseno não são intercambiáveis sem hipóteses sobre normalização e treinamento. Um índice aproximado retorna candidatos com troca entre latência, memória e recall da busca exata. Compare primeiro com um baseline exato em uma amostra: se a representação não separa relevantes, sofisticar o índice não corrige o problema de origem.
+
+Chunking divide documentos em unidades recuperáveis. Cortar por tamanho fixo é simples, mas pode separar uma condição de sua exceção. Dividir por estrutura preserva títulos e limites naturais, desde que o parser seja confiável. Overlap evita perder relações na fronteira, ao custo de redundância e armazenamento. Registre documento, versão, seção e posição de origem para reconstruir evidências. O tamanho ótimo depende da consulta, do modelo e do conteúdo, não de um número universal de tokens.
+
+Busca híbrida combina sinal lexical com vetorial. Um código de erro ou identificador exato pode favorecer o índice lexical; uma paráfrase pode favorecer embeddings. Reciprocal rank fusion combina posições por soma de 1/(k+r), com r sendo posição na lista e k uma constante escolhida para suavizar influência. Isso evita somar escores com escalas incompatíveis, mas ainda exige avaliar a política. Um reranker pontua pares consulta-documento após a recuperação, melhorando precisão potencial com custo adicional por candidato.
+
+## Análise avançada
+
+Permissões precisam limitar o conjunto recuperável antes que conteúdo protegido entre no prompt. Filtrar apenas a resposta final deixa o modelo ter acesso indevido às passagens. Inclua tenant e política de acesso no desenho do índice, teste consultas entre usuários e avalie índices separados quando o isolamento exigir. A implementação matemática [cosseno e ranking](/laboratorios/embeddings?codigo=1) não implementa autorização, banco vetorial ou ingestão de documentos privados; ela isola o núcleo numérico.
+
+Meça recuperação separada da geração. Recall@k verifica quantos itens relevantes apareceram entre os primeiros k; nDCG considera relevâncias graduadas e posição. Anotações incompletas podem classificar um documento útil como negativo por falta de julgamento. Avalie também consultas sem resposta e documentos difíceis de distinguir. Depois verifique se o gerador usa a evidência e cita a passagem certa. Melhorar recall enquanto se enche o contexto de ruído pode piorar a resposta final.
+
+Atualizar um índice exige estratégia de versionamento. Reembeddings em lote, alias para troca atômica e verificação de contagens são opções de operação; não foram implementados no laboratório. Exclusão precisa remover derivados, inclusive chunks e caches. Registre qual combinação de corpus, chunker e modelo produziu cada avaliação para distinguir mudança de dados de regressão do modelo. Uma comparação sem essas versões pode parecer progresso apenas porque o conjunto ficou mais fácil.
+
+No exercício, calcule manualmente dois cossenos, compare a ordem e altere a consulta. Não trate valores de exemplo como benchmark. Consulte [Sentence Transformers](https://www.sbert.net/) para representações de sentenças e o artigo de [RAG](https://arxiv.org/abs/2005.11401) para a combinação com geração. Continue em [RAG versus fine-tuning](/capitulos/rag-finetuning) e no [atlas de recuperação](/arquiteturas?diagrama=rag). A decisão de usar embeddings deve responder a uma falha concreta de busca observada no seu domínio.

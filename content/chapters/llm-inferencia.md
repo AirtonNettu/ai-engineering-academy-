@@ -1,3 +1,9 @@
+## Fundamentação
+
+Um LLM causal modela sequências: dada uma sequência de tokens, estima uma distribuição para o próximo. A aplicação transforma entrada em contexto, o modelo calcula escores e a política de decodificação escolhe uma continuação. Esses são mecanismos diferentes. Um modelo pode atribuir alta probabilidade a uma afirmação porque ela combina com o contexto, mesmo quando ela é falsa no mundo.
+
+A distinção entre pesos e contexto ajuda a evitar expectativas erradas. Pesos são ajustados no treinamento; o contexto varia entre chamadas. Inserir um documento no prompt não atualiza automaticamente os parâmetros nem garante que ele será lembrado depois. Durante uma conversa, o servidor pode reconstruir o histórico em cada requisição. Persistência de memória é responsabilidade de arquitetura e política de dados, não uma propriedade inevitável de falar com um chatbot.
+
 ## Um modelo estima distribuições
 
 Um modelo de linguagem causal estima a distribuição do próximo token condicionado aos tokens anteriores. Ele não recupera necessariamente uma frase de um banco de respostas. Durante inferência, os pesos aprendidos permanecem fixos no uso habitual. A cada passo, o modelo produz logits; uma estratégia de decodificação transforma esses valores em uma escolha de token.
@@ -28,6 +34,12 @@ Em um transformer causal, cada posição atende a posições permitidas pela má
 
 A janela de contexto limita a sequência que o sistema pode processar. Instruções, histórico, trechos recuperados, descrições de ferramentas e saída competem por orçamento. Uma janela nominal grande não garante uso igualmente bom de toda informação inserida. A ordem, a redundância e a relevância afetam o comportamento.
 
+## Funcionamento intermediário
+
+A sequência passa por tokenizer, embedding e blocos transformer até produzir logits. Para um logit zᵢ, a probabilidade após temperatura positiva T é exp(zᵢ/T) dividida pela soma dos exponenciais dos candidatos. Calcular de forma estável exige subtrair o maior escore antes de exponenciar. A distribuição normalizada descreve candidatos da geração; não mede diretamente confiança factual de uma afirmação completa.
+
+No [Attention Explorer](/laboratorios/attention), observe a versão pequena de produto escalonado, softmax e mistura de values. O tokenizer e as matrizes são didáticos; não representam pesos de um LLM comercial. Essa separação permite conferir aritmética real sem fazer promessas sobre a interpretação de uma resposta em um modelo muito maior.
+
 ## Prefill e decodificação
 
 No prefill, o modelo processa o prompt. Na decodificação, gera tokens sucessivos usando o estado permitido pela implementação, frequentemente com cache de keys e values. O cache reduz recomputação, mas consome memória que cresce com o contexto, a arquitetura e a precisão utilizada.
@@ -49,3 +61,11 @@ Antes de escolher uma técnica, escreva o erro que quer reduzir: falta de inform
 ## Prática guiada
 
 No diagrama, percorra texto, tokens, transformer e decodificação. Depois leia o adaptador do projeto FastAPI: o backend não implementa um transformer; ele delega inferência ao Ollama. Manter essa fronteira clara ajuda a distinguir AI Application Engineering de desenvolvimento e treinamento de modelos.
+
+## Análise avançada
+
+Decisões de arquitetura conectam precisão, memória e latência. O KV cache evita recomputar keys e values anteriores, mas aumenta uso de memória com contexto e concorrência. Compartilhar cabeças de KV altera essa conta. Quantização pode reduzir armazenamento e banda, porém erros e suporte de kernels precisam ser avaliados por tarefa e hardware. Nenhum desses recursos transforma geração em verificação de fatos.
+
+Um procedimento de avaliação deve registrar modelo, tokenizer, template de chat, parâmetros e versões de dados. Mesmo temperatura zero não garante identidade bit a bit entre ambientes. Compare categorias de falha e variabilidade em casos representativos, mantendo testes de integração determinísticos para a API. Uma linha de base mensurável evita escolher uma técnica por seu nome.
+
+A [fonte do laboratório](/laboratorios/attention?codigo=1) implementa matemática pequena; o [adaptador Ollama](/projetos/fastapi-ollama?file=app/integrations/ollama.py) delega inferência. Continue em [attention e transformers](/capitulos/attention-transformers) e [inferência eficiente](/capitulos/inferencia-eficiente). Não interprete o laboratório como um modelo treinado nem o exemplo HTTP como benchmark de capacidade.

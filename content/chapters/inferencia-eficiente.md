@@ -1,0 +1,29 @@
+## Fundamentação
+
+Inferência executa um modelo já parametrizado para produzir previsões. Em um LLM causal, o prompt é processado e tokens são gerados sucessivamente. O custo depende do modelo, do contexto, da saída e do servidor; não basta contar chamadas HTTP. A mesma rota pode receber uma pergunta curta ou um histórico enorme e consumir recursos muito diferentes. Defina limites de entrada, saída e concorrência antes de prometer uma latência ao produto.
+
+Prefill processa os tokens de entrada e constrói representações; decode gera novos tokens em passos sucessivos. Tempo até o primeiro token inclui espera em fila, preparação e processamento inicial; tokens por segundo descreve outra parte da experiência. Uma resposta que começa rápido e demora muito para terminar pode ter bom primeiro indicador e má experiência global. Meça também tempo total, falhas, cancelamentos e percentis, com distribuição realista de tamanhos.
+
+A janela de contexto é um limite, não uma recomendação de preencher tudo. Sistema, mensagens, ferramentas, documentos e saída disputam orçamento. Truncar silenciosamente pode remover uma condição importante; rejeitar com erro útil ou resumir sob política explícita são decisões de produto. Uma janela grande também aumenta memória de cache e tempo. Veja [LLM e contexto](/capitulos/llm-inferencia) antes de dimensionar capacidade pela quantidade de usuários cadastrados.
+
+Temperatura transforma logits antes da amostragem: pᵢ ∝ exp(zᵢ/T), para T positivo. Reduzir T concentra a distribuição e aumentar T a espalha. Top-k limita quantidade de candidatos; top-p seleciona um conjunto por massa acumulada conforme implementação. Nenhuma dessas estratégias verifica fatos. Uma configuração mais repetível ajuda comparação, mas não substitui [avaliação](/capitulos/producao-evals), nem garante identidade entre plataformas.
+
+## Funcionamento intermediário
+
+KV cache guarda keys e values já calculados nas camadas para evitar recomputar o histórico a cada token. Uma estimativa simplificada de bytes é 2 × L × Hkv × dhead × S × B × bytes_por_elemento: duas matrizes, L camadas, Hkv cabeças de KV, dimensão por cabeça, comprimento S e batch B. A fórmula ignora alocadores, padding e outros estados. Ela mostra por que modelos com pesos que cabem na memória ainda podem falhar sob muitos contextos simultâneos.
+
+Não confunda cache de KV com cache de resposta. O primeiro reutiliza estados internos de uma sequência ou prefixo compatível conforme o servidor; o segundo reutiliza uma saída inteira de aplicação. Cache de resposta precisa considerar permissões, versão de modelo, prompt, dados e política de expiração. Usar só o texto da pergunta como chave pode devolver informação de outro usuário. Uma economia aparente de custo pode se tornar falha de isolamento.
+
+Quantização representa pesos ou ativações com menos bits, frequentemente com escalas por grupo ou canal. Reduzir memória pode viabilizar execução local, mas desempenho depende de kernels, hardware e formato. Menos bits não garante menor latência. Erro de aproximação pode afetar tarefas específicas mesmo quando uma média geral parece estável. Compare qualidade, memória, latência e compatibilidade com a mesma carga, documentando o modelo e a variante quantizada.
+
+Batching agrupa trabalho para aproveitar hardware; continuous batching permite que sequências entrem e saiam de lotes durante geração em servidores compatíveis. Isso pode aumentar throughput, mas altera espera e disputa por memória. Admission control e limites de fila impedem aceitar trabalho ilimitado. No projeto [FastAPI + Ollama](/projetos/fastapi-ollama?file=app/integrations/ollama.py), o adaptador real demonstra timeout e validação, não implementa scheduler, quantização ou kernels de inferência.
+
+## Análise avançada
+
+Streaming melhora a percepção de início, porém exige lidar com desconexão, erros parciais e protocolo de eventos. O exemplo existente usa stream: false e valida uma resposta completa. Transformá-lo em streaming demandaria mudanças de contrato e testes; este capítulo não afirma que a funcionalidade já existe. Timeouts devem cobrir a operação pretendida, distinguindo conexão, leitura e prazo total quando a biblioteca permitir. Cancelar no cliente não garante automaticamente cancelar a geração no servidor.
+
+Para capacidade, modele chegada, tempo de serviço e variabilidade. Filas crescem rapidamente quando a utilização se aproxima do limite; médias podem esconder picos ruins. Defina uma carga com comprimentos de prompt e saída representativos, registre saturação e teste recusa controlada. Não publique números de tokens por segundo sem hardware, versão, concorrência e método. Este texto oferece critérios de experimento, sem apresentar benchmark executado nesta revisão.
+
+O custo operacional inclui energia, memória, manutenção, licenças, qualidade e tempo de pessoas; rodar localmente não o torna literalmente zero. A Academy permanece estática e seus laboratórios não carregam modelos. Um produto pode usar provedor, execução local ou uma mistura conforme privacidade e disponibilidade. Cada alternativa tem limites de retenção, controle e recuperação que precisam ser avaliados no contexto organizacional.
+
+Um roteiro verificável começa pelo [Attention Explorer](/laboratorios/attention), passa pela implementação do [adaptador](/projetos/fastapi-ollama?file=app/integrations/ollama.py) e termina num plano de carga com critérios escritos. Consulte [Transformers — inferência com LLMs](https://huggingface.co/docs/transformers/main/en/llm_tutorial) e a [API Ollama](https://docs.ollama.com/api/chat). Registre qualidade além de velocidade, pois acelerar respostas incorretas não atende ao contrato do sistema. Continue em [operação e evals](/capitulos/producao-evals) para ligar desempenho a confiabilidade e rollback.
