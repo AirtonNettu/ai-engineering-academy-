@@ -87,16 +87,8 @@
       "category": "fundamentos",
       "description": "Da requisição ao contrato: métodos, validação, erros e limites de confiança.",
       "minutes": 18,
-      "tags": [
-        "HTTP",
-        "JSON",
-        "APIs",
-        "FastAPI"
-      ],
-      "concepts": [
-        "http",
-        "json"
-      ],
+      "tags": ["HTTP", "JSON", "APIs", "FastAPI"],
+      "concepts": ["http", "json"],
       "sources": [
         {
           "title": "MDN — HTTP",
@@ -116,12 +108,8 @@
         "app/routes/chat.py",
         "app/integrations/ollama.py"
       ],
-      "diagrams": [
-        "http"
-      ],
-      "related": [
-        "python-backend"
-      ]
+      "diagrams": ["http"],
+      "related": ["python-backend"]
     },
     {
       "id": "python-backend",
@@ -129,15 +117,8 @@
       "category": "fundamentos",
       "description": "Tipos, dependências, execução assíncrona e testes de uma API real.",
       "minutes": 20,
-      "tags": [
-        "Python",
-        "FastAPI",
-        "testes",
-        "arquitetura"
-      ],
-      "concepts": [
-        "http"
-      ],
+      "tags": ["Python", "FastAPI", "testes", "arquitetura"],
+      "concepts": ["http"],
       "sources": [
         {
           "title": "Python — asyncio",
@@ -157,13 +138,8 @@
         "app/routes/chat.py",
         "app/integrations/ollama.py"
       ],
-      "diagrams": [
-        "http"
-      ],
-      "related": [
-        "http-apis",
-        "ollama-fastapi"
-      ]
+      "diagrams": ["http"],
+      "related": ["http-apis", "ollama-fastapi"]
     },
     {
       "id": "llm-inferencia",
@@ -171,18 +147,8 @@
       "category": "ia",
       "description": "Tokens, atenção, contexto e geração autoregressiva sem mistificar o modelo.",
       "minutes": 22,
-      "tags": [
-        "LLM",
-        "inferência",
-        "tokens",
-        "transformers"
-      ],
-      "concepts": [
-        "inferencia",
-        "token",
-        "contexto",
-        "embedding"
-      ],
+      "tags": ["LLM", "inferência", "tokens", "transformers"],
+      "concepts": ["inferencia", "token", "contexto", "embedding"],
       "sources": [
         {
           "title": "Attention Is All You Need",
@@ -196,12 +162,8 @@
       "reviewedAt": "2026-10-20",
       "status": "revisado-tecnicamente",
       "codeFiles": [],
-      "diagrams": [
-        "llm"
-      ],
-      "related": [
-        "rag"
-      ]
+      "diagrams": ["llm"],
+      "related": ["rag"]
     },
     {
       "id": "rag",
@@ -216,11 +178,7 @@
         "avaliação",
         "context engineering"
       ],
-      "concepts": [
-        "rag",
-        "embedding",
-        "contexto"
-      ],
+      "concepts": ["rag", "embedding", "contexto"],
       "sources": [
         {
           "title": "Retrieval-Augmented Generation",
@@ -234,13 +192,8 @@
       "reviewedAt": "2026-10-20",
       "status": "revisado-tecnicamente",
       "codeFiles": [],
-      "diagrams": [
-        "rag"
-      ],
-      "related": [
-        "llm-inferencia",
-        "seguranca-avaliacao"
-      ]
+      "diagrams": ["rag"],
+      "related": ["llm-inferencia", "seguranca-avaliacao"]
     },
     {
       "id": "ollama-fastapi",
@@ -248,16 +201,8 @@
       "category": "aplicacoes",
       "description": "Uma integração executável, com camadas, timeout e testes sem modelo online.",
       "minutes": 24,
-      "tags": [
-        "FastAPI",
-        "Ollama",
-        "Python",
-        "integração"
-      ],
-      "concepts": [
-        "inferencia",
-        "http"
-      ],
+      "tags": ["FastAPI", "Ollama", "Python", "integração"],
+      "concepts": ["inferencia", "http"],
       "sources": [
         {
           "title": "Ollama — chat API",
@@ -277,13 +222,8 @@
         "app/routes/chat.py",
         "app/integrations/ollama.py"
       ],
-      "diagrams": [
-        "http"
-      ],
-      "related": [
-        "python-backend",
-        "seguranca-avaliacao"
-      ]
+      "diagrams": ["http"],
+      "related": ["python-backend", "seguranca-avaliacao"]
     },
     {
       "id": "seguranca-avaliacao",
@@ -299,11 +239,7 @@
         "MCP",
         "agentes"
       ],
-      "concepts": [
-        "mcp",
-        "rag",
-        "contexto"
-      ],
+      "concepts": ["mcp", "rag", "contexto"],
       "sources": [
         {
           "title": "OWASP — GenAI",
@@ -317,13 +253,8 @@
       "reviewedAt": "2026-10-20",
       "status": "revisado-tecnicamente",
       "codeFiles": [],
-      "diagrams": [
-        "rag"
-      ],
-      "related": [
-        "rag",
-        "ollama-fastapi"
-      ]
+      "diagrams": ["rag"],
+      "related": ["rag", "ollama-fastapi"]
     }
   ],
   "glossary": [
@@ -331,68 +262,49 @@
       "id": "token",
       "title": "Token",
       "definition": "Unidade discreta produzida por um tokenizer. Pode representar um fragmento, uma palavra ou outros padrões; não existe equivalência fixa com palavras.",
-      "chapters": [
-        "llm-inferencia"
-      ]
+      "chapters": ["llm-inferencia"]
     },
     {
       "id": "embedding",
       "title": "Embedding",
       "definition": "Representação vetorial aprendida. A utilidade de similaridade depende do modelo e do objetivo de treinamento; espaços de modelos diferentes não são intercambiáveis.",
-      "chapters": [
-        "llm-inferencia",
-        "rag"
-      ]
+      "chapters": ["llm-inferencia", "rag"]
     },
     {
       "id": "inferencia",
       "title": "Inferência",
       "definition": "Uso de um modelo treinado para calcular saídas a partir de entradas, normalmente sem atualizar seus pesos.",
-      "chapters": [
-        "llm-inferencia",
-        "ollama-fastapi"
-      ]
+      "chapters": ["llm-inferencia", "ollama-fastapi"]
     },
     {
       "id": "contexto",
       "title": "Janela de contexto",
       "definition": "Orçamento de tokens processáveis pelo modelo em uma sequência; inclui instruções, histórico, evidências e saída conforme a arquitetura e o servidor.",
-      "chapters": [
-        "llm-inferencia",
-        "rag"
-      ]
+      "chapters": ["llm-inferencia", "rag"]
     },
     {
       "id": "rag",
       "title": "RAG",
       "definition": "Arquitetura que recupera evidências externas e as fornece como contexto para geração; precisa avaliar recuperação e fidelidade separadamente.",
-      "chapters": [
-        "rag"
-      ]
+      "chapters": ["rag"]
     },
     {
       "id": "mcp",
       "title": "MCP",
       "definition": "Model Context Protocol: protocolo para conectar aplicações de IA a ferramentas, recursos e prompts de servidores. Não substitui autorização nem revisão de segurança.",
-      "chapters": [
-        "seguranca-avaliacao"
-      ]
+      "chapters": ["seguranca-avaliacao"]
     },
     {
       "id": "http",
       "title": "HTTP",
       "definition": "Protocolo de requisição e resposta entre clientes e servidores, com métodos, status e representações definidos por contrato.",
-      "chapters": [
-        "http-apis"
-      ]
+      "chapters": ["http-apis"]
     },
     {
       "id": "json",
       "title": "JSON",
       "definition": "Formato textual de intercâmbio de dados. Sintaxe válida não garante aderência ao schema esperado pelo sistema.",
-      "chapters": [
-        "http-apis"
-      ]
+      "chapters": ["http-apis"]
     }
   ],
   "roadmaps": [
@@ -405,38 +317,27 @@
         {
           "title": "Python e APIs",
           "description": "Domine contratos, código assíncrono e limites de entrada.",
-          "chapters": [
-            "python-backend",
-            "http-apis"
-          ]
+          "chapters": ["python-backend", "http-apis"]
         },
         {
           "title": "LLMs e contexto",
           "description": "Entenda inferência antes de projetar prompts e orçamentos.",
-          "chapters": [
-            "llm-inferencia"
-          ]
+          "chapters": ["llm-inferencia"]
         },
         {
           "title": "RAG e conhecimento",
           "description": "Recupere evidências e meça a qualidade do contexto.",
-          "chapters": [
-            "rag"
-          ]
+          "chapters": ["rag"]
         },
         {
           "title": "Integração de modelos",
           "description": "Construa uma fronteira explícita entre aplicação e modelo.",
-          "chapters": [
-            "ollama-fastapi"
-          ]
+          "chapters": ["ollama-fastapi"]
         },
         {
           "title": "MCP, agentes e segurança",
           "description": "Revise permissões e avalie o sistema inteiro.",
-          "chapters": [
-            "seguranca-avaliacao"
-          ]
+          "chapters": ["seguranca-avaliacao"]
         }
       ]
     },
@@ -449,9 +350,7 @@
         {
           "title": "Linux, redes e Docker",
           "description": "Pré-requisitos; capítulos específicos ainda não publicados.",
-          "chapters": [
-            "http-apis"
-          ]
+          "chapters": ["http-apis"]
         },
         {
           "title": "Pipelines e serving",
@@ -461,16 +360,12 @@
         {
           "title": "Inferência e capacidade",
           "description": "Entenda prefill, decodificação e memória.",
-          "chapters": [
-            "llm-inferencia"
-          ]
+          "chapters": ["llm-inferencia"]
         },
         {
           "title": "Observabilidade e avaliação",
           "description": "Meça erros, latência e regressões sem expor dados.",
-          "chapters": [
-            "seguranca-avaliacao"
-          ]
+          "chapters": ["seguranca-avaliacao"]
         },
         {
           "title": "Confiabilidade e escala",
@@ -493,9 +388,7 @@
         {
           "title": "Python e experimentação",
           "description": "Organize código e testes; notebooks não substituem avaliação.",
-          "chapters": [
-            "python-backend"
-          ]
+          "chapters": ["python-backend"]
         },
         {
           "title": "ML, redes e PyTorch",
@@ -505,16 +398,12 @@
         {
           "title": "Transformers e treinamento",
           "description": "Estude arquitetura e diferencie treinamento de inferência.",
-          "chapters": [
-            "llm-inferencia"
-          ]
+          "chapters": ["llm-inferencia"]
         },
         {
           "title": "Avaliação de modelos",
           "description": "Versione dados, métricas e critérios.",
-          "chapters": [
-            "seguranca-avaliacao"
-          ]
+          "chapters": ["seguranca-avaliacao"]
         }
       ]
     }
@@ -645,6 +534,33 @@
       "description": "Formato aberto de skills: organização, metadados e convenções de SKILL.md.",
       "kind": "Skill",
       "compatibility": "Especificação de formato; suporte depende do agente e da versão. Não é uma skill instalável."
+    },
+    {
+      "id": "frontend-design",
+      "title": "frontend-design — Anthropic",
+      "category": "Frontend",
+      "url": "https://github.com/anthropics/skills/tree/main/skills/frontend-design",
+      "description": "Orientações para identidade visual e implementação de interfaces. Fonte SKILL.md consultada; revise os termos em LICENSE.txt.",
+      "kind": "Skill",
+      "compatibility": "Instruções no formato SKILL.md. Suporte depende do agente; não homologada pela Academy."
+    },
+    {
+      "id": "webapp-testing",
+      "title": "webapp-testing — Anthropic",
+      "category": "QA",
+      "url": "https://github.com/anthropics/skills/tree/main/skills/webapp-testing",
+      "description": "Scripts e orientações de testes de aplicações locais com Playwright. Consulte o código e a licença antes de executar.",
+      "kind": "Skill",
+      "compatibility": "A fonte descreve scripts Python e Playwright. Integração com cada agente não testada pela Academy."
+    },
+    {
+      "id": "skill-creator",
+      "title": "skill-creator — Anthropic",
+      "category": "Documentação",
+      "url": "https://github.com/anthropics/skills/tree/main/skills/skill-creator",
+      "description": "Criação, avaliação e revisão iterativa de skills. Fonte verificada no repositório do autor, sem instalação automática.",
+      "kind": "Skill",
+      "compatibility": "O fluxo do autor cita Claude e ferramentas de avaliação próprias. Não verificado em outros agentes."
     }
   ],
   "projects": [
@@ -657,30 +573,19 @@
           "path": "app/main.py",
           "role": "Raiz de composição e ciclo de vida das conexões.",
           "symbols": "create_app: conecta configuração, cliente HTTP e rotas; lifespan: abre e fecha o cliente.",
-          "imports": [
-            "FastAPI",
-            "HTTPX",
-            "Settings",
-            "OllamaService",
-            "router"
-          ]
+          "imports": ["FastAPI", "HTTPX", "Settings", "OllamaService", "router"]
         },
         {
           "path": "app/config.py",
           "role": "Configuração validada exclusivamente no servidor.",
           "symbols": "Settings: valida host/modelo/timeout; from_env: lê somente as variáveis suportadas.",
-          "imports": [
-            "os",
-            "Pydantic"
-          ]
+          "imports": ["os", "Pydantic"]
         },
         {
           "path": "app/models.py",
           "role": "Contratos públicos de entrada e saída.",
           "symbols": "ChatRequest: valida texto e rejeita campos extras; ChatResponse: resposta estável.",
-          "imports": [
-            "Pydantic"
-          ]
+          "imports": ["Pydantic"]
         },
         {
           "path": "app/routes/chat.py",
@@ -698,20 +603,13 @@
           "path": "app/integrations/ollama.py",
           "role": "Adaptador do protocolo HTTP do Ollama.",
           "symbols": "OllamaService.generate: envia mensagem e valida resposta; ServiceError: falha pública controlada.",
-          "imports": [
-            "HTTPX"
-          ]
+          "imports": ["HTTPX"]
         },
         {
           "path": "tests/test_chat.py",
           "role": "Verificação do contrato HTTP sem Ollama online.",
           "symbols": "Testes: sucesso, entrada inválida, timeout, conexão, status e corpo upstream.",
-          "imports": [
-            "pytest",
-            "MockTransport",
-            "TestClient",
-            "create_app"
-          ]
+          "imports": ["pytest", "MockTransport", "TestClient", "create_app"]
         },
         {
           "path": "requirements.txt",
@@ -729,6 +627,30 @@
           "path": "README.md",
           "role": "Como executar e limites da implementação.",
           "symbols": "Ambiente virtual, pytest, Uvicorn e curl.",
+          "imports": []
+        },
+        {
+          "path": "app/__init__.py",
+          "role": "Define o pacote Python da aplicação.",
+          "symbols": "Arquivo vazio: marca o pacote, sem efeitos colaterais.",
+          "imports": []
+        },
+        {
+          "path": "app/routes/__init__.py",
+          "role": "Define o pacote de rotas.",
+          "symbols": "Arquivo vazio: nenhum código executado no import.",
+          "imports": []
+        },
+        {
+          "path": "app/integrations/__init__.py",
+          "role": "Define o pacote de integrações.",
+          "symbols": "Arquivo vazio: integrações são criadas na composição.",
+          "imports": []
+        },
+        {
+          "path": "requirements.lock.txt",
+          "role": "Snapshot das versões usadas na validação.",
+          "symbols": "Dependências diretas e transitivas fixadas com pip freeze.",
           "imports": []
         }
       ]

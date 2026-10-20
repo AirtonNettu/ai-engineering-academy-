@@ -14,18 +14,36 @@ describe('contratos editoriais e pesquisa', () => {
     const duplicate = structuredClone(catalog);
     duplicate.chapters.push(duplicate.chapters[0]);
     expect(() => validateCatalog(duplicate)).toThrow();
-    const date = structuredClone(catalog); date.chapters[0].reviewedAt = '2026-99-99';
+    const date = structuredClone(catalog);
+    date.chapters[0].reviewedAt = '2026-99-99';
     expect(() => validateCatalog(date)).toThrow();
-    const unsafe = structuredClone(catalog); unsafe.chapters[0].sources[0].url = 'javascript:alert(1)';
+    const unsafe = structuredClone(catalog);
+    unsafe.chapters[0].sources[0].url = 'javascript:alert(1)';
     expect(() => validateCatalog(unsafe)).toThrow();
   });
   it('encontra inferência sem acento e todos os tipos de conteúdo', () => {
-    expect(search('inferencia').some(r => r.kind === 'Capítulo')).toBe(true);
-    for (const [q, kind] of [['MLOps', 'Trilha'], ['FastAPI', 'Projeto'], ['embedding', 'Conceito'], ['skills', 'Skill'], ['PyTorch', 'Recurso']]) {
-      expect(search(q).some(r => r.kind === kind), q).toBe(true);
+    expect(search('inferencia').some((r) => r.kind === 'Capítulo')).toBe(true);
+    for (const [q, kind] of [
+      ['MLOps', 'Trilha'],
+      ['FastAPI', 'Projeto'],
+      ['embedding', 'Conceito'],
+      ['skills', 'Skill'],
+      ['PyTorch', 'Recurso'],
+    ]) {
+      expect(
+        search(q).some((r) => r.kind === kind),
+        q,
+      ).toBe(true);
     }
     expect(search('zzzzzzzz')).toEqual([]);
     expect(search('')).toEqual([]);
+  });
+});
+describe('busca no texto completo', () => {
+  it('encontra conceitos no corpo mesmo sem tags correspondentes', () => {
+    expect(
+      search('prefill').some((r) => r.url === '/capitulos/llm-inferencia'),
+    ).toBe(true);
   });
 });
 describe('persistência resiliente', () => {
@@ -36,7 +54,12 @@ describe('persistência resiliente', () => {
   it('salva preferências sem bloquear se armazenamento indisponível', () => {
     savePreference('theme', 'dark');
     expect(readPreference('theme', 'light')).toBe('dark');
-    const spy = vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => { throw Error('quota'); });
-    expect(() => savePreference('theme', 'light')).not.toThrow(); spy.mockRestore();
+    const spy = vi
+      .spyOn(Storage.prototype, 'setItem')
+      .mockImplementation(() => {
+        throw Error('quota');
+      });
+    expect(() => savePreference('theme', 'light')).not.toThrow();
+    spy.mockRestore();
   });
 });

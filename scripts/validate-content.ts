@@ -1,13 +1,33 @@
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { catalog } from '../src/lib/content';
-const known = new Set(catalog.chapters.map(c => c.id));
+import { validateMarkdownLinks } from '../src/lib/routes';
+import { slug } from '../src/lib/slug';
+const documents = Object.fromEntries(
+  catalog.chapters.map((c) => [
+    c.id,
+    readFileSync(`content/chapters/${c.id}.md`, 'utf8'),
+  ]),
+);
+const expected = new Set(catalog.chapters.map((c) => `${c.id}.md`));
+for (const file of readdirSync('content/chapters'))
+  if (file.endsWith('.md') && !expected.has(file))
+    throw Error(`Capítulo sem metadados: ${file}`);
 for (const c of catalog.chapters) {
-  const path = `content/chapters/${c.id}.md`;
-  const body = readFileSync(path, 'utf8');
-  if (body.trim().length < 2000 || !body.includes('## ')) throw Error(`Capítulo insuficiente: ${c.id}`);
-  for (const [,target] of body.matchAll(/\]\((\/[^)]+)\)/g)) {
-    if (target.startsWith('/capitulos/') && !known.has(target.slice(11).split('#')[0])) throw Error(`Link inválido: ${target}`);
-  }
+  const body = documents[c.id];
+  if (body.trim().length < 2000 || !body.includes('## '))
+    throw Error(`Capítulo insuficiente: ${c.id}`);
+  const headings = Array.from(body.matchAll(/^## (.+)$/gm), (m) => slug(m[1]));
+  if (new Set(headings).size !== headings.length)
+    throw Error(`Títulos duplicados: ${c.id}`);
+  validateMarkdownLinks(body, c.id, documents);
 }
-for (const p of catalog.projects) for (const f of p.files) if(!existsSync(`examples/${p.id}/${f.path}`)) throw Error(`Arquivo ausente: ${f.path}`);
-console.log(`Conteúdo válido: ${catalog.chapters.length} capítulos, ${catalog.roadmaps.length} trilhas, ${catalog.resources.length} recursos.`);
+for (const p of catalog.projects) {
+  if (new Set(p.files.map((f) => f.path)).size !== p.files.length)
+    throw Error('Arquivo duplicado no catálogo');
+  for (const f of p.files)
+    if (!existsSync(`examples/${p.id}/${f.path}`))
+      throw Error(`Arquivo ausente: ${f.path}`);
+}
+console.log(
+  `Conteúdo válido: ${catalog.chapters.length} capítulos, ${catalog.roadmaps.length} trilhas, ${catalog.resources.length} recursos.`,
+);
