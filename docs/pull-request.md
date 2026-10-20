@@ -1,11 +1,13 @@
-# Plataforma pública IA Engineer Academy
+# Experiência avançada de aprendizagem
 
-O repositório tinha somente README e licença. Esta branch entrega a aplicação estática React/TypeScript com seis capítulos originais aprofundados, busca local em conteúdo/metadados, leitor com progresso e fonte, três trilhas, três diagramas, glossário, 17 recursos/skills e explorador dos arquivos reais de um exemplo FastAPI/Ollama.
+Closes #2
 
-O exemplo Python inclui validação, configuração por ambiente, timeout, tratamento de falhas e testes sem modelo online. Conteúdo é versionado e validado por schema e AST Markdown. Inclui tema claro/escuro, CSS responsivo, acessibilidade, CI de qualidade, ADRs e contrato de propostas editoriais futuras com revisão humana.
+Amplia a plataforma existente com 15 capítulos em três profundidades, 45 flashcards editoriais com revisão espaçada, quatro roadmaps especializados e percurso de seis etapas com retomada. Preserva slugs, âncoras, hospedagem estática e acesso público gratuito.
 
-Validação local: npm ci e npm run check (18 Vitest, lint, formato, TypeScript, schema e build); 16 Playwright desktop/móvel com Chromium instalado, incluindo axe e links sob rede lenta; 19 pytest (uma depreciação Starlette/AnyIO); npm audit sem vulnerabilidades conhecidas. Servidores Vite e Uvicorn iniciados e respostas representativas verificadas. Sitemap/canonical/robots e CLI de propostas exercitados.
+Os três laboratórios calculam no navegador: forward/backprop/SGD de uma rede XOR, Q/K/V/softmax causal e cosseno/ranking de vetores 4D. Possuem controles, limites, pausa, fonte real e interação por toque/mouse/teclado. O Atlas possui cinco arquiteturas com seleção, zoom/pan e relações com artigos/código. Dados locais têm migração, backup JSON validado e importação confirmada.
 
-Revisão independente encontrou e motivou correções para navegação por hash e links Markdown; regressões agora cobertas. Nenhum merge ou deploy realizado. CI remoto, Cloudflare/headers efetivos, modelo Ollama real e n8n operacional não foram testados. SSR completo e sincronização de progresso não fazem parte da implementação; lacunas editoriais estão sinalizadas.
+Validação local: `npm run check` (50 testes Vitest, lint, formato, esquema editorial, TypeScript e build), 26 testes Playwright em Chromium desktop/móvel com axe e 19 testes Python sem Ollama. Resultados detalhados e limites em docs/testing.md; aceite em docs/issue-2-acceptance.md.
 
-Rastreabilidade: docs/requirements.md, docs/architecture.md, docs/testing.md e docs/progress.md. Objetivo operacional de R$ 0, sem API paga, login, backend público ou telemetria.
+A revisão final corrigiu pausa ao alterar orçamento e contraste da atenção causal. A tentativa de revisão independente foi interrompida por limite de uso; não equivale a aprovação independente. Fontes oficiais são citadas, mas disponibilidade de todos os destinos externos não foi auditada. Modelos Ollama reais, n8n, Cloudflare, dispositivo físico e leitores de tela não foram exercitados.
+
+Sem dependências novas, backend obrigatório, serviço pago, merge ou deploy. Automação editorial permanece proposta revisável por humanos. Dados não sincronizam entre dispositivos; os cálculos pequenos são didáticos, sem alegação de treinamento de LLM ou generalização.

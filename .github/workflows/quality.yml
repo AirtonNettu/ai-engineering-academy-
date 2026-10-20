@@ -3,7 +3,7 @@ on:
   pull_request:
     branches: [main]
   push:
-    branches: [main, feat/academy-platform]
+    branches: [main, feat/academy-platform, feat/advanced-learning-experience]
 permissions:
   contents: read
 concurrency:

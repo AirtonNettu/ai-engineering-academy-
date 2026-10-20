@@ -31,8 +31,8 @@ Para o exemplo Python, instale requirements.lock.txt em um ambiente virtual e ex
 
 | Verificação     | Resultado observado                                                                         |
 | --------------- | ------------------------------------------------------------------------------------------- |
-| npm run check   | passou; lint/formato, 18 testes Vitest, validação e build                                   |
-| Playwright      | 16 testes passaram, incluindo links profundos com chunks atrasados em desktop e móvel       |
+| npm run check   | passou; lint/formato, 50 testes Vitest, validação e build                                   |
+| Playwright      | 26 testes passaram, incluindo links profundos com chunks atrasados em desktop e móvel       |
 | pytest          | 19 passaram; uma depreciação de alias AnyIO usada por Starlette, sem falha funcional        |
 | Servidor Python | Uvicorn iniciou; GET /health retornou 200 e status ok; POST com mensagem vazia retornou 422 |
 | npm audit       | zero vulnerabilidades conhecidas após atualizar Vitest/ESLint                               |
@@ -47,3 +47,11 @@ Inferência com modelo real/hardware, n8n operacional, deploy Cloudflare, aplica
 ## Testes úteis ao contribuir
 
 Escreva um caso que falhe para o comportamento desejado, execute-o, implemente e execute novamente. Para mudanças editoriais, valide referências/datas e revise tecnicamente as fontes. Para o backend, simule a fronteira HTTP externa e não a lógica pública. Não desative assertions, TLS, signatures ou checksums para obter um teste verde.
+
+## Ampliação da Issue #2
+
+Os 50 testes unitários/componentes incluem os 18 anteriores e verificam gradientes dos 13 parâmetros por diferenças finitas, convergência XOR, softmax/causalidade, cosseno/ranking, limites de playback e pausa ao alterar orçamento. Também cobrem migração local, agenda com relógio explícito, importação estrita, três profundidades, cartões, roadmaps e retomada do percurso.
+
+Os 26 testes Playwright executam em desktop e Pixel 7 emulado: rotas antigas e novas, download/importação real de backup, confirmação e rejeição de dados inválidos, revisão com vencimento, controles dos labs, Atlas e axe nos dois temas. Uma espera por término de transições evita auditar cores intermediárias na troca de tema.
+
+A revisão técnica final verificou separação entre cálculo e animação, limites de trabalho, cleanup de timers, mudança de arquitetura com remontagem e persistência. Corrigiu a retomada involuntária ao ampliar o orçamento da rede e o contraste dos pesos altos na atenção causal em ambos os temas. A tentativa de revisão independente foi interrompida pelo limite de uso do agente; não representa aprovação independente concluída. Não houve redução de assertions para obter aprovação.
