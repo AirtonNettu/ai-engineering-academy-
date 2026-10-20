@@ -1,42 +1,31 @@
 # IA Engineer Academy
 
-> **Da teoria à arquitetura, da arquitetura ao código, do código à compreensão.**
+**Da teoria à arquitetura, da arquitetura ao código, do código à compreensão.**
 
-**A IA Engineer Academy é uma plataforma educacional gratuita, open-source e em português brasileiro dedicada ao estudo da Inteligência Artificial e da Engenharia de IA.** Seu propósito é ajudar pessoas a entender **como a IA funciona, como construir aplicações com ela e como avaliar sua qualidade, segurança e operação** — desde os fundamentos até decisões técnicas mais avançadas.
+A **IA Engineer Academy** é uma plataforma educacional **gratuita, open-source e em português brasileiro**, dedicada exclusivamente ao estudo de Inteligência Artificial e Engenharia de IA. Seu objetivo é explicar como a IA funciona, como construir aplicações com ela e como avaliar arquitetura, qualidade, segurança e operação.
 
-🌐 **[Acessar a plataforma gratuitamente](https://ai-engineering-academy-3cy.pages.dev/)**
+**[Acesse a plataforma gratuitamente](https://ai-engineering-academy-3cy.pages.dev/)**. Para estudar, basta abrir o site pelo celular ou computador: não é necessário instalar nada, criar conta ou pagar.
 
-## O que é este projeto?
+## O que você encontra aqui?
 
-É uma biblioteca de aprendizagem técnica e prática **focada em IA**, construída pela comunidade. Em vez de reunir cursos genéricos de todas as linguagens de programação, a Academy conecta explicações, diagramas, exemplos reais de código, trilhas de estudo e referências confiáveis para estudar tópicos como:
+- **Fundamentos e modelos de IA:** redes neurais, treinamento, tokens, embeddings, transformers e inferência.
+- **Engenharia de aplicações:** Python, FastAPI, Ollama, RAG, agentes, MCP, avaliação e segurança.
+- **Aprendizagem interativa:** artigos em três níveis, diagramas, código real, laboratórios, flashcards e trilhas profissionais.
+- **Comunidade:** estudantes e desenvolvedores podem sugerir melhorias e contribuir com conteúdo e código.
 
-- **Modelos de linguagem:** tokens, embeddings, inferência e arquitetura de LLMs.
-- **Construção de aplicações:** Python, APIs, FastAPI, Ollama e integração de modelos.
-- **Engenharia de IA:** RAG, avaliação, segurança, arquitetura e operação de sistemas.
-- **Caminhos profissionais:** competências e trilhas para atuar com aplicações e sistemas de IA.
-
-Python e outras tecnologias aparecem **como ferramentas para entender e implementar sistemas de IA**, não como um catálogo genérico de cursos de programação.
-
-**Não é um chatbot, um modelo de IA, um serviço de treinamento de LLMs nem uma plataforma de cursos pagos.** É um ambiente de estudo e consulta que busca explicar não só *o que* usar, mas *por que*, *como funciona por dentro* e *quais são os limites e as decisões de engenharia*.
+Não é um chatbot nem um serviço pago de cursos ou treinamento de LLMs. Python e outras tecnologias são abordados como ferramentas para construir e compreender sistemas de IA, não como um catálogo genérico de linguagens.
 
 ## Para quem é?
 
-- **Quem está começando:** pode construir uma base conceitual e seguir conteúdos relacionados.
-- **Desenvolvedores:** podem estudar integrações, código, arquiteturas e boas práticas de aplicações com IA.
-- **Profissionais e estudantes mais experientes:** podem aprofundar decisões técnicas, avaliação, segurança e operação.
-- **Colaboradores:** podem propor correções, artigos, exemplos, recursos e melhorias na experiência de estudo.
+A Academy atende desde iniciantes até desenvolvedores e profissionais que desejam aprofundar seus conhecimentos. Os conteúdos explicam conceitos, funcionamento interno, implementações e decisões de engenharia. A experiência é pública, sem login e sem backend obrigatório.
 
-## Como usar a Academy?
+## Como contribuir
 
-**Para estudar, basta abrir [o site](https://ai-engineering-academy-3cy.pages.dev/).** Não precisa instalar Node.js, usar terminal, criar conta ou fornecer cartão. A plataforma é pública e pode ser acessada pelo celular ou computador.
-
-Explore a biblioteca, use a busca e o glossário, consulte as trilhas, abra os diagramas e examine os exemplos de código. Os recursos já disponíveis estão descritos abaixo; novas experiências educacionais são desenvolvidas e revisadas separadamente antes de serem anunciadas como prontas.
-
-**Para contribuir com o projeto**, consulte [CONTRIBUTING.md](CONTRIBUTING.md), abra uma issue para apresentar uma proposta ou envie um pull request. Contribuições passam por revisão antes de entrar na versão pública. O código está disponível sob licença MIT; materiais de terceiros mantêm suas próprias licenças.
+O projeto aceita propostas de artigos, correções, diagramas, laboratórios e melhorias técnicas. Leia [CONTRIBUTING.md](CONTRIBUTING.md), abra uma issue ou envie um pull request. As contribuições passam por revisão antes de serem publicadas.
 
 ## Para desenvolvedores: executar localmente
 
-Os comandos abaixo são **somente para quem deseja desenvolver, testar ou contribuir com o código do site**. Não são necessários para estudar na plataforma pública.
+Os comandos abaixo são para quem deseja executar, testar ou contribuir com o código. **Não são necessários para estudar pelo site.**
 
 Node.js 24+ (também em `.nvmrc`):
 
