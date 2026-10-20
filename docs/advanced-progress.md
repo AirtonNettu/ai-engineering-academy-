@@ -27,3 +27,9 @@ Nenhuma funcionalidade existente foi reimplementada. Não houve merge ou deploy.
 - `/workspace/academy-python/bin/python -m pytest -q`: 19 aprovados; uma depreciação Starlette/AnyIO.
 - `npm audit --json`: zero vulnerabilidades conhecidas. Nenhuma dependência adicionada.
 - `git diff --check`: sem erros de whitespace.
+
+## Entrega remota
+
+Branch `feat/advanced-learning-experience` enviada ao GitHub; SHA remoto conferido com o local após o push. Commits funcionais: e238f85 (conteúdo), e3871c5 (labs), 275e6d1 (estudo), 202cc70 (Atlas); documentação em ba71f10 e registro final em commit subsequente.
+
+`gh pr create --draft --base main --head feat/advanced-learning-experience --body-file docs/pull-request.md` falhou: `Post https://api.github.com/graphql: Forbidden`. Não foi criado PR nem alteradas credenciais. A descrição revisável está em docs/pull-request.md. Abertura pela interface: https://github.com/AirtonNettu/ai-engineering-academy-/pull/new/feat/advanced-learning-experience . Não houve merge ou deploy; execução de CI remoto não foi confirmada.
