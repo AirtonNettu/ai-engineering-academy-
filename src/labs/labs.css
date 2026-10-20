@@ -1,0 +1,155 @@
+.labs {
+  min-width: 0;
+  max-width: 100%;
+}
+.lab-panel {
+  --accent: var(--green);
+  --panel: var(--surface);
+  margin: 1.5rem 0;
+  border: 1px solid var(--border);
+  padding: clamp(0.75rem, 3vw, 1.5rem);
+  border-radius: 1rem;
+  min-width: 0;
+  overflow: hidden;
+}
+.lab-panel p {
+  overflow-wrap: anywhere;
+}
+.lab-catalog {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: 1rem;
+}
+.lab-catalog article {
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.8rem;
+}
+.lab-settings {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+.lab-panel label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.lab-panel input:not([type='checkbox']),
+.lab-panel select {
+  width: 100%;
+  min-width: 0;
+}
+.lab-panel input[type='checkbox'] {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.lab-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+.lab-controls button,
+.lab-panel li button,
+.lab-heatmap button {
+  min-height: 44px;
+}
+.lab-controls button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.lab-panel svg {
+  width: 100%;
+  max-width: 680px;
+  display: block;
+  margin: auto;
+}
+.lab-panel svg text {
+  fill: var(--text);
+  font-size: 12px;
+}
+.lab-panel svg circle {
+  fill: var(--surface);
+  stroke: var(--green);
+  stroke-width: 2;
+}
+.lab-panel svg [aria-pressed='true'] circle {
+  fill: var(--green-soft);
+  stroke-width: 4;
+}
+.lab-panel svg [role='button'] {
+  cursor: grab;
+}
+.lab-panel svg [role='button']:focus circle {
+  stroke-width: 5;
+  stroke: var(--text);
+}
+.lab-embedding {
+  touch-action: none;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+}
+.lab-matrices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.lab-matrix {
+  max-width: 100%;
+  overflow: auto;
+}
+.lab-matrix table {
+  font-variant-numeric: tabular-nums;
+  font-size: 0.8rem;
+  border-collapse: collapse;
+}
+.lab-matrix td {
+  padding: 0.25rem;
+  border: 1px solid var(--border);
+}
+.lab-matrix h3 {
+  font-size: 1rem;
+}
+.lab-heatmap {
+  display: grid;
+  gap: 2px;
+  max-width: 640px;
+}
+.lab-heatmap button {
+  padding: 0.1rem;
+  font-size: clamp(0.65rem, 2vw, 0.9rem);
+  min-width: 0;
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+.lab-heatmap button[aria-pressed='true'] {
+  outline: 2px solid var(--text);
+  outline-offset: -3px;
+}
+.lab-source {
+  min-width: 0;
+  max-width: 100%;
+}
+.lab-source .code-block {
+  max-width: 100%;
+}
+.lab-panel li {
+  overflow-wrap: anywhere;
+  margin-block: 0.5rem;
+}
+.lab-panel li[aria-current='step'] {
+  font-weight: 700;
+}
+.lab-matrix[aria-current='step'] {
+  outline: 2px solid var(--green);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+.lab-heatmap[aria-current='step'] {
+  outline: 2px solid var(--green);
+  outline-offset: 4px;
+}
