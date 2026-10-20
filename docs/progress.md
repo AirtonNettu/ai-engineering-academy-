@@ -31,3 +31,9 @@ Revisor independente somente leitura encontrou dois problemas P2: scroll por has
 - Reprodutibilidade: npm ci reexecutado; Vite dev renderizou página no Chromium; sitemap/canonical/robots testados com origem reservada e saída local sem domínio restaurada; CLI de proposta exercitado sem modificar arquivos editoriais.
 - Configuração de nuvem: install_script e start_skill salvos em rascunho; não executam/publicam por esse salvamento. Nenhum domínio/segredo adicionado.
 - GitHub: leitura Git funciona. API /user retornou Forbidden apesar de GH_TOKEN presente; sem extração/substituição de credenciais. PR depende de acesso efetivo à API.
+
+## Entrega Git
+
+Push da branch feat/academy-platform concluído. A criação de PR em rascunho foi tentada com gh pr create (base main, head feat/academy-platform, corpo em docs/pull-request.md), mas a API GraphQL retornou Forbidden. Nenhuma credencial foi extraída ou substituída. Não houve merge, force push ou deploy.
+
+O GitHub retornou este endereço para abertura manual do PR: https://github.com/AirtonNettu/ai-engineering-academy-/pull/new/feat/academy-platform . O corpo de revisão está preparado em docs/pull-request.md. As verificações de CI remoto não puderam ser consultadas via API; resultados documentados são locais.
