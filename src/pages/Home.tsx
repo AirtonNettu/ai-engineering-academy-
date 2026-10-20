@@ -1,3 +1,4 @@
+import { useLearning } from '../learning/useLearning';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight,
@@ -14,11 +15,12 @@ import {
   Github,
 } from 'lucide-react';
 import { catalog, chapters } from '../lib/content';
-import { readProgress } from '../lib/storage';
+
 import { ChapterCard } from '../components/Cards';
 const icons = [Braces, Cpu, Workflow, ShieldCheck];
 export default function Home() {
-  const progress = readProgress();
+  const { state } = useLearning();
+  const progress = state.reading;
   const read = chapters.filter((c) => progress[c.id]).length;
   return (
     <>
@@ -109,6 +111,17 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <div className="learning-home-links">
+        <Link className="button secondary" to="/laboratorios">
+          Calcular nos laboratórios →
+        </Link>
+        <Link className="button secondary" to="/flashcards">
+          Revisar flashcards →
+        </Link>
+        <Link className="text-link" to="/meus-dados">
+          Retomar e preservar meu estudo →
+        </Link>
+      </div>
       <div className="stats-bar">
         <div>
           <strong>{chapters.length.toString().padStart(2, '0')}</strong>
@@ -119,7 +132,7 @@ export default function Home() {
           <span>áreas de conhecimento</span>
         </div>
         <div>
-          <strong>03</strong>
+          <strong>{catalog.roadmaps.length.toString().padStart(2, '0')}</strong>
           <span>trilhas profissionais</span>
         </div>
         <div>

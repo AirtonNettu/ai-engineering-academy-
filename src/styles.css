@@ -3027,3 +3027,7 @@ button:hover:not(:disabled) {
     font-weight: 500;
   }
 }
+
+.sidebar {
+  overflow-y: auto;
+}

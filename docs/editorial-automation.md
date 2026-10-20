@@ -28,3 +28,7 @@ O produtor deve informar SHA real, registrar fontes e reter apenas dados necess�
 ## Segurança
 
 Sem endpoint público editorial. Credenciais ficam no serviço administrativo privado, com escopo mínimo e sem permissão de deploy/merge. Não ficam no frontend, nos JSONs de proposta ou no repositório. Não expor Ollama/n8n por túnel público para o navegador. Aplicar limites de chamadas, tamanho e tempo; reduzir informação pessoal e remover segredos de logs. Revisar scripts e skills antes de uso. A indisponibilidade da automação apenas atrasa propostas; não derruba o site.
+
+## Preservação da experiência de estudo
+
+Propostas sobre capítulos existentes precisam preservar as três profundidades ordenadas e seus links, verificadas pelo validador atual. Cartões e metadados não podem ser aplicados por esse contrato de revisão de texto: mudanças nesses arquivos continuam em PR editorial normal, com schema e revisão humana. Nunca importar dados pessoais de estudo em propostas editoriais. A ampliação não estabelece conexão operacional com n8n/Ollama ou serviços do proprietário.

@@ -33,3 +33,11 @@ HTML é ignorado; não há MDX nem execução JavaScript. Código é texto token
 ## Evolução
 
 Áreas são extensíveis. Glossário aponta capítulos; trilhas apontam leituras opcionais e sinalizam ausências. Diagramas têm nós consultáveis e caminhos de arquivo opcionais; projetos descrevem responsabilidades e símbolos. Campos novos devem ser adicionados ao schema antes de serem consumidos pela interface. Contrato de proposta futura em content/editorial-proposal.schema.json.
+
+## Extensões da Issue #2
+
+Cada capítulo exige depths com exatamente fundamental/intermediario/avancado nesta ordem, contendo título e âncora. labs referencia apenas neural-network, attention e embeddings; implementation contém label e URL interna existente. A validação usa AST para conferir três âncoras H2 ordenadas e camadas com conteúdo; não confunde exemplos de headings em código com estrutura editorial. O mínimo estrutural não substitui revisão técnica.
+
+content/flashcards.json contém cartões únicos com chapterId, front, back, difficulty (basico/intermediario/avancado), sourceUrl HTTPS e reviewedAt ISO. Cada capítulo tem ao menos três; são dados editoriais, separados do estado privado de revisões. Roadmaps acrescentam levels júnior/pleno/sênior com pré-requisitos, responsabilidades, entregáveis e referências válidas a capítulos/labs. diagrams mantém IDs antigos e acrescenta agentes e treinamento; caminhos de código relacionados são reais e limitados pelo componente de fontes.
+
+O contrato de propostas futuras permanece sem publicação automática. Ao validar uma proposta, as três camadas e os links do capítulo também precisam continuar válidos. O consumidor futuro ainda deve comparar o SHA de base e revisar precisão/licenças manualmente.

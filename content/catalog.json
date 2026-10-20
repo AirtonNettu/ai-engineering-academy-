@@ -109,7 +109,29 @@
         "app/integrations/ollama.py"
       ],
       "diagrams": ["http"],
-      "related": ["python-backend"]
+      "related": ["python-backend"],
+      "depths": [
+        {
+          "id": "fundamental",
+          "title": "Fundamental",
+          "anchor": "fundamentacao"
+        },
+        {
+          "id": "intermediario",
+          "title": "Intermediário",
+          "anchor": "funcionamento-intermediario"
+        },
+        {
+          "id": "avancado",
+          "title": "Avançado",
+          "anchor": "analise-avancada"
+        }
+      ],
+      "labs": [],
+      "implementation": {
+        "label": "Contrato HTTP real; consulte os limites no artigo",
+        "url": "/projetos/fastapi-ollama?file=app/integrations/ollama.py"
+      }
     },
     {
       "id": "python-backend",
@@ -139,7 +161,29 @@
         "app/integrations/ollama.py"
       ],
       "diagrams": ["http"],
-      "related": ["http-apis", "ollama-fastapi"]
+      "related": ["http-apis", "ollama-fastapi"],
+      "depths": [
+        {
+          "id": "fundamental",
+          "title": "Fundamental",
+          "anchor": "fundamentacao"
+        },
+        {
+          "id": "intermediario",
+          "title": "Intermediário",
+          "anchor": "funcionamento-intermediario"
+        },
+        {
+          "id": "avancado",
+          "title": "Avançado",
+          "anchor": "analise-avancada"
+        }
+      ],
+      "labs": [],
+      "implementation": {
+        "label": "Contrato HTTP real; consulte os limites no artigo",
+        "url": "/projetos/fastapi-ollama?file=app/integrations/ollama.py"
+      }
     },
     {
       "id": "llm-inferencia",
@@ -148,7 +192,7 @@
       "description": "Tokens, atenção, contexto e geração autoregressiva sem mistificar o modelo.",
       "minutes": 22,
       "tags": ["LLM", "inferência", "tokens", "transformers"],
-      "concepts": ["inferencia", "token", "contexto", "embedding"],
+      "concepts": ["inferencia", "token", "contexto", "embedding", "attention"],
       "sources": [
         {
           "title": "Attention Is All You Need",
@@ -163,7 +207,29 @@
       "status": "revisado-tecnicamente",
       "codeFiles": [],
       "diagrams": ["llm"],
-      "related": ["rag"]
+      "related": ["rag"],
+      "depths": [
+        {
+          "id": "fundamental",
+          "title": "Fundamental",
+          "anchor": "fundamentacao"
+        },
+        {
+          "id": "intermediario",
+          "title": "Intermediário",
+          "anchor": "funcionamento-intermediario"
+        },
+        {
+          "id": "avancado",
+          "title": "Avançado",
+          "anchor": "analise-avancada"
+        }
+      ],
+      "labs": ["attention"],
+      "implementation": {
+        "label": "Código matemático do laboratório",
+        "url": "/laboratorios/attention?codigo=1"
+      }
     },
     {
       "id": "rag",
@@ -178,7 +244,7 @@
         "avaliação",
         "context engineering"
       ],
-      "concepts": ["rag", "embedding", "contexto"],
+      "concepts": ["rag", "embedding", "contexto", "chunking"],
       "sources": [
         {
           "title": "Retrieval-Augmented Generation",
@@ -193,7 +259,29 @@
       "status": "revisado-tecnicamente",
       "codeFiles": [],
       "diagrams": ["rag"],
-      "related": ["llm-inferencia", "seguranca-avaliacao"]
+      "related": ["llm-inferencia", "seguranca-avaliacao"],
+      "depths": [
+        {
+          "id": "fundamental",
+          "title": "Fundamental",
+          "anchor": "fundamentacao"
+        },
+        {
+          "id": "intermediario",
+          "title": "Intermediário",
+          "anchor": "funcionamento-intermediario"
+        },
+        {
+          "id": "avancado",
+          "title": "Avançado",
+          "anchor": "analise-avancada"
+        }
+      ],
+      "labs": ["embeddings"],
+      "implementation": {
+        "label": "Código matemático do laboratório",
+        "url": "/laboratorios/embeddings?codigo=1"
+      }
     },
     {
       "id": "ollama-fastapi",
@@ -223,7 +311,29 @@
         "app/integrations/ollama.py"
       ],
       "diagrams": ["http"],
-      "related": ["python-backend", "seguranca-avaliacao"]
+      "related": ["python-backend", "seguranca-avaliacao"],
+      "depths": [
+        {
+          "id": "fundamental",
+          "title": "Fundamental",
+          "anchor": "fundamentacao"
+        },
+        {
+          "id": "intermediario",
+          "title": "Intermediário",
+          "anchor": "funcionamento-intermediario"
+        },
+        {
+          "id": "avancado",
+          "title": "Avançado",
+          "anchor": "analise-avancada"
+        }
+      ],
+      "labs": [],
+      "implementation": {
+        "label": "Contrato HTTP real; consulte os limites no artigo",
+        "url": "/projetos/fastapi-ollama?file=app/integrations/ollama.py"
+      }
     },
     {
       "id": "seguranca-avaliacao",
@@ -252,9 +362,533 @@
       ],
       "reviewedAt": "2026-10-20",
       "status": "revisado-tecnicamente",
+      "codeFiles": ["tests/test_chat.py"],
+      "diagrams": ["rag"],
+      "related": ["rag", "ollama-fastapi"],
+      "depths": [
+        {
+          "id": "fundamental",
+          "title": "Fundamental",
+          "anchor": "fundamentacao"
+        },
+        {
+          "id": "intermediario",
+          "title": "Intermediário",
+          "anchor": "funcionamento-intermediario"
+        },
+        {
+          "id": "avancado",
+          "title": "Avançado",
+          "anchor": "analise-avancada"
+        }
+      ],
+      "labs": ["attention"],
+      "implementation": {
+        "label": "Contrato HTTP real; consulte os limites no artigo",
+        "url": "/projetos/fastapi-ollama?file=tests/test_chat.py"
+      }
+    },
+    {
+      "id": "redes-neurais",
+      "title": "Redes neurais: do neurônio ao gradiente",
+      "category": "ia",
+      "description": "Pesos, vieses, ativações, loss e backpropagation com cálculos verificáveis.",
+      "minutes": 22,
+      "tags": [
+        "redes neurais",
+        "neurônio artificial",
+        "pesos",
+        "vieses",
+        "ativação",
+        "ReLU",
+        "sigmoid",
+        "gradiente",
+        "backpropagation",
+        "gradiente descendente"
+      ],
+      "concepts": ["neuronio", "backpropagation", "loss"],
+      "sources": [
+        {
+          "title": "PyTorch — otimização",
+          "url": "https://docs.pytorch.org/tutorials/beginner/basics/optimization_tutorial.html"
+        }
+      ],
+      "reviewedAt": "2026-10-20",
+      "status": "revisado-tecnicamente",
+      "codeFiles": [],
+      "diagrams": ["training"],
+      "related": ["treinamento-avaliacao", "attention-transformers"],
+      "labs": ["neural-network"],
+      "depths": [
+        {
+          "id": "fundamental",
+          "title": "Fundamental",
+          "anchor": "fundamentacao"
+        },
+        {
+          "id": "intermediario",
+          "title": "Intermediário",
+          "anchor": "funcionamento-intermediario"
+        },
+        {
+          "id": "avancado",
+          "title": "Avançado",
+          "anchor": "analise-avancada"
+        }
+      ],
+      "implementation": {
+        "label": "Código matemático do laboratório",
+        "url": "/laboratorios/neural-network?codigo=1"
+      }
+    },
+    {
+      "id": "treinamento-avaliacao",
+      "title": "Treinamento, datasets e avaliação de modelos",
+      "category": "ia",
+      "description": "Batches, epochs, PyTorch, otimizadores, overfitting e experimentação responsável.",
+      "minutes": 22,
+      "tags": [
+        "PyTorch",
+        "datasets",
+        "epochs",
+        "batches",
+        "treinamento",
+        "SGD",
+        "Adam",
+        "otimizadores",
+        "overfitting",
+        "avaliação"
+      ],
+      "concepts": ["backpropagation", "loss", "overfitting", "fine-tuning"],
+      "sources": [
+        {
+          "title": "PyTorch — otimização",
+          "url": "https://docs.pytorch.org/tutorials/beginner/basics/optimization_tutorial.html"
+        }
+      ],
+      "reviewedAt": "2026-10-20",
+      "status": "revisado-tecnicamente",
+      "codeFiles": [],
+      "diagrams": ["training"],
+      "related": ["redes-neurais", "rag-finetuning", "producao-evals"],
+      "labs": ["neural-network"],
+      "depths": [
+        {
+          "id": "fundamental",
+          "title": "Fundamental",
+          "anchor": "fundamentacao"
+        },
+        {
+          "id": "intermediario",
+          "title": "Intermediário",
+          "anchor": "funcionamento-intermediario"
+        },
+        {
+          "id": "avancado",
+          "title": "Avançado",
+          "anchor": "analise-avancada"
+        }
+      ],
+      "implementation": {
+        "label": "Código matemático do laboratório",
+        "url": "/laboratorios/neural-network?codigo=1"
+      }
+    },
+    {
+      "id": "attention-transformers",
+      "title": "Attention e transformers por dentro",
+      "category": "ia",
+      "description": "Q/K/V, self-attention, máscara causal, softmax e limites de interpretação.",
+      "minutes": 22,
+      "tags": [
+        "attention",
+        "self-attention",
+        "transformers",
+        "QKV",
+        "softmax",
+        "máscara causal",
+        "RoPE"
+      ],
+      "concepts": ["attention"],
+      "sources": [
+        {
+          "title": "Attention Is All You Need",
+          "url": "https://arxiv.org/abs/1706.03762"
+        },
+        {
+          "title": "Transformers",
+          "url": "https://huggingface.co/docs/transformers/index"
+        }
+      ],
+      "reviewedAt": "2026-10-20",
+      "status": "revisado-tecnicamente",
+      "codeFiles": [],
+      "diagrams": ["llm"],
+      "related": ["redes-neurais", "inferencia-eficiente"],
+      "labs": ["attention"],
+      "depths": [
+        {
+          "id": "fundamental",
+          "title": "Fundamental",
+          "anchor": "fundamentacao"
+        },
+        {
+          "id": "intermediario",
+          "title": "Intermediário",
+          "anchor": "funcionamento-intermediario"
+        },
+        {
+          "id": "avancado",
+          "title": "Avançado",
+          "anchor": "analise-avancada"
+        }
+      ],
+      "implementation": {
+        "label": "Código matemático do laboratório",
+        "url": "/laboratorios/attention?codigo=1"
+      }
+    },
+    {
+      "id": "embeddings-busca",
+      "title": "Embeddings, chunking e busca híbrida",
+      "category": "aplicacoes",
+      "description": "Cosseno, bancos vetoriais, reranking, autorização e avaliação da recuperação.",
+      "minutes": 22,
+      "tags": [
+        "embeddings",
+        "cosseno",
+        "vector DB",
+        "banco vetorial",
+        "chunking",
+        "busca híbrida",
+        "reranking",
+        "recall"
+      ],
+      "concepts": ["chunking", "reranking"],
+      "sources": [
+        {
+          "title": "Sentence Transformers",
+          "url": "https://www.sbert.net/"
+        },
+        {
+          "title": "Retrieval-Augmented Generation",
+          "url": "https://arxiv.org/abs/2005.11401"
+        }
+      ],
+      "reviewedAt": "2026-10-20",
+      "status": "revisado-tecnicamente",
       "codeFiles": [],
       "diagrams": ["rag"],
-      "related": ["rag", "ollama-fastapi"]
+      "related": ["rag", "rag-finetuning"],
+      "labs": ["embeddings"],
+      "depths": [
+        {
+          "id": "fundamental",
+          "title": "Fundamental",
+          "anchor": "fundamentacao"
+        },
+        {
+          "id": "intermediario",
+          "title": "Intermediário",
+          "anchor": "funcionamento-intermediario"
+        },
+        {
+          "id": "avancado",
+          "title": "Avançado",
+          "anchor": "analise-avancada"
+        }
+      ],
+      "implementation": {
+        "label": "Código matemático do laboratório",
+        "url": "/laboratorios/embeddings?codigo=1"
+      }
+    },
+    {
+      "id": "inferencia-eficiente",
+      "title": "Inferência eficiente: contexto, cache e quantização",
+      "category": "operacao",
+      "description": "Prefill, decode, temperatura, KV cache, batching, memória e capacidade.",
+      "minutes": 22,
+      "tags": [
+        "inferência",
+        "KV cache",
+        "quantização",
+        "temperatura",
+        "top-p",
+        "amostragem",
+        "context window",
+        "batching",
+        "latência"
+      ],
+      "concepts": ["kv-cache", "quantizacao"],
+      "sources": [
+        {
+          "title": "Transformers — LLM inference",
+          "url": "https://huggingface.co/docs/transformers/main/en/llm_tutorial"
+        },
+        {
+          "title": "Ollama — API chat",
+          "url": "https://docs.ollama.com/api/chat"
+        }
+      ],
+      "reviewedAt": "2026-10-20",
+      "status": "revisado-tecnicamente",
+      "codeFiles": ["app/integrations/ollama.py"],
+      "diagrams": ["llm", "http"],
+      "related": ["llm-inferencia", "producao-evals"],
+      "labs": ["attention"],
+      "depths": [
+        {
+          "id": "fundamental",
+          "title": "Fundamental",
+          "anchor": "fundamentacao"
+        },
+        {
+          "id": "intermediario",
+          "title": "Intermediário",
+          "anchor": "funcionamento-intermediario"
+        },
+        {
+          "id": "avancado",
+          "title": "Avançado",
+          "anchor": "analise-avancada"
+        }
+      ],
+      "implementation": {
+        "label": "Contrato HTTP real; consulte os limites no artigo",
+        "url": "/projetos/fastapi-ollama?file=app/integrations/ollama.py"
+      }
+    },
+    {
+      "id": "mcp-agentes",
+      "title": "MCP, tool calling e agentes com limites",
+      "category": "aplicacoes",
+      "description": "Protocolo, estado, orquestração e autorização sem autonomia irrestrita.",
+      "minutes": 22,
+      "tags": [
+        "MCP",
+        "tool calling",
+        "agentes",
+        "orquestração",
+        "multiagente",
+        "LangGraph",
+        "auth",
+        "prompt injection"
+      ],
+      "concepts": ["tool-calling", "prompt-injection"],
+      "sources": [
+        {
+          "title": "MCP — arquitetura",
+          "url": "https://modelcontextprotocol.io/docs/learn/architecture"
+        },
+        {
+          "title": "OWASP — prompt injection",
+          "url": "https://genai.owasp.org/llmrisk/llm01-prompt-injection/"
+        }
+      ],
+      "reviewedAt": "2026-10-20",
+      "status": "revisado-tecnicamente",
+      "codeFiles": ["app/integrations/ollama.py"],
+      "diagrams": ["agents", "http"],
+      "related": ["seguranca-avaliacao", "producao-evals"],
+      "labs": ["attention"],
+      "depths": [
+        {
+          "id": "fundamental",
+          "title": "Fundamental",
+          "anchor": "fundamentacao"
+        },
+        {
+          "id": "intermediario",
+          "title": "Intermediário",
+          "anchor": "funcionamento-intermediario"
+        },
+        {
+          "id": "avancado",
+          "title": "Avançado",
+          "anchor": "analise-avancada"
+        }
+      ],
+      "implementation": {
+        "label": "Contrato HTTP real; consulte os limites no artigo",
+        "url": "/projetos/fastapi-ollama?file=app/integrations/ollama.py"
+      }
+    },
+    {
+      "id": "rag-finetuning",
+      "title": "API de LLM, RAG ou fine-tuning?",
+      "category": "aplicacoes",
+      "description": "Escolha intervenções com baseline, dados, custo, privacidade e evidências.",
+      "minutes": 22,
+      "tags": [
+        "API de LLM",
+        "RAG",
+        "fine-tuning",
+        "LoRA",
+        "PEFT",
+        "treinamento",
+        "baseline"
+      ],
+      "concepts": ["fine-tuning"],
+      "sources": [
+        {
+          "title": "Retrieval-Augmented Generation",
+          "url": "https://arxiv.org/abs/2005.11401"
+        },
+        {
+          "title": "PEFT",
+          "url": "https://huggingface.co/docs/peft/index"
+        }
+      ],
+      "reviewedAt": "2026-10-20",
+      "status": "revisado-tecnicamente",
+      "codeFiles": [],
+      "diagrams": ["rag", "llm"],
+      "related": ["rag", "treinamento-avaliacao", "producao-evals"],
+      "labs": ["embeddings"],
+      "depths": [
+        {
+          "id": "fundamental",
+          "title": "Fundamental",
+          "anchor": "fundamentacao"
+        },
+        {
+          "id": "intermediario",
+          "title": "Intermediário",
+          "anchor": "funcionamento-intermediario"
+        },
+        {
+          "id": "avancado",
+          "title": "Avançado",
+          "anchor": "analise-avancada"
+        }
+      ],
+      "implementation": {
+        "label": "Código matemático do laboratório",
+        "url": "/laboratorios/embeddings?codigo=1"
+      }
+    },
+    {
+      "id": "producao-evals",
+      "title": "Produção, evals e confiabilidade de sistemas IA",
+      "category": "operacao",
+      "description": "Testes não determinísticos, observabilidade, segurança, custo e rollback.",
+      "minutes": 22,
+      "tags": [
+        "evals",
+        "produção",
+        "confiabilidade",
+        "observabilidade",
+        "custo",
+        "hallucinations",
+        "autorização",
+        "segurança",
+        "backend",
+        "dados",
+        "cloud",
+        "Linux",
+        "SQL",
+        "Docker",
+        "n8n"
+      ],
+      "concepts": ["prompt-injection", "evals"],
+      "sources": [
+        {
+          "title": "OWASP GenAI",
+          "url": "https://genai.owasp.org/"
+        },
+        {
+          "title": "FastAPI — testes",
+          "url": "https://fastapi.tiangolo.com/tutorial/testing/"
+        }
+      ],
+      "reviewedAt": "2026-10-20",
+      "status": "revisado-tecnicamente",
+      "codeFiles": ["tests/test_chat.py"],
+      "diagrams": ["http", "rag", "agents"],
+      "related": ["seguranca-avaliacao", "mcp-agentes", "carreira-ai-engineer"],
+      "labs": ["attention"],
+      "depths": [
+        {
+          "id": "fundamental",
+          "title": "Fundamental",
+          "anchor": "fundamentacao"
+        },
+        {
+          "id": "intermediario",
+          "title": "Intermediário",
+          "anchor": "funcionamento-intermediario"
+        },
+        {
+          "id": "avancado",
+          "title": "Avançado",
+          "anchor": "analise-avancada"
+        }
+      ],
+      "implementation": {
+        "label": "Contrato HTTP real; consulte os limites no artigo",
+        "url": "/projetos/fastapi-ollama?file=tests/test_chat.py"
+      }
+    },
+    {
+      "id": "carreira-ai-engineer",
+      "title": "O que faz um AI Engineer? Papéis e responsabilidades",
+      "category": "fundamentos",
+      "description": "Software, aplicações, ML, operação e pesquisa: senioridade com contexto.",
+      "minutes": 22,
+      "tags": [
+        "carreira",
+        "AI Engineer",
+        "Software Engineer",
+        "AI Application Engineer",
+        "ML Engineer",
+        "AI Research Engineer",
+        "MLOps",
+        "senioridade",
+        "mentoria"
+      ],
+      "concepts": ["senioridade"],
+      "sources": [
+        {
+          "title": "PyTorch",
+          "url": "https://docs.pytorch.org/docs/stable/index.html"
+        },
+        {
+          "title": "FastAPI",
+          "url": "https://fastapi.tiangolo.com/"
+        },
+        {
+          "title": "MCP",
+          "url": "https://modelcontextprotocol.io/"
+        }
+      ],
+      "reviewedAt": "2026-10-20",
+      "status": "revisado-tecnicamente",
+      "codeFiles": ["app/integrations/ollama.py"],
+      "diagrams": ["http", "llm"],
+      "related": ["python-backend", "treinamento-avaliacao", "producao-evals"],
+      "labs": ["neural-network"],
+      "depths": [
+        {
+          "id": "fundamental",
+          "title": "Fundamental",
+          "anchor": "fundamentacao"
+        },
+        {
+          "id": "intermediario",
+          "title": "Intermediário",
+          "anchor": "funcionamento-intermediario"
+        },
+        {
+          "id": "avancado",
+          "title": "Avançado",
+          "anchor": "analise-avancada"
+        }
+      ],
+      "implementation": {
+        "label": "Contrato HTTP real; consulte os limites no artigo",
+        "url": "/projetos/fastapi-ollama?file=app/integrations/ollama.py"
+      }
     }
   ],
   "glossary": [
@@ -305,6 +939,90 @@
       "title": "JSON",
       "definition": "Formato textual de intercâmbio de dados. Sintaxe válida não garante aderência ao schema esperado pelo sistema.",
       "chapters": ["http-apis"]
+    },
+    {
+      "id": "neuronio",
+      "title": "Neurônio artificial",
+      "definition": "Unidade que aplica uma ativação à soma ponderada de entradas e viés. Não é um neurônio biológico.",
+      "chapters": ["redes-neurais"]
+    },
+    {
+      "id": "backpropagation",
+      "title": "Backpropagation",
+      "definition": "Aplicação da regra da cadeia ao grafo de operações para calcular derivadas da perda em relação aos parâmetros.",
+      "chapters": ["redes-neurais", "treinamento-avaliacao"]
+    },
+    {
+      "id": "loss",
+      "title": "Função de perda",
+      "definition": "Objetivo numérico usado para medir erro e orientar otimização; não equivale automaticamente à qualidade de produto.",
+      "chapters": ["redes-neurais", "treinamento-avaliacao"]
+    },
+    {
+      "id": "overfitting",
+      "title": "Overfitting",
+      "definition": "Ajuste a particularidades do conjunto de treino que não se traduz em desempenho fora dele.",
+      "chapters": ["treinamento-avaliacao"]
+    },
+    {
+      "id": "attention",
+      "title": "Attention",
+      "definition": "Mistura ponderada de values com pesos calculados a partir de queries e keys; atenção não é uma explicação causal automática.",
+      "chapters": ["attention-transformers", "llm-inferencia"]
+    },
+    {
+      "id": "kv-cache",
+      "title": "KV cache",
+      "definition": "Armazenamento de keys e values para reduzir recomputação durante geração; seu consumo cresce com sequência e concorrência.",
+      "chapters": ["inferencia-eficiente"]
+    },
+    {
+      "id": "quantizacao",
+      "title": "Quantização",
+      "definition": "Representação com precisão reduzida, com trocas de memória, desempenho e qualidade que dependem de tarefa e hardware.",
+      "chapters": ["inferencia-eficiente"]
+    },
+    {
+      "id": "chunking",
+      "title": "Chunking",
+      "definition": "Divisão de documentos em unidades recuperáveis com origem e estrutura preservadas conforme a estratégia.",
+      "chapters": ["embeddings-busca", "rag"]
+    },
+    {
+      "id": "reranking",
+      "title": "Reranking",
+      "definition": "Reordenação de candidatos após recuperação, frequentemente avaliando conjuntamente consulta e documento.",
+      "chapters": ["embeddings-busca"]
+    },
+    {
+      "id": "fine-tuning",
+      "title": "Fine-tuning",
+      "definition": "Continuação de treinamento que ajusta parâmetros a dados e objetivos de adaptação; não é inserir documentos no contexto.",
+      "chapters": ["rag-finetuning", "treinamento-avaliacao"]
+    },
+    {
+      "id": "tool-calling",
+      "title": "Tool calling",
+      "definition": "Proposta estruturada de ferramenta e argumentos pelo modelo, executável somente após validação e autorização da aplicação.",
+      "chapters": ["mcp-agentes"]
+    },
+    {
+      "id": "prompt-injection",
+      "title": "Prompt injection",
+      "definition": "Tentativa de fazer dados não confiáveis alterarem instruções ou decisões; exige controles além de um prompt defensivo.",
+      "chapters": ["mcp-agentes", "producao-evals"]
+    },
+    {
+      "id": "evals",
+      "title": "Evals",
+      "definition": "Conjuntos de casos, rubricas e medições versionadas para avaliar comportamento, riscos e regressões de sistemas de IA.",
+      "chapters": ["producao-evals"]
+    },
+    {
+      "id": "senioridade",
+      "title": "Senioridade",
+      "definition": "Referência contextual a autonomia, responsabilidade, complexidade, impacto e mentoria, sem padrão universal de tecnologias.",
+      "chapters": ["carreira-ai-engineer"]
     }
   ],
   "roadmaps": [
@@ -322,22 +1040,87 @@
         {
           "title": "LLMs e contexto",
           "description": "Entenda inferência antes de projetar prompts e orçamentos.",
-          "chapters": ["llm-inferencia"]
+          "chapters": ["llm-inferencia", "attention-transformers"]
         },
         {
           "title": "RAG e conhecimento",
           "description": "Recupere evidências e meça a qualidade do contexto.",
-          "chapters": ["rag"]
+          "chapters": ["rag", "embeddings-busca", "rag-finetuning"]
         },
         {
           "title": "Integração de modelos",
           "description": "Construa uma fronteira explícita entre aplicação e modelo.",
-          "chapters": ["ollama-fastapi"]
+          "chapters": ["ollama-fastapi", "inferencia-eficiente"]
         },
         {
           "title": "MCP, agentes e segurança",
           "description": "Revise permissões e avalie o sistema inteiro.",
-          "chapters": ["seguranca-avaliacao"]
+          "chapters": ["mcp-agentes", "seguranca-avaliacao", "producao-evals"]
+        }
+      ],
+      "levels": [
+        {
+          "id": "junior",
+          "title": "Júnior",
+          "prerequisites": [
+            "Python, HTTP e testes de contrato",
+            "Fundamentos de inferência e privacidade"
+          ],
+          "responsibilities": [
+            "Implementar integração delimitada com orientação",
+            "Investigar erros conhecidos sem expor dados"
+          ],
+          "deliverables": [
+            "API validada com testes de falhas",
+            "Relatório de exemplos corretos, incorretos e fora de escopo"
+          ],
+          "chapters": ["http-apis", "python-backend", "ollama-fastapi"],
+          "labs": ["attention"]
+        },
+        {
+          "id": "pleno",
+          "title": "Pleno",
+          "prerequisites": [
+            "Base de backend e modelagem de dados",
+            "Experiência com avaliação e controle de acesso"
+          ],
+          "responsibilities": [
+            "Conduzir RAG e ferramentas em escopo definido",
+            "Escolher intervenções por evidência e monitorar regressões"
+          ],
+          "deliverables": [
+            "Pipeline de recuperação avaliado",
+            "Política de ferramentas e suite de evals versionadas"
+          ],
+          "chapters": [
+            "rag",
+            "embeddings-busca",
+            "mcp-agentes",
+            "rag-finetuning"
+          ],
+          "labs": ["embeddings", "attention"]
+        },
+        {
+          "id": "senior",
+          "title": "Sênior",
+          "prerequisites": [
+            "Experiência com falhas operacionais e decisões entre equipes",
+            "Capacidade de explicar risco e alternativas"
+          ],
+          "responsibilities": [
+            "Definir limites de arquitetura e critérios de produção",
+            "Mentorar colegas e alinhar impacto, custo e segurança"
+          ],
+          "deliverables": [
+            "Decisão arquitetural com trade-offs",
+            "Plano de rollout, rollback e responsabilidade operacional"
+          ],
+          "chapters": [
+            "producao-evals",
+            "seguranca-avaliacao",
+            "carreira-ai-engineer"
+          ],
+          "labs": ["attention", "embeddings"]
         }
       ]
     },
@@ -349,61 +1132,281 @@
       "steps": [
         {
           "title": "Linux, redes e Docker",
-          "description": "Pré-requisitos; capítulos específicos ainda não publicados.",
-          "chapters": ["http-apis"]
+          "description": "Entenda processos, conexões, configuração e limites; aplique os fundamentos ao plano de operação.",
+          "chapters": ["http-apis", "producao-evals"]
         },
         {
           "title": "Pipelines e serving",
-          "description": "Automação de build, versões e disponibilização; cobertura dedicada pendente.",
-          "chapters": []
+          "description": "Versione artefatos, configuração e contratos; planeje validação antes de disponibilizar mudanças.",
+          "chapters": ["producao-evals", "ollama-fastapi"]
         },
         {
           "title": "Inferência e capacidade",
           "description": "Entenda prefill, decodificação e memória.",
-          "chapters": ["llm-inferencia"]
+          "chapters": ["llm-inferencia", "inferencia-eficiente"]
         },
         {
           "title": "Observabilidade e avaliação",
           "description": "Meça erros, latência e regressões sem expor dados.",
-          "chapters": ["seguranca-avaliacao"]
+          "chapters": ["seguranca-avaliacao", "producao-evals"]
         },
         {
           "title": "Confiabilidade e escala",
-          "description": "Planeje carga, rollback e recuperação; cobertura dedicada pendente.",
-          "chapters": []
+          "description": "Projete filas finitas, limites, recuperação e rollback com premissas mensuráveis.",
+          "chapters": ["producao-evals", "inferencia-eficiente"]
+        }
+      ],
+      "levels": [
+        {
+          "id": "junior",
+          "title": "Júnior",
+          "prerequisites": [
+            "Processos Linux, redes e configuração",
+            "HTTP, testes e noções de armazenamento"
+          ],
+          "responsibilities": [
+            "Manter configuração e executar procedimentos documentados",
+            "Investigar falhas sob orientação e preservar dados"
+          ],
+          "deliverables": [
+            "Runbook local e mapa de dependências",
+            "Inventário de logs e riscos de exposição"
+          ],
+          "chapters": ["http-apis", "ollama-fastapi", "producao-evals"],
+          "labs": ["attention"]
+        },
+        {
+          "id": "pleno",
+          "title": "Pleno",
+          "prerequisites": [
+            "Observabilidade e versionamento de artefatos",
+            "Fundamentos de capacidade e inferência"
+          ],
+          "responsibilities": [
+            "Conduzir deploys controlados no contexto da equipe",
+            "Dimensionar limites, filas e sinais de recuperação"
+          ],
+          "deliverables": [
+            "Plano de carga com premissas",
+            "Procedimento de rollback e política de logs"
+          ],
+          "chapters": [
+            "inferencia-eficiente",
+            "producao-evals",
+            "seguranca-avaliacao"
+          ],
+          "labs": ["attention", "embeddings"]
+        },
+        {
+          "id": "senior",
+          "title": "Sênior",
+          "prerequisites": [
+            "Experiência com incidentes e sistemas distribuídos",
+            "Comunicação de risco e dependências"
+          ],
+          "responsibilities": [
+            "Definir estratégia de confiabilidade e orçamento",
+            "Coordenar resposta a incidentes e mentorar operadores"
+          ],
+          "deliverables": [
+            "Objetivos de serviço e plano de capacidade",
+            "Análise de incidente com ações rastreáveis"
+          ],
+          "chapters": [
+            "producao-evals",
+            "inferencia-eficiente",
+            "carreira-ai-engineer"
+          ],
+          "labs": ["attention"]
         }
       ]
     },
     {
       "id": "models",
-      "title": "Machine Learning / AI Engineer",
+      "title": "Machine Learning Engineer",
       "description": "Desenvolva e avalie modelos. O foco é matemática, experimentação e treinamento.",
       "focus": "Desenvolvimento e treinamento de modelos",
       "steps": [
         {
           "title": "Matemática e estatística",
-          "description": "Álgebra linear, probabilidade e cálculo; conteúdo dedicado pendente.",
-          "chapters": []
+          "description": "Conecte vetores, derivadas e incerteza à análise de redes e experimentos.",
+          "chapters": ["redes-neurais", "attention-transformers"]
         },
         {
           "title": "Python e experimentação",
           "description": "Organize código e testes; notebooks não substituem avaliação.",
-          "chapters": ["python-backend"]
+          "chapters": ["python-backend", "treinamento-avaliacao"]
         },
         {
           "title": "ML, redes e PyTorch",
-          "description": "Aprendizado supervisionado e otimização; conteúdo dedicado pendente.",
-          "chapters": []
+          "description": "Relacione forward, gradientes, dados, otimização e avaliação sem vazamento.",
+          "chapters": ["redes-neurais", "treinamento-avaliacao"]
         },
         {
           "title": "Transformers e treinamento",
           "description": "Estude arquitetura e diferencie treinamento de inferência.",
-          "chapters": ["llm-inferencia"]
+          "chapters": ["attention-transformers", "treinamento-avaliacao"]
         },
         {
           "title": "Avaliação de modelos",
           "description": "Versione dados, métricas e critérios.",
-          "chapters": ["seguranca-avaliacao"]
+          "chapters": ["treinamento-avaliacao", "producao-evals"]
+        }
+      ],
+      "levels": [
+        {
+          "id": "junior",
+          "title": "Júnior",
+          "prerequisites": [
+            "Python, álgebra linear e derivadas",
+            "Noções de estatística e qualidade de dados"
+          ],
+          "responsibilities": [
+            "Treinar baseline pequeno com supervisão",
+            "Separar dados e registrar experimentos"
+          ],
+          "deliverables": [
+            "Gradiente conferido e curva de loss",
+            "Relatório de split e baseline"
+          ],
+          "chapters": ["redes-neurais", "treinamento-avaliacao"],
+          "labs": ["neural-network"]
+        },
+        {
+          "id": "pleno",
+          "title": "Pleno",
+          "prerequisites": [
+            "Otimização, PyTorch e desenho experimental",
+            "Avaliação por segmentos e prevenção de vazamento"
+          ],
+          "responsibilities": [
+            "Conduzir adaptação e seleção de modelo",
+            "Explicar trade-offs e limites fora da amostra"
+          ],
+          "deliverables": [
+            "Comparação controlada de modelos",
+            "Ficha de dados e artefato versionado"
+          ],
+          "chapters": [
+            "treinamento-avaliacao",
+            "attention-transformers",
+            "rag-finetuning"
+          ],
+          "labs": ["neural-network", "attention"]
+        },
+        {
+          "id": "senior",
+          "title": "Sênior",
+          "prerequisites": [
+            "Experiência com ciclo de vida de modelos",
+            "Capacidade de revisar hipóteses e apoiar outras pessoas"
+          ],
+          "responsibilities": [
+            "Definir estratégia de dados e avaliação",
+            "Coordenar decisões entre modelagem, produto e operação"
+          ],
+          "deliverables": [
+            "Plano de validação e monitoramento",
+            "Decisão de adaptação com riscos e orçamento"
+          ],
+          "chapters": [
+            "producao-evals",
+            "rag-finetuning",
+            "carreira-ai-engineer"
+          ],
+          "labs": ["neural-network", "embeddings"]
+        }
+      ]
+    },
+    {
+      "id": "research",
+      "title": "AI Research Engineer",
+      "description": "Transforme hipóteses em experimentos e implementações rastreáveis; reproduzir um paper exige explicitar adaptações e limites.",
+      "focus": "Pesquisa aplicada e experimentação",
+      "steps": [
+        {
+          "title": "Bases e hipóteses",
+          "description": "Conecte cálculo, álgebra e probabilidade a uma pergunta testável.",
+          "chapters": ["redes-neurais", "treinamento-avaliacao"]
+        },
+        {
+          "title": "Arquiteturas e papers",
+          "description": "Implemente operações e verifique dimensões, máscaras e estabilidade.",
+          "chapters": ["attention-transformers", "llm-inferencia"]
+        },
+        {
+          "title": "Reprodução experimental",
+          "description": "Separe baseline, split, orçamento e critérios de seleção.",
+          "chapters": ["treinamento-avaliacao", "rag-finetuning"]
+        },
+        {
+          "title": "Avaliação e comunicação",
+          "description": "Reporte limites, incerteza, falhas e condições de reprodução.",
+          "chapters": ["producao-evals", "carreira-ai-engineer"]
+        }
+      ],
+      "levels": [
+        {
+          "id": "junior",
+          "title": "Júnior",
+          "prerequisites": [
+            "Python, álgebra, cálculo e probabilidade",
+            "Leitura crítica de métodos e datasets"
+          ],
+          "responsibilities": [
+            "Implementar operação ou baseline com orientação",
+            "Documentar adaptações e resultados sem extrapolar"
+          ],
+          "deliverables": [
+            "Reprodução local de operação matemática",
+            "Relatório de hipótese, método e limitações"
+          ],
+          "chapters": ["redes-neurais", "attention-transformers"],
+          "labs": ["neural-network", "attention"]
+        },
+        {
+          "id": "pleno",
+          "title": "Pleno",
+          "prerequisites": [
+            "Experimentação controlada e bibliotecas de treino",
+            "Análise de incerteza e revisão de literatura"
+          ],
+          "responsibilities": [
+            "Conduzir ablações com orçamento definido",
+            "Comparar hipóteses e investigar resultados negativos"
+          ],
+          "deliverables": [
+            "Suite experimental versionada",
+            "Relatório de ablação com custos e incerteza"
+          ],
+          "chapters": [
+            "treinamento-avaliacao",
+            "attention-transformers",
+            "rag-finetuning"
+          ],
+          "labs": ["neural-network", "attention"]
+        },
+        {
+          "id": "senior",
+          "title": "Sênior",
+          "prerequisites": [
+            "Experiência com reprodução e desenho de pesquisa",
+            "Comunicação de incerteza e colaboração interdisciplinar"
+          ],
+          "responsibilities": [
+            "Escolher agenda técnica e critérios de evidência",
+            "Mentorar pesquisa aplicada e avaliar impacto"
+          ],
+          "deliverables": [
+            "Proposta de pesquisa com baseline e critérios",
+            "Plano de transferência com limites e revisão independente"
+          ],
+          "chapters": [
+            "producao-evals",
+            "treinamento-avaliacao",
+            "carreira-ai-engineer"
+          ],
+          "labs": ["attention", "embeddings"]
         }
       ]
     }
@@ -764,6 +1767,80 @@
           "id": "decode",
           "title": "Decodificação",
           "description": "Logits e política de amostragem escolhem o próximo token; o ciclo continua.",
+          "file": null
+        }
+      ]
+    },
+    {
+      "id": "agents",
+      "title": "MCP e agentes com limites",
+      "description": "Arquitetura conceitual: decisão não concede permissão. O site não executa MCP ou ferramentas.",
+      "nodes": [
+        {
+          "id": "host",
+          "title": "Host e agente",
+          "description": "O host mantém contexto e estado; o agente propõe próximos passos sob orçamento e política.",
+          "file": null
+        },
+        {
+          "id": "auth",
+          "title": "Autorização",
+          "description": "A aplicação verifica identidade, escopo e efeito permitido antes de qualquer execução.",
+          "file": null
+        },
+        {
+          "id": "mcp",
+          "title": "Cliente e servidor MCP",
+          "description": "Clientes conectam o host a servidores de capacidades. Negociação de protocolo não substitui autorização.",
+          "file": null
+        },
+        {
+          "id": "tool",
+          "title": "Ferramenta",
+          "description": "Executa somente argumentos validados e operação autorizada; resultado retorna como dado não confiável.",
+          "file": null
+        },
+        {
+          "id": "observability",
+          "title": "Observabilidade",
+          "description": "Registra duração, versão e categoria de resultado com minimização de dados e sem segredos.",
+          "file": null
+        }
+      ]
+    },
+    {
+      "id": "training",
+      "title": "Treinamento de uma rede pequena",
+      "description": "Loop real do laboratório XOR: exemplos fixos, forward, perda, gradientes e atualização. Não representa treino de LLM em produção.",
+      "nodes": [
+        {
+          "id": "dataset",
+          "title": "Dataset XOR",
+          "description": "Quatro pares supervisionados fixos; o batch completo evita variância estocástica neste exemplo.",
+          "file": null
+        },
+        {
+          "id": "forward",
+          "title": "Forward",
+          "description": "Entradas atravessam pesos/vieses, tanh oculta e sigmoid para produzir uma previsão.",
+          "file": null
+        },
+        {
+          "id": "loss",
+          "title": "Função de perda",
+          "description": "MSE compara cada previsão ao alvo e é agregada pela média do batch.",
+          "file": null
+        },
+        {
+          "id": "backprop",
+          "title": "Backpropagation",
+          "description": "Regra da cadeia calcula os 13 gradientes; testes verificam diferenças finitas.",
+          "file": null
+        },
+        {
+          "id": "update",
+          "title": "Atualização SGD",
+          "description": "Pesos recebem θ ← θ − η∇L. O loop respeita o orçamento de épocas e precisa de monitoramento de estabilidade.",
           "file": null
         }
       ]

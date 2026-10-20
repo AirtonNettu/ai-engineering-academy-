@@ -36,6 +36,31 @@ const routes: [string, string, string][] = [
     'Glossário técnico',
     'Definições de token, embedding, inferência, contexto, MCP e RAG.',
   ],
+  [
+    '/laboratorios',
+    'Laboratórios interativos',
+    'Cálculos didáticos reais de redes neurais, atenção e embeddings no navegador.',
+  ],
+  [
+    '/laboratorios/neural-network',
+    'Neural Network Training Lab',
+    'Rede pequena, loss e backpropagation reais em TypeScript.',
+  ],
+  [
+    '/laboratorios/attention',
+    'Attention Explorer',
+    'Q, K, V, softmax e máscara causal com números reais.',
+  ],
+  [
+    '/laboratorios/embeddings',
+    'Embedding Explorer',
+    'Similaridade cosseno, ranking e projeção de vetores didáticos.',
+  ],
+  [
+    '/flashcards',
+    'Flashcards',
+    'Revisão espaçada de cartões editoriais e dados locais.',
+  ],
   ...catalog.chapters.map(
     (c) =>
       [`/capitulos/${c.id}`, c.title, c.description] as [

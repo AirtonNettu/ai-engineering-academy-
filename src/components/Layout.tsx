@@ -15,6 +15,9 @@ import {
   GraduationCap,
   Github,
   PanelLeftClose,
+  FlaskConical,
+  Layers,
+  HardDriveDownload,
 } from 'lucide-react';
 import { readPreference, savePreference } from '../lib/storage';
 const navigation = [
@@ -29,6 +32,9 @@ const navigation = [
   },
   { to: '/recursos', title: 'Skills e recursos', icon: Library },
   { to: '/glossario', title: 'Glossário', icon: GraduationCap },
+  { to: '/laboratorios', title: 'Laboratórios', icon: FlaskConical },
+  { to: '/flashcards', title: 'Flashcards', icon: Layers },
+  { to: '/meus-dados', title: 'Meus dados de estudo', icon: HardDriveDownload },
 ];
 export function Layout({ children }: { children: ReactNode }) {
   const [menu, setMenu] = useState(false);

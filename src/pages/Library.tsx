@@ -1,15 +1,17 @@
+import { useLearning } from '../learning/useLearning';
 import { useSearchParams, Link } from 'react-router-dom';
 import { useState } from 'react';
 import { Search, RotateCcw } from 'lucide-react';
 import { catalog, chapters } from '../lib/content';
 import { normalize } from '../lib/search';
-import { readProgress, savePreference } from '../lib/storage';
+
 import { ChapterCard, Empty, PageIntro } from '../components/Cards';
 export default function Library() {
   const [params, setParams] = useSearchParams();
   const area = params.get('area') || 'todas';
   const [query, setQuery] = useState('');
-  const [progress, setProgress] = useState(readProgress);
+  const { state, clearReading } = useLearning();
+  const progress = state.reading;
   const [onlyRead, setOnlyRead] = useState(false);
   const filtered = chapters.filter(
     (c) =>
@@ -122,8 +124,7 @@ export default function Library() {
         <button
           className="text-button"
           onClick={() => {
-            savePreference('progress', {});
-            setProgress({});
+            clearReading();
           }}
         >
           <RotateCcw size={15} /> Apagar progresso local

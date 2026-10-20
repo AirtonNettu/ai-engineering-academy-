@@ -10,3 +10,13 @@
 - Não grave segredos. Automação editorial apenas propõe alterações revisadas por humanos.
 - Cada tarefa de nuvem já é isolada; use o checkout existente, sem criar worktrees salvo pedido explícito.
 - Commits por tarefa; alterações editoriais devem incluir fontes, data, status e validação de referências.
+
+## Aprendizagem avançada (Issue #2)
+
+- Preserve seis slugs originais e suas âncoras; cada capítulo publicado tem três profundidades ordenadas, implementação relacionada e ao menos três cartões editoriais.
+- Profundidade de artigo não representa senioridade profissional. Roadmaps contextualizam autonomia, impacto e entregáveis.
+- Matemática dos labs vive em src/labs/*.ts; UI, testes e painéis de fonte devem usar os mesmos arquivos. Não trocar cálculo real por animação fictícia.
+- Mantenha limites de trabalho, pausa/cleanup, gestos de toque/mouse, teclado e reduced-motion. Projeção visual de embeddings não altera os vetores de ranking.
+- Dados em academy:learning são privados e locais; mudanças de formato precisam de migração/validação e backup. Importação exige confirmação e não aceita IDs desconhecidos.
+- Estatísticas só contam respostas dadas; conclusão do percurso é autodeclarada e não certificação. Nunca alegue retenção ou generalização medida por um exemplo pequeno.
+- Ao editar conteúdo, execute validate:content e os testes de profundidade/cartões. Ao editar labs, mantenha testes de gradiente/convergência/softmax/cosseno e E2E de controles.

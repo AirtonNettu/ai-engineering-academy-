@@ -6,6 +6,13 @@ const text = z.string().min(1);
 const https = z
   .url()
   .refine((v) => v.startsWith('https://'), 'Fonte deve usar HTTPS');
+const labId = z.enum(['neural-network', 'attention', 'embeddings']);
+const depth = (value: 'fundamental' | 'intermediario' | 'avancado') =>
+  z.object({
+    id: z.literal(value),
+    title: text,
+    anchor: z.string().regex(/^[a-z0-9][a-z0-9-]*$/),
+  });
 const chapter = z.object({
   id,
   title: text,
@@ -20,6 +27,19 @@ const chapter = z.object({
   codeFiles: z.array(text),
   diagrams: z.array(id),
   related: z.array(id),
+  depths: z.tuple([
+    depth('fundamental'),
+    depth('intermediario'),
+    depth('avancado'),
+  ]),
+  labs: z.array(labId),
+  implementation: z.object({
+    label: text,
+    url: text.refine(
+      (v) => v.startsWith('/projetos/') || v.startsWith('/laboratorios/'),
+      'Implementação deve ser interna',
+    ),
+  }),
 });
 const schema = z.object({
   areas: z
@@ -43,6 +63,23 @@ const schema = z.object({
       title: text,
       description: text,
       focus: text,
+      levels: z
+        .array(
+          z.object({
+            id: z.enum(['junior', 'pleno', 'senior']),
+            title: text,
+            prerequisites: z.array(text).min(1),
+            responsibilities: z.array(text).min(1),
+            deliverables: z.array(text).min(1),
+            chapters: z.array(id),
+            labs: z.array(labId),
+          }),
+        )
+        .length(3)
+        .refine(
+          (a) => new Set(a.map((l) => l.id)).size === 3,
+          'Níveis profissionais duplicados',
+        ),
       steps: z
         .array(
           z.object({ title: text, description: text, chapters: z.array(id) }),
@@ -131,8 +168,10 @@ export function validateCatalog(input: unknown): Catalog {
     refs(a.codeFiles, sets.files);
   }
   for (const a of c.glossary) refs(a.chapters, sets.chapters);
-  for (const a of c.roadmaps)
+  for (const a of c.roadmaps) {
     for (const s of a.steps) refs(s.chapters, sets.chapters);
+    for (const level of a.levels) refs(level.chapters, sets.chapters);
+  }
   for (const d of c.diagrams) {
     if (new Set(d.nodes.map((n) => n.id)).size !== d.nodes.length)
       throw Error('Nó duplicado');

@@ -6,6 +6,7 @@ export const highlighter = createHighlighterCore({
     import('shiki/langs/python.mjs'),
     import('shiki/langs/json.mjs'),
     import('shiki/langs/bash.mjs'),
+    import('shiki/langs/typescript.mjs'),
   ],
   engine: createJavaScriptRegexEngine(),
 });

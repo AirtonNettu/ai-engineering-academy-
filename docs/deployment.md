@@ -24,3 +24,7 @@ Assets estáticos não precisam de n8n/Ollama. A gratuidade depende das franquia
 ## Reversão
 
 Guarde o SHA de cada build aprovado. Use uma publicação anterior aprovada no provedor se precisar reverter; não faça force push nem reescreva main. Preferências locais de visitantes não são migradas por deploy.
+
+## Rotas de aprendizagem avançada
+
+O mesmo build estático inclui `/laboratorios`, suas três páginas, `/flashcards`, `/meus-dados` e `/estudar/:id`. Mantenha o fallback SPA existente. Dados e percursos privados não entram no sitemap; nenhum backend é necessário. Esta alteração não autoriza nem executa deploy.

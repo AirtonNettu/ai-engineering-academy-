@@ -10,6 +10,13 @@ export const publicRoutes = [
   '/recursos',
   '/glossario',
   '/busca',
+  '/flashcards',
+  '/meus-dados',
+  '/laboratorios',
+  '/laboratorios/neural-network',
+  '/laboratorios/attention',
+  '/laboratorios/embeddings',
+  ...catalog.chapters.map((c) => `/estudar/${c.id}`),
   ...catalog.chapters.map((c) => `/capitulos/${c.id}`),
 ];
 type MarkdownNode = {

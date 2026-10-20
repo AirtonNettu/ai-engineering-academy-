@@ -1,0 +1,29 @@
+## Fundamentação
+
+Attention combina representações de uma sequência usando pesos dependentes do conteúdo. Cada posição produz uma query, uma key e um value por transformações aprendidas. Uma query é comparada às keys; os escores resultantes viram pesos usados para misturar values. A analogia com uma consulta a fichas ajuda a identificar papéis, mas não implica busca simbólica, consciência ou uma explicação fiel de por que o modelo respondeu algo.
+
+Self-attention usa a mesma sequência como origem dessas representações. Cross-attention usa fontes diferentes, por exemplo uma sequência de saída consultando representações de entrada. Em um modelo causal, uma máscara impede uma posição de ler tokens futuros na sequência de treino. Sem a máscara correta, a rede poderia usar o alvo que deveria prever, produzindo um treinamento aparentemente bom que não corresponde à geração disponível no uso real.
+
+Tokens são ids produzidos por um tokenizer específico. Eles não são necessariamente palavras. Fragmentos de palavra, pontuação e espaços podem ter papel próprio; o vocabulário depende do modelo. O Attention Explorer usa uma divisão demonstrativa explicitamente identificada e matrizes pequenas. Ele ensina operações, sem alegar reproduzir o tokenizer, os pesos ou a arquitetura de um serviço comercial. Compare essa limitação com [tokens e inferência](/capitulos/llm-inferencia).
+
+Um transformer contém mais que atenção. Há projeções, normalização, conexões residuais e camadas de transformação por posição, frequentemente chamadas feed-forward ou MLP. Informações de posição são necessárias para representar ordem. Implementações variam na ordem da normalização e no mecanismo posicional. O diagrama [LLM](/arquiteturas?diagrama=llm) resume essa composição e não deve ser lido como especificação universal de todos os modelos.
+
+## Funcionamento intermediário
+
+A forma clássica é Attention(Q,K,V) = softmax(QKᵀ/√dₖ)V. Q tem uma linha por posição de consulta; K, uma linha por posição consultada; o produto produz uma matriz de compatibilidade. Dividir pela raiz da dimensão dₖ controla a escala dos produtos sob hipóteses usuais de variância. Não normaliza semanticamente os vetores nem garante probabilidades calibradas sobre fatos. A softmax opera por linha, de modo que os pesos permitidos daquela consulta somem aproximadamente um.
+
+Para estabilidade, compute softmax(sᵢ) = exp(sᵢ−m)/Σⱼexp(sⱼ−m), com m igual ao maior escore da linha. Subtrair uma constante comum não altera a distribuição matemática, mas reduz risco de overflow. Posições bloqueadas pela máscara recebem um escore que anula sua contribuição após softmax. Uma linha completamente bloqueada precisa de tratamento definido; calcular infinito menos infinito pode gerar NaN. Valide entradas e máscaras antes de interpretar o heatmap.
+
+Considere dois escores iguais: ambos recebem peso 0,5. Se um escore cresce, seu peso aumenta e o do outro diminui, mesmo que a outra key não tenha mudado. Atenção é uma comparação relativa entre posições disponíveis. O resultado é uma soma ponderada de values, não uma escolha obrigatória de um token. No [explorador](/laboratorios/attention), selecione uma célula e acompanhe produto, escala e peso. A [fonte matemática real](/laboratorios/attention?codigo=1) permite conferir a operação implementada.
+
+Multi-head attention projeta o estado em subespaços diferentes, calcula misturas por cabeça e combina os resultados por outra projeção. Cabeças podem aprender relações distintas, porém não há garantia de que cada uma corresponda a uma categoria humana simples. Grouped-query e multi-query attention compartilham parte das keys/values entre queries para reduzir memória de cache. São escolhas arquiteturais com efeitos em custo e capacidade, não apenas nomes alternativos para a mesma forma de execução.
+
+## Análise avançada
+
+Materializar escores de todas as posições exige memória quadrática no comprimento da sequência para a atenção densa tradicional. Kernels que reorganizam blocos e acessos à memória podem calcular a mesma atenção evitando armazenar toda a matriz. Isso reduz tráfego e memória, sem tornar a operação abstrata linear em todas as situações. Atenção local ou esparsa muda quais relações são permitidas; portanto não deve ser descrita como uma otimização sempre equivalente à atenção densa.
+
+Posição não é um detalhe decorativo. Se apenas permutarmos entradas sem mecanismo posicional, a atenção tende a preservar a simetria correspondente em vez de representar ordem textual como desejado. RoPE transforma queries e keys conforme posição, influenciando seus produtos relativos. Extrapolar além do regime de treinamento pode degradar comportamento; aceitar uma janela grande no servidor não comprova que dependências longas são usadas de maneira confiável.
+
+Pesos de atenção não são, por si só, explicações causais de decisões. A saída atravessa múltiplas camadas, conexões residuais e transformações, e diferentes configurações podem produzir comportamento parecido. Para uma hipótese causal, seria necessário definir intervenção e medir efeito com cuidado. Use o heatmap para entender a aritmética da mistura, sem inferir que uma célula colorida identifica automaticamente a razão final de uma resposta incorreta.
+
+Ao reproduzir uma operação, confira dimensões, escala, máscara, precisão e eixo da softmax. Compare uma linha calculada manualmente com o laboratório e verifique que a soma dos pesos é próxima de um. Esse exercício é proposto, não apresentado como experimento já realizado. O artigo original [Attention Is All You Need](https://arxiv.org/abs/1706.03762) é referência histórica; a documentação [Transformers](https://huggingface.co/docs/transformers/index) cobre famílias e implementações atuais. Continue em [inferência eficiente](/capitulos/inferencia-eficiente) para conectar atenção a KV cache e capacidade de serviço.
