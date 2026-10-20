@@ -1,3 +1,5 @@
+import { useLearning } from '../learning/useLearning';
+import '../learning/learning.css';
 import { useHashScroll } from '../lib/useHashScroll';
 import { useEffect, useState, type CSSProperties } from 'react';
 import { Link, useParams } from 'react-router-dom';
@@ -11,7 +13,7 @@ import {
   Plus,
 } from 'lucide-react';
 import { chapterById, catalog, chapterUrl } from '../lib/content';
-import { readPreference, readProgress, savePreference } from '../lib/storage';
+import { readPreference, savePreference } from '../lib/storage';
 import { Markdown } from '../components/Markdown';
 import { slug } from '../lib/slug';
 import { Diagram } from '../components/Diagram';
@@ -24,7 +26,8 @@ export default function ChapterPage() {
   const { id = '' } = useParams();
   const chapter = chapterById(id);
   const [document, setDocument] = useState({ id: '', body: '', error: false });
-  const [progress, setProgress] = useState(readProgress);
+  const { state, markReading } = useLearning();
+  const progress = state.reading;
   const [font, setFont] = useState(() => {
     const v = readPreference<unknown>('fontSize', 18);
     return typeof v === 'number' && v >= 16 && v <= 24 ? v : 18;
@@ -60,9 +63,7 @@ export default function ChapterPage() {
     savePreference('fontSize', v);
   }
   function mark() {
-    const next = { ...progress, [id]: !progress[id] };
-    setProgress(next);
-    savePreference('progress', next);
+    markReading(id);
   }
   return (
     <>
@@ -89,6 +90,16 @@ export default function ChapterPage() {
           </span>
         </div>
       </div>
+      <nav className="depth-navigation" aria-label="Profundidades do artigo">
+        {chapter.depths.map((depth, i) => (
+          <a href={`#${depth.anchor}`} key={depth.id}>
+            {i + 1}. {depth.title}
+          </a>
+        ))}
+      </nav>
+      <Link className="button primary chapter-study-link" to={`/estudar/${id}`}>
+        Estudar este assunto →
+      </Link>
       <div className="reader-layout">
         <div className="reader-main">
           <div className="reader-toolbar">
