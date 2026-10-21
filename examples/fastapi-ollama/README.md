@@ -13,7 +13,7 @@ python -m pip install -r requirements.txt
 python -m pytest -q
 ```
 
-Os testes executam a API real com MockTransport na fronteira do Ollama. Nenhum modelo é baixado. Dependências transitivas da sessão de validação estão em requirements.lock.txt; para reproduzir exatamente, use esse arquivo em vez de requirements.txt. Starlette é fixado para manter o contrato TestClient/HTTPX desta implementação.
+Os testes executam a API real com MockTransport na fronteira do Ollama. Nenhum modelo é baixado. Dependências transitivas da sessão de validação estão em requirements.lock.txt; para reproduzir exatamente, use esse arquivo em vez de requirements.txt. Starlette 1.3.1 e pytest 9.0.3 corrigem avisos de segurança identificados na consolidação de 21/10/2026. FastAPI 0.135.1 aceita essa versão de Starlette; os 19 testes de contrato passaram com esse conjunto. TestClient ainda emite avisos de depreciação de HTTPX/AnyIO, sem falha nos contratos cobertos. Detalhes e limites em [revisão de segurança](../../docs/consolidation-security.md).
 
 ## Servidor local
 

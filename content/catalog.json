@@ -382,7 +382,7 @@
           "anchor": "analise-avancada"
         }
       ],
-      "labs": ["attention"],
+      "labs": [],
       "implementation": {
         "label": "Contrato HTTP real; consulte os limites no artigo",
         "url": "/projetos/fastapi-ollama?file=tests/test_chat.py"
@@ -564,7 +564,7 @@
         "reranking",
         "recall"
       ],
-      "concepts": ["chunking", "reranking"],
+      "concepts": ["embedding", "chunking", "reranking"],
       "sources": [
         {
           "title": "Sentence Transformers",
@@ -675,7 +675,7 @@
         "auth",
         "prompt injection"
       ],
-      "concepts": ["tool-calling", "prompt-injection"],
+      "concepts": ["mcp", "tool-calling", "prompt-injection"],
       "sources": [
         {
           "title": "MCP — arquitetura",
@@ -691,7 +691,7 @@
       "codeFiles": ["app/integrations/ollama.py"],
       "diagrams": ["agents", "http"],
       "related": ["seguranca-avaliacao", "producao-evals"],
-      "labs": ["attention"],
+      "labs": [],
       "depths": [
         {
           "id": "fundamental",
@@ -807,7 +807,7 @@
       "codeFiles": ["tests/test_chat.py"],
       "diagrams": ["http", "rag", "agents"],
       "related": ["seguranca-avaliacao", "mcp-agentes", "carreira-ai-engineer"],
-      "labs": ["attention"],
+      "labs": [],
       "depths": [
         {
           "id": "fundamental",
@@ -902,7 +902,7 @@
       "id": "embedding",
       "title": "Embedding",
       "definition": "Representação vetorial aprendida. A utilidade de similaridade depende do modelo e do objetivo de treinamento; espaços de modelos diferentes não são intercambiáveis.",
-      "chapters": ["llm-inferencia", "rag"]
+      "chapters": ["llm-inferencia", "rag", "embeddings-busca"]
     },
     {
       "id": "inferencia",
@@ -926,7 +926,7 @@
       "id": "mcp",
       "title": "MCP",
       "definition": "Model Context Protocol: protocolo para conectar aplicações de IA a ferramentas, recursos e prompts de servidores. Não substitui autorização nem revisão de segurança.",
-      "chapters": ["seguranca-avaliacao"]
+      "chapters": ["seguranca-avaliacao", "mcp-agentes"]
     },
     {
       "id": "http",
@@ -1173,7 +1173,7 @@
             "Inventário de logs e riscos de exposição"
           ],
           "chapters": ["http-apis", "ollama-fastapi", "producao-evals"],
-          "labs": ["attention"]
+          "labs": []
         },
         {
           "id": "pleno",
@@ -1195,7 +1195,7 @@
             "producao-evals",
             "seguranca-avaliacao"
           ],
-          "labs": ["attention", "embeddings"]
+          "labs": []
         },
         {
           "id": "senior",
@@ -1217,7 +1217,7 @@
             "inferencia-eficiente",
             "carreira-ai-engineer"
           ],
-          "labs": ["attention"]
+          "labs": []
         }
       ]
     },
@@ -1712,7 +1712,7 @@
           "id": "validate",
           "title": "Validação",
           "description": "Pydantic valida mensagem não vazia, tamanho e ausência de campos extras.",
-          "file": "app/routes/chat.py"
+          "file": "app/models.py"
         },
         {
           "id": "adapter",
@@ -1724,13 +1724,13 @@
           "id": "model",
           "title": "Ollama",
           "description": "Executa inferência local no modelo definido pelo operador.",
-          "file": "app/config.py"
+          "file": null
         },
         {
           "id": "response",
           "title": "Resposta",
-          "description": "O backend valida o payload upstream e traduz falhas em status públicos.",
-          "file": "app/main.py"
+          "description": "O adaptador valida o payload upstream; a rota traduz falhas em status públicos e forma a resposta.",
+          "file": "app/routes/chat.py"
         }
       ]
     },
