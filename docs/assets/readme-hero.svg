@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="480" viewBox="0 0 1200 480" role="img" aria-labelledby="title desc">
+<title id="title">IA Engineer Academy — aprenda inteligência artificial construindo</title>
+<desc id="desc">Banner escuro com diagrama de rede neural, cartões de conteúdo e tecnologias Python, FastAPI, RAG e LLMs.</desc>
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#0b1513"/><stop offset="1" stop-color="#12231f"/></linearGradient><linearGradient id="accent" x2="1"><stop stop-color="#6bd6a5"/><stop offset="1" stop-color="#91c9ff"/></linearGradient><pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse"><path d="M36 0H0V36" fill="none" stroke="#a6e7cd" stroke-opacity=".045"/></pattern><filter id="glow"><feGaussianBlur stdDeviation="12"/></filter></defs>
+<rect width="1200" height="480" rx="24" fill="url(#bg)"/><rect width="1200" height="480" rx="24" fill="url(#grid)"/><rect x="1" y="1" width="1198" height="478" rx="23" fill="none" stroke="#38594d"/>
+<circle cx="1008" cy="145" r="145" fill="#62d4a1" opacity=".06" filter="url(#glow)"/>
+<rect x="56" y="50" width="48" height="48" rx="12" fill="#1f5a49"/><path d="M70 73l-6 6 6 6m20-12 6 6-6 6m-9-18-7 36" stroke="#b4f5d5" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="119" y="80" font-family="Arial,Helvetica,sans-serif" font-size="18" fill="#b8dfcf" font-weight="700" letter-spacing="2">OPEN SOURCE · PT-BR · GRATUITA</text>
+<text x="56" y="168" font-family="Arial,Helvetica,sans-serif" font-size="58" fill="#f0faf5" font-weight="700">IA Engineer</text><text x="56" y="233" font-family="Arial,Helvetica,sans-serif" font-size="58" fill="url(#accent)" font-weight="700">Academy</text>
+<text x="57" y="279" font-family="Arial,Helvetica,sans-serif" font-size="22" fill="#d0e1d9">Da teoria à arquitetura, do código à compreensão.</text>
+<rect x="56" y="319" width="175" height="41" rx="10" fill="#1c493a" stroke="#4c9e79"/><text x="143" y="345" text-anchor="middle" font-family="Arial" font-size="16" font-weight="700" fill="#baf2d3">15 capítulos</text>
+<rect x="244" y="319" width="168" height="41" rx="10" fill="#193d40" stroke="#438b8e"/><text x="328" y="345" text-anchor="middle" font-family="Arial" font-size="16" font-weight="700" fill="#aeeaf0">3 laboratórios</text>
+<rect x="425" y="319" width="163" height="41" rx="10" fill="#30304b" stroke="#706b9d"/><text x="506" y="345" text-anchor="middle" font-family="Arial" font-size="16" font-weight="700" fill="#e1d7ff">45 flashcards</text>
+<text x="57" y="418" font-family="Arial" font-size="17" fill="#8eb4a5">Python  ·  FastAPI  ·  LLMs  ·  RAG  ·  Agentes  ·  MCP</text>
+<rect x="690" y="53" width="455" height="373" rx="18" fill="#101c1a" stroke="#3d6658" stroke-width="2"/><rect x="690" y="53" width="455" height="47" rx="18" fill="#1a3029"/><path d="M690 83v17h455V83" fill="#1a3029"/><circle cx="717" cy="76" r="5" fill="#e68c82"/><circle cx="735" cy="76" r="5" fill="#e7c36f"/><circle cx="753" cy="76" r="5" fill="#71d49f"/><text x="791" y="81" font-family="Arial" font-size="15" fill="#b6d7c8">Treinar e inspecionar a rede</text>
+<g stroke="#7edbb1" stroke-width="2" opacity=".85"><path d="M757 204L909 150M757 204L909 239M757 204L909 327M757 324L909 150M757 324L909 239M757 324L909 327M909 150L1081 239M909 239L1081 239M909 327L1081 239"/></g>
+<g fill="#132923" stroke="#9cebc2" stroke-width="3"><circle cx="757" cy="204" r="26"/><circle cx="757" cy="324" r="26"/><circle cx="909" cy="150" r="26"/><circle cx="909" cy="239" r="26"/><circle cx="909" cy="327" r="26"/><circle cx="1081" cy="239" r="26"/></g>
+<g font-family="Arial" fill="#e8f9ef" font-size="15" text-anchor="middle"><text x="757" y="209">0.0</text><text x="757" y="329">1.0</text><text x="909" y="155">−.54</text><text x="909" y="244">.38</text><text x="909" y="332">.83</text><text x="1081" y="244">.43</text></g>
+<text x="720" y="395" font-family="Arial" font-size="14" fill="#b1d8c3">XOR · Backpropagation · Gradientes reais</text>
+</svg>
