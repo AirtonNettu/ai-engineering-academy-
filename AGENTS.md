@@ -20,3 +20,11 @@
 - Dados em academy:learning são privados e locais; mudanças de formato precisam de migração/validação e backup. Importação exige confirmação e não aceita IDs desconhecidos.
 - Estatísticas só contam respostas dadas; conclusão do percurso é autodeclarada e não certificação. Nunca alegue retenção ou generalização medida por um exemplo pequeno.
 - Ao editar conteúdo, execute validate:content e os testes de profundidade/cartões. Ao editar labs, mantenha testes de gradiente/convergência/softmax/cosseno e E2E de controles.
+
+## Consolidação e operação
+
+- `npm run check` inclui cobertura V8; não remova módulos/branches do escopo para alcançar a meta de 80% por arquivo.
+- Após build, execute check:links e check:performance. Links externos e Lighthouse são auditorias separadas, com origem, condições e limites documentados.
+- Preserve leitura estática dos capítulos sem JS, URLs limpas e rewrites exatos antes do fallback. Teste produção com SITE_URL HTTPS estrito e preview sem origem/noindex.
+- Mudanças de segurança Python exigem lock consistente, pip check, pytest e reauditoria. Não faça bumps principais por conveniência.
+- Sem publicar tag/release, renomear repositório ou alterar configurações de produção sem aprovação. Catálogo de labels é declarativo até aplicação pelo mantenedor.

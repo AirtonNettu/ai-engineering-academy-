@@ -1,0 +1,22 @@
+# Catálogo declarativo para aplicação pelo mantenedor; não cria labels via API.
+- name: bug
+  color: d73a4a
+  description: Defeito reproduzível
+- name: documentation
+  color: 0075ca
+  description: Documentação e conteúdo editorial
+- name: accessibility
+  color: 7057ff
+  description: Acesso por teclado, contraste e tecnologias assistivas
+- name: security
+  color: b60205
+  description: Correções públicas após divulgação coordenada
+- name: dependencies
+  color: 0366d6
+  description: Atualizações de dependências verificadas
+- name: good first issue
+  color: 7057ff
+  description: Tarefa delimitada com orientação para novos colaboradores
+- name: help wanted
+  color: 008672
+  description: Contribuição técnica ou editorial solicitada
