@@ -56,3 +56,11 @@ Dados normalizados de cobertura em [coverage-summary.json](coverage-summary.json
 ## Performance observada
 
 Biblioteca: 97; Atlas: 98; laboratório neural: 97. Acessibilidade, boas práticas e SEO: 100 nas três amostras; CLS zero. LCP entre 2,21 e 2,35 s nas condições locais. [Métricas, configuração e limitações](performance.md) e [dados estruturados](lighthouse-summary.json).
+
+## Entrega GitHub
+
+Branch `chore/platform-consolidation` enviada e SHA remoto conferido com o local. Commits por frente: 3f7af1f (governança), 1def9bf (segurança), 2d6d781 (cobertura/CI), 1b84587 (editorial), 56dfae5 (leitura estática/acessibilidade), f8c0008 (apresentação/evidências), seguido pelo registro desta entrega.
+
+A tentativa `gh pr create --draft --base main --head chore/platform-consolidation --body-file docs/consolidation/pull-request.md` retornou `Post https://api.github.com/graphql: Forbidden`. Nenhum PR foi criado; não houve alteração de credenciais ou tentativa de contornar a restrição. Descrição pronta em [pull-request.md](pull-request.md). Abertura manual: https://github.com/AirtonNettu/ai-engineering-academy-/pull/new/chore/platform-consolidation . A aplicação de labels, confirmação de CI remoto e revisão da ordem com PR #8 permanecem com o mantenedor.
+
+A relação completa dos 69 arquivos alterados está em [changed-files.txt](changed-files.txt). Para executar: `npm ci`, `npm run check`, `npm run check:links`, `npm run check:performance` e `npm run test:e2e` com Chromium instalado. A publicação segue a checklist vinculada acima, somente após aprovação específica.
