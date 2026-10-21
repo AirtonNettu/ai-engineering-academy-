@@ -79,9 +79,14 @@ describe('cobertura editorial avançada', () => {
           'responsibilities',
           'deliverables',
           'chapters',
-          'labs',
         ] as const)
           expect(level[field].length).toBeGreaterThan(0);
+        // Operação não possui exercício aplicável nos três labs atuais.
+        // Os demais percursos mantêm prática relacionada e referências válidas.
+        if (roadmap.id === 'operations') expect(level.labs).toEqual([]);
+        else expect(level.labs.length).toBeGreaterThan(0);
+        for (const lab of level.labs)
+          expect(['neural-network', 'attention', 'embeddings']).toContain(lab);
         for (const id of level.chapters)
           expect(catalog.chapters.some((chapter) => chapter.id === id)).toBe(
             true,

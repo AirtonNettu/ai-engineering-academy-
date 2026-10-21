@@ -5,7 +5,7 @@
     "front": "Um JSON válido garante que uma requisição cumpra o contrato?",
     "back": "Não. JSON válido confirma sintaxe; schema, limites e regras de negócio ainda precisam de validação. Autorização decide separadamente se a ação é permitida.",
     "difficulty": "basico",
-    "sourceUrl": "https://developer.mozilla.org/pt-BR/docs/Web/HTTP",
+    "sourceUrl": "https://docs.pydantic.dev/latest/concepts/models/",
     "reviewedAt": "2026-10-20"
   },
   {
@@ -14,7 +14,7 @@
     "front": "Por que separar o contrato público da API do payload do Ollama?",
     "back": "O adaptador isola detalhes do fornecedor, valida respostas e permite manter erros e campos públicos estáveis quando a integração muda.",
     "difficulty": "intermediario",
-    "sourceUrl": "https://developer.mozilla.org/pt-BR/docs/Web/HTTP",
+    "sourceUrl": "https://www.python-httpx.org/advanced/transports/",
     "reviewedAt": "2026-10-20"
   },
   {
@@ -23,7 +23,7 @@
     "front": "Por que repetir uma requisição após timeout pode ser perigoso?",
     "back": "Timeout não prova que o destino deixou de executar. Retry pode duplicar efeitos ou consumo; avalie idempotência, prazo restante e classificação da falha.",
     "difficulty": "avancado",
-    "sourceUrl": "https://developer.mozilla.org/pt-BR/docs/Web/HTTP",
+    "sourceUrl": "https://developer.mozilla.org/en-US/docs/Glossary/Idempotent",
     "reviewedAt": "2026-10-20"
   },
   {
@@ -32,7 +32,7 @@
     "front": "Uma annotation de tipo Python valida automaticamente um corpo HTTP?",
     "back": "Não. Annotations ajudam ferramentas e leitura, mas dados externos exigem validação em runtime na fronteira, além das regras de autorização.",
     "difficulty": "basico",
-    "sourceUrl": "https://docs.python.org/3/library/asyncio.html",
+    "sourceUrl": "https://docs.python.org/3/library/typing.html",
     "reviewedAt": "2026-10-20"
   },
   {
@@ -41,7 +41,7 @@
     "front": "Por que reutilizar e encerrar o cliente HTTP no lifespan?",
     "back": "Reutilização permite aproveitar conexões; o ciclo de vida explícito define quem abre e fecha o recurso, evitando clientes abandonados e facilitando testes.",
     "difficulty": "intermediario",
-    "sourceUrl": "https://docs.python.org/3/library/asyncio.html",
+    "sourceUrl": "https://www.python-httpx.org/async/",
     "reviewedAt": "2026-10-20"
   },
   {
@@ -50,7 +50,7 @@
     "front": "Um teste com transporte mockado comprova qualidade do modelo?",
     "back": "Não. Ele verifica tradução de protocolo e tratamento das observações simuladas. Qualidade do modelo e conectividade real exigem avaliações de natureza diferente.",
     "difficulty": "avancado",
-    "sourceUrl": "https://docs.python.org/3/library/asyncio.html",
+    "sourceUrl": "https://www.python-httpx.org/advanced/transports/",
     "reviewedAt": "2026-10-20"
   },
   {
@@ -59,7 +59,7 @@
     "front": "Inserir um documento no contexto equivale a treinar o LLM?",
     "back": "Não. O contexto varia entre chamadas; treinamento ajusta parâmetros. A aplicação pode persistir histórico, mas isso não significa que os pesos foram atualizados.",
     "difficulty": "basico",
-    "sourceUrl": "https://arxiv.org/abs/1706.03762",
+    "sourceUrl": "https://huggingface.co/docs/transformers/index",
     "reviewedAt": "2026-10-20"
   },
   {
@@ -68,7 +68,7 @@
     "front": "Qual diferença há entre embedding de token e embedding para busca?",
     "back": "O primeiro representa tokens dentro de uma arquitetura; o segundo é produzido para representar consultas ou documentos em uma tarefa. Dimensão igual não torna espaços compatíveis.",
     "difficulty": "intermediario",
-    "sourceUrl": "https://arxiv.org/abs/1706.03762",
+    "sourceUrl": "https://www.sbert.net/docs/sentence_transformer/usage/semantic_textual_similarity.html",
     "reviewedAt": "2026-10-20"
   },
   {
@@ -77,7 +77,7 @@
     "front": "Temperatura baixa transforma uma saída provável em um fato?",
     "back": "Não. Temperatura modifica a distribuição de amostragem, sem verificar evidências. Menor variabilidade não garante correção nem identidade entre ambientes.",
     "difficulty": "avancado",
-    "sourceUrl": "https://arxiv.org/abs/1706.03762",
+    "sourceUrl": "https://huggingface.co/docs/transformers/main_classes/text_generation",
     "reviewedAt": "2026-10-20"
   },
   {
@@ -95,7 +95,7 @@
     "front": "Como distinguir falha de recuperação de falha de geração?",
     "back": "Verifique primeiro se a passagem relevante apareceu entre os candidatos e no contexto. Depois avalie se a resposta a utilizou fielmente, com versão do pipeline registrada.",
     "difficulty": "intermediario",
-    "sourceUrl": "https://arxiv.org/abs/2005.11401",
+    "sourceUrl": "https://github.com/AirtonNettu/ai-engineering-academy-/blob/a95ebdc/content/chapters/rag.md",
     "reviewedAt": "2026-10-20"
   },
   {
@@ -104,7 +104,7 @@
     "front": "Por que filtrar dados privados somente depois da geração é insuficiente?",
     "back": "O modelo já teria recebido conteúdo indevido. A autorização precisa limitar evidências antes de entrar no contexto, além de controlar caches e resultados derivados.",
     "difficulty": "avancado",
-    "sourceUrl": "https://arxiv.org/abs/2005.11401",
+    "sourceUrl": "https://genai.owasp.org/llmrisk/llm02-sensitive-information-disclosure/",
     "reviewedAt": "2026-10-20"
   },
   {
@@ -113,7 +113,7 @@
     "front": "A biblioteca pública depende de um Ollama online para funcionar?",
     "back": "Não. O site é estático e o projeto Python é um artefato separado. Leitura, busca e laboratórios não enviam requisições a um modelo.",
     "difficulty": "basico",
-    "sourceUrl": "https://docs.ollama.com/api/chat",
+    "sourceUrl": "https://github.com/AirtonNettu/ai-engineering-academy-/blob/a95ebdc/content/chapters/ollama-fastapi.md",
     "reviewedAt": "2026-10-20"
   },
   {
@@ -131,7 +131,7 @@
     "front": "Por que um exemplo local com testes ainda exige revisão antes de exposição pública?",
     "back": "Autenticação, autorização, concorrência, privacidade de logs e capacidade precisam de projeto próprio. Testes de contrato não garantem prontidão de operação.",
     "difficulty": "avancado",
-    "sourceUrl": "https://docs.ollama.com/api/chat",
+    "sourceUrl": "https://github.com/AirtonNettu/ai-engineering-academy-/blob/a95ebdc/content/chapters/ollama-fastapi.md",
     "reviewedAt": "2026-10-20"
   },
   {
@@ -140,7 +140,7 @@
     "front": "Um prompt pedindo para não revelar segredos é uma barreira de autorização?",
     "back": "Não. Políticas de identidade e acesso precisam ser aplicadas em código e nos dados. Instruções ao modelo orientam comportamento, mas podem falhar.",
     "difficulty": "basico",
-    "sourceUrl": "https://genai.owasp.org/",
+    "sourceUrl": "https://genai.owasp.org/llmrisk/llm01-prompt-injection/",
     "reviewedAt": "2026-10-20"
   },
   {
@@ -149,7 +149,7 @@
     "front": "Por que combinar testes determinísticos com avaliações por rubrica?",
     "back": "Contratos, cálculos e permissões podem ser verificados de modo controlado; respostas abertas precisam de critérios de comportamento e conjuntos representativos versionados.",
     "difficulty": "intermediario",
-    "sourceUrl": "https://genai.owasp.org/",
+    "sourceUrl": "https://github.com/AirtonNettu/ai-engineering-academy-/blob/a95ebdc/content/chapters/seguranca-avaliacao.md",
     "reviewedAt": "2026-10-20"
   },
   {
@@ -158,7 +158,7 @@
     "front": "Qual limite a automação editorial deve manter ao gerar propostas?",
     "back": "n8n e Ollama podem produzir propostas privadas, mas publicação passa por revisão humana em issue ou PR. Geração não equivale a validação nem aprovação editorial.",
     "difficulty": "avancado",
-    "sourceUrl": "https://genai.owasp.org/",
+    "sourceUrl": "https://github.com/AirtonNettu/ai-engineering-academy-/blob/a95ebdc/content/chapters/seguranca-avaliacao.md",
     "reviewedAt": "2026-10-20"
   },
   {
@@ -167,7 +167,7 @@
     "front": "O que pesos, viés e ativação fazem em um neurônio artificial?",
     "back": "Pesos multiplicam entradas, o viés desloca a soma e a ativação transforma o resultado. Uma não linearidade permite composições que camadas apenas lineares não oferecem.",
     "difficulty": "basico",
-    "sourceUrl": "https://docs.pytorch.org/tutorials/beginner/basics/optimization_tutorial.html",
+    "sourceUrl": "https://github.com/AirtonNettu/ai-engineering-academy-/blob/a95ebdc/content/chapters/redes-neurais.md",
     "reviewedAt": "2026-10-20"
   },
   {
@@ -176,7 +176,7 @@
     "front": "Como a regra da cadeia conecta a perda a um peso da rede?",
     "back": "Backprop multiplica derivadas ao longo do grafo. Em sigmoid com perda quadrática individual, dL/dwᵢ = 2(a−y)a(1−a)xᵢ, sob essa definição de perda.",
     "difficulty": "intermediario",
-    "sourceUrl": "https://docs.pytorch.org/tutorials/beginner/basics/optimization_tutorial.html",
+    "sourceUrl": "https://github.com/AirtonNettu/ai-engineering-academy-/blob/a95ebdc/content/chapters/redes-neurais.md",
     "reviewedAt": "2026-10-20"
   },
   {
@@ -185,7 +185,7 @@
     "front": "O que diferenças finitas verificam e o que não comprovam?",
     "back": "Comparam uma derivada analítica à variação numérica local da perda. Detectam erros de gradiente, mas não comprovam generalização ou convergência em qualquer dataset.",
     "difficulty": "avancado",
-    "sourceUrl": "https://docs.pytorch.org/tutorials/beginner/basics/optimization_tutorial.html",
+    "sourceUrl": "https://docs.pytorch.org/docs/stable/autograd.html#numerical-gradient-checking",
     "reviewedAt": "2026-10-20"
   },
   {
@@ -194,7 +194,7 @@
     "front": "Qual é a diferença entre batch e epoch?",
     "back": "Batch é um grupo usado para calcular uma atualização; epoch corresponde a uma passagem pelo treino sob uma política definida. Amostragem e descarte alteram essa relação.",
     "difficulty": "basico",
-    "sourceUrl": "https://docs.pytorch.org/tutorials/beginner/basics/optimization_tutorial.html",
+    "sourceUrl": "https://github.com/AirtonNettu/ai-engineering-academy-/blob/a95ebdc/content/chapters/treinamento-avaliacao.md",
     "reviewedAt": "2026-10-20"
   },
   {
@@ -203,7 +203,7 @@
     "front": "Por que não usar o teste final para escolher hiperparâmetros repetidamente?",
     "back": "As escolhas passam a se adaptar ao teste, tornando-o parte do desenvolvimento. Reserve validação para escolhas e um conjunto final para estimativa da configuração selecionada.",
     "difficulty": "intermediario",
-    "sourceUrl": "https://docs.pytorch.org/tutorials/beginner/basics/optimization_tutorial.html",
+    "sourceUrl": "https://github.com/AirtonNettu/ai-engineering-academy-/blob/a95ebdc/content/chapters/treinamento-avaliacao.md",
     "reviewedAt": "2026-10-20"
   },
   {
@@ -212,7 +212,7 @@
     "front": "Por que sementes fixas não bastam para demonstrar robustez estatística?",
     "back": "Elas ajudam rastreabilidade, mas não mostram persistência em outras sementes ou populações. Hardware e versões também podem alterar resultados mesmo com a mesma semente.",
     "difficulty": "avancado",
-    "sourceUrl": "https://docs.pytorch.org/tutorials/beginner/basics/optimization_tutorial.html",
+    "sourceUrl": "https://docs.pytorch.org/docs/stable/notes/randomness.html",
     "reviewedAt": "2026-10-20"
   },
   {
@@ -230,7 +230,7 @@
     "front": "Por que subtrair o maior escore antes da softmax?",
     "back": "A distribuição matemática permanece igual ao subtrair uma constante comum, mas os exponenciais ficam numericamente mais seguros e evitam overflow.",
     "difficulty": "intermediario",
-    "sourceUrl": "https://arxiv.org/abs/1706.03762",
+    "sourceUrl": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.softmax.html",
     "reviewedAt": "2026-10-20"
   },
   {
@@ -239,7 +239,7 @@
     "front": "Um peso de atenção alto explica causalmente uma resposta?",
     "back": "Não por si só. A saída envolve várias camadas, residuais e transformações; uma afirmação causal exige intervenção e avaliação, além de observar um heatmap.",
     "difficulty": "avancado",
-    "sourceUrl": "https://arxiv.org/abs/1706.03762",
+    "sourceUrl": "https://arxiv.org/abs/1902.10186",
     "reviewedAt": "2026-10-20"
   },
   {
@@ -248,7 +248,7 @@
     "front": "Qual é o cosseno entre os vetores (1,0) e (1,1)?",
     "back": "O produto escalar é 1 e as normas são 1 e √2. Logo o cosseno é 1/√2, cerca de 0,707; esse valor não é uma probabilidade de relevância.",
     "difficulty": "basico",
-    "sourceUrl": "https://www.sbert.net/",
+    "sourceUrl": "https://www.sbert.net/docs/sentence_transformer/usage/semantic_textual_similarity.html",
     "reviewedAt": "2026-10-20"
   },
   {
@@ -257,7 +257,7 @@
     "front": "Quando busca híbrida pode ajudar em comparação à busca só vetorial?",
     "back": "Nomes, códigos e identificadores exatos podem favorecer o sinal lexical; paráfrases podem favorecer o vetorial. Combinar rankings precisa de avaliação no domínio.",
     "difficulty": "intermediario",
-    "sourceUrl": "https://www.sbert.net/",
+    "sourceUrl": "https://www.sbert.net/examples/sparse_encoder/applications/hybrid_search/README.html",
     "reviewedAt": "2026-10-20"
   },
   {
@@ -266,7 +266,7 @@
     "front": "Por que atualizar o modelo de embeddings exige atenção à versão do índice?",
     "back": "Espaços de modelos distintos podem ser incompatíveis mesmo com dimensão igual. Versione corpus, chunker e modelo e planeje reindexação e troca coerente dos artefatos.",
     "difficulty": "avancado",
-    "sourceUrl": "https://www.sbert.net/",
+    "sourceUrl": "https://github.com/AirtonNettu/ai-engineering-academy-/blob/a95ebdc/content/chapters/embeddings-busca.md",
     "reviewedAt": "2026-10-20"
   },
   {
@@ -284,7 +284,7 @@
     "front": "Por que um modelo cujos pesos cabem na memória ainda pode falhar sob carga?",
     "back": "O KV cache e outros estados também usam memória, crescendo com contexto e concorrência. Estimativas apenas dos pesos ignoram uma parcela importante da capacidade.",
     "difficulty": "intermediario",
-    "sourceUrl": "https://huggingface.co/docs/transformers/main/en/llm_tutorial",
+    "sourceUrl": "https://huggingface.co/docs/transformers/kv_cache",
     "reviewedAt": "2026-10-20"
   },
   {
@@ -293,7 +293,7 @@
     "front": "Quantizar sempre torna a inferência mais rápida?",
     "back": "Não. Memória pode diminuir, mas latência depende de kernels, formato e hardware. Qualidade também pode mudar por tarefa; compare com carga e versões controladas.",
     "difficulty": "avancado",
-    "sourceUrl": "https://huggingface.co/docs/transformers/main/en/llm_tutorial",
+    "sourceUrl": "https://huggingface.co/docs/transformers/quantization/overview",
     "reviewedAt": "2026-10-20"
   },
   {
@@ -311,7 +311,7 @@
     "front": "Por que argumentos de ferramenta válidos no schema ainda podem ser proibidos?",
     "back": "O schema verifica forma, mas não acesso ao recurso. A aplicação deve relacionar usuário, tenant, ação e objeto usando informação confiável antes da execução.",
     "difficulty": "intermediario",
-    "sourceUrl": "https://modelcontextprotocol.io/docs/learn/architecture",
+    "sourceUrl": "https://genai.owasp.org/llmrisk/llm06-excessive-agency/",
     "reviewedAt": "2026-10-20"
   },
   {
@@ -320,7 +320,7 @@
     "front": "Por que retry de uma ferramenta após falha de rede exige reconciliação?",
     "back": "O efeito pode ter ocorrido antes da conexão cair. Use idempotência ou identificação de operação quando disponíveis e trate estado final desconhecido como ambíguo.",
     "difficulty": "avancado",
-    "sourceUrl": "https://modelcontextprotocol.io/docs/learn/architecture",
+    "sourceUrl": "https://github.com/AirtonNettu/ai-engineering-academy-/blob/a95ebdc/content/chapters/mcp-agentes.md",
     "reviewedAt": "2026-10-20"
   },
   {
@@ -329,7 +329,7 @@
     "front": "Qual diferença principal existe entre RAG e fine-tuning?",
     "back": "RAG fornece evidências externas durante inferência; fine-tuning ajusta parâmetros com exemplos. Podem coexistir, mas respondem a falhas diferentes e precisam de avaliação.",
     "difficulty": "basico",
-    "sourceUrl": "https://arxiv.org/abs/2005.11401",
+    "sourceUrl": "https://huggingface.co/docs/peft/index",
     "reviewedAt": "2026-10-20"
   },
   {
@@ -338,7 +338,7 @@
     "front": "Quando atualizar um índice tende a ser mais adequado que ajustar pesos?",
     "back": "Quando a falha envolve informação que muda e precisa de origem e versão recuperáveis. Ainda é necessário medir recuperação, fidelidade e política de acesso.",
     "difficulty": "intermediario",
-    "sourceUrl": "https://arxiv.org/abs/2005.11401",
+    "sourceUrl": "https://github.com/AirtonNettu/ai-engineering-academy-/blob/a95ebdc/content/chapters/rag-finetuning.md",
     "reviewedAt": "2026-10-20"
   },
   {
@@ -347,7 +347,7 @@
     "front": "LoRA elimina a necessidade de curadoria e avaliação de dados?",
     "back": "Não. A atualização de baixa ordem reduz parâmetros treináveis, mas dados ruins, overfitting, compatibilidade de checkpoint e validação continuam sendo problemas centrais.",
     "difficulty": "avancado",
-    "sourceUrl": "https://arxiv.org/abs/2005.11401",
+    "sourceUrl": "https://huggingface.co/docs/peft/conceptual_guides/lora",
     "reviewedAt": "2026-10-20"
   },
   {
@@ -356,7 +356,7 @@
     "front": "Por que um mock de sucesso não comprova prontidão de um sistema de IA?",
     "back": "Ele verifica um cenário de contrato controlado, sem avaliar comportamento do modelo, autorização completa, capacidade, segurança e recuperação em operação.",
     "difficulty": "basico",
-    "sourceUrl": "https://genai.owasp.org/",
+    "sourceUrl": "https://github.com/AirtonNettu/ai-engineering-academy-/blob/a95ebdc/content/chapters/producao-evals.md",
     "reviewedAt": "2026-10-20"
   },
   {
@@ -365,7 +365,7 @@
     "front": "Como avaliar uma resposta aberta sem exigir igualdade literal?",
     "back": "Defina propriedades observáveis e rubricas: correção, apoio em evidência, cobertura, formato e segurança. Versione casos e preserve um conjunto final sem ajuste contínuo.",
     "difficulty": "intermediario",
-    "sourceUrl": "https://genai.owasp.org/",
+    "sourceUrl": "https://github.com/AirtonNettu/ai-engineering-academy-/blob/a95ebdc/content/chapters/producao-evals.md",
     "reviewedAt": "2026-10-20"
   },
   {
@@ -374,7 +374,7 @@
     "front": "Por que versionar prompt, modelo, índice e política juntos em um rollout?",
     "back": "Cada componente pode mudar comportamento. Identificar a combinação permite atribuir regressões, comparar evidências e restaurar uma configuração anterior de forma coerente.",
     "difficulty": "avancado",
-    "sourceUrl": "https://genai.owasp.org/",
+    "sourceUrl": "https://github.com/AirtonNettu/ai-engineering-academy-/blob/a95ebdc/content/chapters/producao-evals.md",
     "reviewedAt": "2026-10-20"
   },
   {
@@ -383,7 +383,7 @@
     "front": "AI Application Engineer precisa treinar um modelo fundacional?",
     "back": "Não. Frequentemente é um software engineer especializado em integrar modelos, dados, ferramentas e avaliação a um produto, com contratos e operação confiáveis.",
     "difficulty": "basico",
-    "sourceUrl": "https://docs.pytorch.org/docs/stable/index.html",
+    "sourceUrl": "https://github.com/AirtonNettu/ai-engineering-academy-/blob/a95ebdc/content/chapters/carreira-ai-engineer.md",
     "reviewedAt": "2026-10-20"
   },
   {
@@ -392,7 +392,7 @@
     "front": "Como ML Engineer e AI Research Engineer podem diferir em responsabilidades?",
     "back": "ML costuma atuar no ciclo de dados, treinamento e disponibilização; research aproxima hipóteses e implementação experimental. As fronteiras variam entre organizações.",
     "difficulty": "intermediario",
-    "sourceUrl": "https://docs.pytorch.org/docs/stable/index.html",
+    "sourceUrl": "https://github.com/AirtonNettu/ai-engineering-academy-/blob/a95ebdc/content/chapters/carreira-ai-engineer.md",
     "reviewedAt": "2026-10-20"
   },
   {
@@ -401,7 +401,7 @@
     "front": "Por que senioridade não equivale a conhecer uma lista de tecnologias?",
     "back": "Ela envolve autonomia, responsabilidade, complexidade, impacto e mentoria dentro de um contexto. Profundidade de leitura ou anos de experiência não determinam sozinhos um cargo.",
     "difficulty": "avancado",
-    "sourceUrl": "https://docs.pytorch.org/docs/stable/index.html",
+    "sourceUrl": "https://github.com/AirtonNettu/ai-engineering-academy-/blob/a95ebdc/content/chapters/carreira-ai-engineer.md",
     "reviewedAt": "2026-10-20"
   }
 ]
