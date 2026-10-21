@@ -48,7 +48,9 @@
 .lab-controls {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 0.5rem;
+  min-width: 0;
   margin: 1rem 0;
 }
 .lab-controls button,
@@ -59,31 +61,41 @@
 .lab-controls button {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
   gap: 0.4rem;
+  padding: 0.625rem 0.875rem;
+  white-space: nowrap;
 }
-.lab-panel svg {
+.lab-controls button > svg {
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+}
+.lab-panel > svg {
   width: 100%;
   max-width: 680px;
   display: block;
   margin: auto;
 }
-.lab-panel svg text {
+.lab-panel > svg text {
   fill: var(--text);
   font-size: 12px;
 }
-.lab-panel svg circle {
+.lab-panel > svg circle {
   fill: var(--surface);
   stroke: var(--green);
   stroke-width: 2;
 }
-.lab-panel svg [aria-pressed='true'] circle {
+.lab-panel > svg [aria-pressed='true'] circle {
   fill: var(--green-soft);
   stroke-width: 4;
 }
-.lab-panel svg [role='button'] {
+.lab-panel > svg [role='button'] {
   cursor: grab;
 }
-.lab-panel svg [role='button']:focus circle {
+.lab-panel > svg [role='button']:focus circle {
   stroke-width: 5;
   stroke: var(--text);
 }
