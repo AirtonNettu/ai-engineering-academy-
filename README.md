@@ -1,5 +1,17 @@
 # IA Engineer Academy
 
+<div align="center">
+
+![IA Engineer Academy — aprendizado interativo de inteligência artificial](docs/assets/readme-hero.svg)
+
+**Aprenda IA por dentro: teoria, código, arquiteturas e experimentos reais.**
+
+[**🌐 Acessar a plataforma**](https://ai-engineering-academy-3cy.pages.dev/) · [**📚 Explorar a biblioteca**](https://ai-engineering-academy-3cy.pages.dev/biblioteca) · [**🧪 Experimentar os laboratórios**](https://ai-engineering-academy-3cy.pages.dev/laboratorios)
+
+</div>
+
+---
+
 **Da teoria à arquitetura, da arquitetura ao código, do código à compreensão.**
 
 A **IA Engineer Academy** é uma plataforma educacional **gratuita, open-source e em português brasileiro**, dedicada exclusivamente ao estudo de Inteligência Artificial e Engenharia de IA. Seu objetivo é explicar como a IA funciona, como construir aplicações com ela e como avaliar arquitetura, qualidade, segurança e operação.
