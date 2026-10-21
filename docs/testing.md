@@ -55,3 +55,7 @@ Os 50 testes unitários/componentes incluem os 18 anteriores e verificam gradien
 Os 26 testes Playwright executam em desktop e Pixel 7 emulado: rotas antigas e novas, download/importação real de backup, confirmação e rejeição de dados inválidos, revisão com vencimento, controles dos labs, Atlas e axe nos dois temas. Uma espera por término de transições evita auditar cores intermediárias na troca de tema.
 
 A revisão técnica final verificou separação entre cálculo e animação, limites de trabalho, cleanup de timers, mudança de arquitetura com remontagem e persistência. Corrigiu a retomada involuntária ao ampliar o orçamento da rede e o contraste dos pesos altos na atenção causal em ambos os temas. A tentativa de revisão independente foi interrompida pelo limite de uso do agente; não representa aprovação independente concluída. Não houve redução de assertions para obter aprovação.
+
+## Regressão de layout dos controles
+
+Após a Issue #2, a correção descrita em [lab-controls-layout.md](lab-controls-layout.md) acrescentou oito testes de navegador: quatro larguras (320, 390, 768 e 1280 px) em desktop/móvel emulado. A rodada completa passou com 34 testes E2E e manteve os 50 testes Vitest, lint, validação e build aprovados. Verifica geometria real de ícones, texto e botões, interação por mouse/teclado e presença da rede neural.
