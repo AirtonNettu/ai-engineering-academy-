@@ -1,5 +1,7 @@
 # IA Engineer Academy
 
+[![CI](https://github.com/AirtonNettu/ai-engineering-academy-/actions/workflows/quality.yml/badge.svg)](https://github.com/AirtonNettu/ai-engineering-academy-/actions/workflows/quality.yml) [![Licença MIT](https://img.shields.io/badge/licen%C3%A7a-MIT-green)](LICENSE) [![Plataforma online](https://img.shields.io/badge/Cloudflare%20Pages-acessar%20site-orange)](https://ai-engineering-academy-3cy.pages.dev/)
+
 <div align="center">
 
 ![IA Engineer Academy — aprendizado interativo de inteligência artificial](docs/assets/readme-hero.svg)
