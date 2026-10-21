@@ -59,3 +59,11 @@ A revisão técnica final verificou separação entre cálculo e animação, lim
 ## Regressão de layout dos controles
 
 Após a Issue #2, a correção descrita em [lab-controls-layout.md](lab-controls-layout.md) acrescentou oito testes de navegador: quatro larguras (320, 390, 768 e 1280 px) em desktop/móvel emulado. A rodada completa passou com 34 testes E2E e manteve os 50 testes Vitest, lint, validação e build aprovados. Verifica geometria real de ícones, texto e botões, interação por mouse/teclado e presença da rede neural.
+
+## Consolidação
+
+O método e o baseline estão em [plano e baseline](consolidation/plan.md); o resultado final, em [consolidation/report.md](consolidation/report.md). `npm run check` agora executa cobertura V8 uma vez, em lugar de repetir unitários, e o build valida HTML estático, origem, noindex, canonical, sitemap e rewrites. `npm run check:links` valida links locais de todos os Markdown e URLs editoriais; auditoria remota é explícita via `NODE_USE_ENV_PROXY=1 npx tsx scripts/check-links.ts --external`, quando o ambiente usa proxy. Falhas de conexão não demonstram 404.
+
+A suíte de consolidação amplia o E2E com 320/390/768/1280 px, texto a 200%, reduced-motion, ordem de foco e ações por Enter/Espaço, 15 artigos sem JavaScript e reserva de espaço durante carregamento. Os testes existentes continuam cobrindo temas, axe, backup/importação, ponteiros, controles e rotas. Leitor de tela e dispositivo físico não estavam disponíveis.
+
+Os cinco arquivos puros completos atingiram 100% de linhas/branches/funções/statements com V8; o gate é 80% por arquivo. Isso não é cobertura de toda a interface nem prova correção geral dos algoritmos. Veja [método e números por módulo](consolidation-coverage.md).

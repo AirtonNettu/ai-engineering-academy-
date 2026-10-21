@@ -1,0 +1,371 @@
+{
+  "checkedAt": "2026-10-21T11:55:23.049Z",
+  "localErrors": [],
+  "results": [
+    {
+      "url": "https://agentskills.io/specification",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://ai-engineering-academy-3cy.pages.dev/",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://ai-engineering-academy-3cy.pages.dev/biblioteca",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://ai-engineering-academy-3cy.pages.dev/laboratorios",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://arxiv.org/abs/1706.03762",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://arxiv.org/abs/1902.10186",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://arxiv.org/abs/2005.11401",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://c4model.com/",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://developer.mozilla.org/en-US/docs/Glossary/Idempotent",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://developer.mozilla.org/pt-BR/docs/Web/HTTP",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://diataxis.fr/",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://docs.docker.com/",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://docs.langchain.com/oss/python/langgraph/overview",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://docs.ollama.com/",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://docs.ollama.com/api/chat",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://docs.pydantic.dev/latest/concepts/models/",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://docs.pytest.org/en/stable/how-to/cache.html",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://docs.python.org/3/library/asyncio.html",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://docs.python.org/3/library/typing.html",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://docs.pytorch.org/docs/stable/autograd.html",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://docs.pytorch.org/docs/stable/index.html",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://docs.pytorch.org/docs/stable/notes/randomness.html",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://docs.pytorch.org/tutorials/beginner/basics/optimization_tutorial.html",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.softmax.html",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://fastapi.tiangolo.com/",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://fastapi.tiangolo.com/tutorial/body/",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://fastapi.tiangolo.com/tutorial/testing/",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://genai.owasp.org/",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://genai.owasp.org/llmrisk/llm01-prompt-injection/",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://genai.owasp.org/llmrisk/llm02-sensitive-information-disclosure/",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://genai.owasp.org/llmrisk/llm06-excessive-agency/",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://github.com/AirtonNettu/ai-engineering-academy-/actions/workflows/quality.yml",
+      "status": 200,
+      "finalUrl": "https://github.com/AirtonNettu/ai-engineering-academy-/actions/workflows/quality.yml"
+    },
+    {
+      "url": "https://github.com/AirtonNettu/ai-engineering-academy-/actions/workflows/quality.yml/badge.svg",
+      "status": 200,
+      "finalUrl": "https://github.com/AirtonNettu/ai-engineering-academy-/actions/workflows/quality.yml/badge.svg"
+    },
+    {
+      "url": "https://github.com/AirtonNettu/ai-engineering-academy-/blob/a95ebdc/content/chapters/carreira-ai-engineer.md",
+      "status": 200,
+      "finalUrl": "https://github.com/AirtonNettu/ai-engineering-academy-/blob/a95ebdc/content/chapters/carreira-ai-engineer.md"
+    },
+    {
+      "url": "https://github.com/AirtonNettu/ai-engineering-academy-/blob/a95ebdc/content/chapters/embeddings-busca.md",
+      "status": 200,
+      "finalUrl": "https://github.com/AirtonNettu/ai-engineering-academy-/blob/a95ebdc/content/chapters/embeddings-busca.md"
+    },
+    {
+      "url": "https://github.com/AirtonNettu/ai-engineering-academy-/blob/a95ebdc/content/chapters/mcp-agentes.md",
+      "status": 200,
+      "finalUrl": "https://github.com/AirtonNettu/ai-engineering-academy-/blob/a95ebdc/content/chapters/mcp-agentes.md"
+    },
+    {
+      "url": "https://github.com/AirtonNettu/ai-engineering-academy-/blob/a95ebdc/content/chapters/ollama-fastapi.md",
+      "status": 200,
+      "finalUrl": "https://github.com/AirtonNettu/ai-engineering-academy-/blob/a95ebdc/content/chapters/ollama-fastapi.md"
+    },
+    {
+      "url": "https://github.com/AirtonNettu/ai-engineering-academy-/blob/a95ebdc/content/chapters/producao-evals.md",
+      "status": 200,
+      "finalUrl": "https://github.com/AirtonNettu/ai-engineering-academy-/blob/a95ebdc/content/chapters/producao-evals.md"
+    },
+    {
+      "url": "https://github.com/AirtonNettu/ai-engineering-academy-/blob/a95ebdc/content/chapters/rag-finetuning.md",
+      "status": 200,
+      "finalUrl": "https://github.com/AirtonNettu/ai-engineering-academy-/blob/a95ebdc/content/chapters/rag-finetuning.md"
+    },
+    {
+      "url": "https://github.com/AirtonNettu/ai-engineering-academy-/blob/a95ebdc/content/chapters/rag.md",
+      "status": 200,
+      "finalUrl": "https://github.com/AirtonNettu/ai-engineering-academy-/blob/a95ebdc/content/chapters/rag.md"
+    },
+    {
+      "url": "https://github.com/AirtonNettu/ai-engineering-academy-/blob/a95ebdc/content/chapters/redes-neurais.md",
+      "status": 200,
+      "finalUrl": "https://github.com/AirtonNettu/ai-engineering-academy-/blob/a95ebdc/content/chapters/redes-neurais.md"
+    },
+    {
+      "url": "https://github.com/AirtonNettu/ai-engineering-academy-/blob/a95ebdc/content/chapters/seguranca-avaliacao.md",
+      "status": 200,
+      "finalUrl": "https://github.com/AirtonNettu/ai-engineering-academy-/blob/a95ebdc/content/chapters/seguranca-avaliacao.md"
+    },
+    {
+      "url": "https://github.com/AirtonNettu/ai-engineering-academy-/blob/a95ebdc/content/chapters/treinamento-avaliacao.md",
+      "status": 200,
+      "finalUrl": "https://github.com/AirtonNettu/ai-engineering-academy-/blob/a95ebdc/content/chapters/treinamento-avaliacao.md"
+    },
+    {
+      "url": "https://github.com/anthropics/skills/tree/main/skills/frontend-design",
+      "status": 200,
+      "finalUrl": "https://github.com/anthropics/skills/tree/main/skills/frontend-design"
+    },
+    {
+      "url": "https://github.com/anthropics/skills/tree/main/skills/skill-creator",
+      "status": 200,
+      "finalUrl": "https://github.com/anthropics/skills/tree/main/skills/skill-creator"
+    },
+    {
+      "url": "https://github.com/anthropics/skills/tree/main/skills/webapp-testing",
+      "status": 200,
+      "finalUrl": "https://github.com/anthropics/skills/tree/main/skills/webapp-testing"
+    },
+    {
+      "url": "https://huggingface.co/docs/peft/conceptual_guides/lora",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/docs/peft/index",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/docs/transformers/index",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/docs/transformers/kv_cache",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/docs/transformers/main_classes/text_generation",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/docs/transformers/main/en/llm_tutorial",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/docs/transformers/quantization/overview",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://img.shields.io/badge/Cloudflare%20Pages-Academy-orange",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://img.shields.io/badge/licen%C3%A7a-MIT-green",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://modelcontextprotocol.io/",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://modelcontextprotocol.io/docs/getting-started/intro",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://modelcontextprotocol.io/docs/learn/architecture",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://osv.dev/vulnerability/PYSEC-2026-161",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://osv.dev/vulnerability/PYSEC-2026-1845",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://osv.dev/vulnerability/PYSEC-2026-2280",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://osv.dev/vulnerability/PYSEC-2026-2281",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://osv.dev/vulnerability/PYSEC-2026-248",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://osv.dev/vulnerability/PYSEC-2026-249",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://playwright.dev/",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://react.dev/",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://skills.sh/",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://www.python-httpx.org/advanced/transports/",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://www.python-httpx.org/async/",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://www.sbert.net/",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://www.sbert.net/docs/sentence_transformer/usage/semantic_textual_similarity.html",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://www.sbert.net/examples/sparse_encoder/applications/hybrid_search/README.html",
+      "status": null,
+      "error": "TypeError: fetch failed"
+    }
+  ]
+}
