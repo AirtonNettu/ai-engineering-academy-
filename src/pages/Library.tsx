@@ -74,6 +74,7 @@ export default function Library() {
           lidos neste navegador
         </span>
       </div>
+      <h2 className="sr-only">Capítulos disponíveis</h2>
       {filtered.length ? (
         <div className="chapter-grid library-grid">
           {filtered.map((c) => (

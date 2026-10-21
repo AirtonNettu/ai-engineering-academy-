@@ -406,7 +406,7 @@ export function Diagram({ id = 'rag' }: { id?: string }) {
                 transform={`translate(${p.x} ${p.y})`}
                 role="button"
                 tabIndex={0}
-                aria-label={`Selecionar ${n.title} no mapa`}
+                aria-label={`Selecionar ${n.title}${n.optional ? ' opcional' : ''} no mapa`}
                 aria-pressed={active}
                 onPointerDown={(e) => e.stopPropagation()}
                 onClick={() => choose(n)}
@@ -429,7 +429,7 @@ export function Diagram({ id = 'rag' }: { id?: string }) {
                 )}
                 {n.optional && (
                   <text x="46" y="29" className="atlas-optional-label">
-                    OPCIONAL
+                    {' OPCIONAL'}
                   </text>
                 )}
               </g>

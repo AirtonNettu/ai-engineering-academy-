@@ -2,7 +2,7 @@
 
 ## Decisão principal
 
-Site estático construído com React 19, TypeScript estrito e Vite. React Router controla URLs; cada rota editorial recebe um HTML de entrada com metadados específicos. Cloudflare Pages é destino futuro, sem deploy configurado. Não há backend público, banco de dados, login, coleta de analytics ou execução remota de código.
+Site estático construído com React 19, TypeScript estrito e Vite. React Router controla URLs; cada rota editorial recebe um HTML de entrada com metadados específicos. Cloudflare Pages é o destino estático informado pelo proprietário; configuração remota não foi acessível nesta revisão. Esta branch não publica. Não há backend público, banco de dados, login, coleta de analytics ou execução remota de código.
 
 ```mermaid
 flowchart LR
@@ -41,7 +41,7 @@ Headers em `public/_headers` definem CSP restrita, nosniff, DENY, referrer polic
 
 ## SEO e performance
 
-Build gera HTML com title/description por rota e canonical/sitemap quando SITE_URL está definido. Sem domínio aprovado, robots bloqueia indexação. A aplicação depende de JS; SSR/prerender editorial completo não foi implementado. Frontend não baixa modelos. Não há fontes externas nem imagens pesadas. Código do exemplo e capítulos são carregados conforme a navegação; o realce é um chunk separado. Arquivos de assets com hash podem ser cacheados por um ano.
+Build gera HTML com title/description por rota e canonical/sitemap quando SITE_URL está definido. Sem domínio aprovado, robots bloqueia indexação. O build pré-renderiza os 15 capítulos com ReactMarkdown seguro para leitura sem JS. O mesmo root é substituído pelo React no navegador, sem hidratação parcial. Interações e demais páginas continuam em React; não há SSR em execução. Frontend não baixa modelos. Não há fontes externas nem imagens pesadas. Código do exemplo e capítulos são carregados conforme a navegação; o realce é um chunk separado. Arquivos de assets com hash podem ser cacheados por um ano.
 
 ## Alternativas e justificativas
 
@@ -54,3 +54,5 @@ MDX foi descartado para evitar código em material editorial; react-markdown for
 `src/labs` contém funções puras e componentes independentes. Rede 2–3–1 XOR usa tanh/sigmoid/MSE e gradiente batch; atenção calcula projeções, scores, softmax e saída; embeddings usa vetores manuais e ranking em 4D. SVG é apenas visualização; o layout 2D não altera os dados originais. `SourcePreview` e a página de laboratório exibem os módulos reais por importação raw. Os dados inteiros permanecem pequenos; não são baixados pesos ou fontes de terceiros.
 
 ADRs e limites em [ADR 0004](adr/0004-advanced-learning.md), [dados locais](learning-data.md) e [aceite](issue-2-acceptance.md). As URLs anteriores permanecem. Novas rotas: /laboratorios, /laboratorios/:labId, /estudar/:id, /flashcards e /meus-dados. Metadados estáticos incluem páginas públicas dos labs; URLs de dados privados e percurso não entram no sitemap.
+
+Detalhes e evidências da consolidação: [ADR 0005](adr/0005-static-reading-and-quality.md) e [relatório](consolidation/report.md).

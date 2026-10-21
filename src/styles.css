@@ -292,7 +292,9 @@ button:hover:not(:disabled) {
   flex-direction: column;
 }
 .topbar {
-  height: 75px;
+  min-height: 75px;
+  flex-wrap: wrap;
+  height: auto;
   border-bottom: 1px solid var(--border);
   padding: 0 42px;
   display: flex;
@@ -367,7 +369,7 @@ button:hover:not(:disabled) {
   width: 100%;
   padding: 46px 48px 38px;
   margin: 0 auto;
-  min-height: 65vh;
+  min-height: calc(100svh - 75px);
   outline: none;
 }
 .eyebrow {
@@ -2375,7 +2377,8 @@ button:hover:not(:disabled) {
     border-radius: 0;
   }
   .topbar {
-    height: 65px;
+    min-height: 65px;
+    height: auto;
     padding: 0 22px;
   }
   .topbar-location {
@@ -3030,4 +3033,23 @@ button:hover:not(:disabled) {
 
 .sidebar {
   overflow-y: auto;
+}
+
+/* Fallback de leitura gerado no build; os controles interativos usam o app. */
+.static-reading {
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: clamp(1rem, 4vw, 3rem);
+}
+.static-reading pre {
+  padding: 1rem;
+  overflow: auto;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+}
+
+@media (max-width: 760px) {
+  .page-content {
+    min-height: calc(100svh - 65px);
+  }
 }

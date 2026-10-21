@@ -1,6 +1,6 @@
-# Hospedagem estática — destino futuro
+# Hospedagem estática — configuração e publicação aprovada
 
-Nenhum deploy de produção está autorizado ou configurado. O workflow de qualidade não publica. Este documento descreve o procedimento para quando o proprietário aprovar.
+A URL Pages informada pelo proprietário é https://ai-engineering-academy-3cy.pages.dev/ . O painel não foi acessado nesta revisão. Nenhum deploy desta branch está autorizado. O workflow de qualidade não publica. Este documento descreve o procedimento para quando o proprietário aprovar.
 
 ## Cloudflare Pages
 
@@ -11,7 +11,7 @@ Nenhum deploy de produção está autorizado ou configurado. O workflow de quali
 5. Faça a validação de ambiente de revisão autorizada, incluindo carregamento direto de /capitulos/rag e /projetos/fastapi-ollama.
 6. Confira _headers e _redirects, canonical, sitemap, robots e ausência de chamadas administrativas no navegador. Deploy e merge na main exigem autorização explícita do proprietário.
 
-Os serviços Pages leem _headers/_redirects; vite preview não aplica esses headers. O fallback SPA resolve rotas não correspondidas. HTML por rota fornece metadados; conteúdo ainda é renderizado por JS. O servidor pode retornar HTTP 200 para uma rota desconhecida (soft 404), com mensagem 404 na interface. Para SEO rigoroso em escala, planejar prerender/controle de status.
+Os serviços Pages leem _headers/_redirects; vite preview não aplica esses headers. O fallback SPA resolve rotas não correspondidas. HTML por rota fornece metadados; capítulos incluem texto estático seguro; controles e demais páginas são renderizados por JS. O servidor pode retornar HTTP 200 para uma rota desconhecida (soft 404), com mensagem 404 na interface. O fallback estático dos capítulos não resolve status de rotas inexistentes; controle de 404 depende do provedor/arquitetura de publicação.
 
 ## Indexação
 
@@ -28,3 +28,5 @@ Guarde o SHA de cada build aprovado. Use uma publicação anterior aprovada no p
 ## Rotas de aprendizagem avançada
 
 O mesmo build estático inclui `/laboratorios`, suas três páginas, `/flashcards`, `/meus-dados` e `/estudar/:id`. Mantenha o fallback SPA existente. Dados e percursos privados não entram no sitemap; nenhum backend é necessário. Esta alteração não autoriza nem executa deploy.
+
+Use a [checklist final](consolidation/publication-checklist.md). `SITE_URL` rejeita credenciais, caminhos, query e fragmento. Canonical e Open Graph são específicos por rota pública; busca/dados/percurso recebem noindex e não entram no sitemap. Sem SITE_URL, todas as páginas têm noindex e robots bloqueia indexação.
