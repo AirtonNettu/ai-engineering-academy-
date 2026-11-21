@@ -1,5 +1,5 @@
 import { existsSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
-import { dirname, extname, resolve } from 'node:path';
+import { dirname, extname, resolve, relative, isAbsolute } from 'node:path';
 import { fromMarkdown } from 'mdast-util-from-markdown';
 import { publicRoutes } from '../src/lib/routes';
 
@@ -53,7 +53,8 @@ for (const file of files(root)) {
       dirname(file),
       decodeURIComponent(href.split(/[?#]/)[0]),
     );
-    if (!path.startsWith(root + '/') || !existsSync(path))
+    const rel = relative(root, path);
+    if (rel.startsWith('..') || isAbsolute(rel) || !existsSync(path))
       errors.push(`${file}: destino ausente ${href}`);
   }
 }

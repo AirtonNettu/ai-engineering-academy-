@@ -1,0 +1,77 @@
+name: Security Audit
+on:
+  schedule:
+    - cron: '0 4 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: security-audit-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  audit-npm:
+    name: Auditoria de vulnerabilidades npm
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: '24'
+          cache: npm
+      - name: Verificar vulnerabilidades com npm audit
+        run: |
+          AUDIT_OUTPUT=$(npm audit --json 2>&1) || AUDIT_EXIT=$?
+          echo "$AUDIT_OUTPUT" > npm-audit-report.json
+          if [ -z "$AUDIT_EXIT" ] || [ "$AUDIT_EXIT" -eq 0 ]; then
+            echo "Nenhuma vulnerabilidade reportada pelo npm audit."
+          elif [ "$AUDIT_EXIT" -eq 1 ]; then
+            echo "::warning::Vulnerabilidades detectadas pelo npm audit. Consulte o relatório gerado."
+          else
+            echo "::error::Falha de execução na ferramenta npm audit (código de saída: $AUDIT_EXIT)"
+            exit $AUDIT_EXIT
+          fi
+      - uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 # v4.6.1
+        if: always()
+        with:
+          name: npm-audit-report
+          path: npm-audit-report.json
+          retention-days: 7
+
+  audit-python:
+    name: Auditoria de dependências Python
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: examples/fastapi-ollama/requirements.lock.txt
+      - name: Validar integridade e compatibilidade com pip check
+        run: |
+          python -m pip install -r examples/fastapi-ollama/requirements.lock.txt
+          python -m pip check
+      - name: Verificar vulnerabilidades com pip-audit
+        run: |
+          python -m pip install pip-audit
+          AUDIT_OUTPUT=$(python -m pip_audit -r examples/fastapi-ollama/requirements.lock.txt --format json 2>&1) || AUDIT_EXIT=$?
+          echo "$AUDIT_OUTPUT" > python-audit-report.json
+          if [ -z "$AUDIT_EXIT" ] || [ "$AUDIT_EXIT" -eq 0 ]; then
+            echo "Nenhuma vulnerabilidade reportada pelo pip-audit."
+          elif [ "$AUDIT_EXIT" -eq 1 ]; then
+            echo "::warning::Vulnerabilidades detectadas pelo pip-audit. Consulte o relatório gerado."
+          else
+            echo "::error::Falha de execução na ferramenta pip-audit (código de saída: $AUDIT_EXIT)"
+            exit $AUDIT_EXIT
+          fi
+      - uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 # v4.6.1
+        if: always()
+        with:
+          name: python-audit-report
+          path: python-audit-report.json
+          retention-days: 7

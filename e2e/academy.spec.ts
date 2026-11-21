@@ -150,6 +150,8 @@ test('acessibilidade automatizada em páginas representativas e temas', async ({
     ).toEqual([]);
   }
   await page.getByRole('button', { name: 'Ativar modo escuro' }).click();
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+  await page.waitForTimeout(300);
   const dark = await new AxeBuilder({ page })
     .withTags(['wcag2a', 'wcag2aa', 'wcag21aa'])
     .analyze();

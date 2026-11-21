@@ -4,7 +4,7 @@ Obrigado por ajudar a proteger a IA Engineer Academy.
 
 ## Como reportar vulnerabilidades
 
-**Não publique vulnerabilidades exploráveis em issues públicas.** Use o recurso **Report a vulnerability** na aba Security do GitHub, caso esteja habilitado. Se não estiver disponível, solicite um canal privado ao mantenedor sem enviar detalhes exploráveis em público e aguarde a orientação. Não há um endereço privado de contato publicado ou recurso de mensagem direta do GitHub presumido por esta política.
+**Não publique vulnerabilidades exploráveis em issues públicas.** Utilize o recurso **Report a vulnerability** (Private Vulnerability Reporting) diretamente na aba [Security do repositório](https://github.com/AirtonNettu/ai-engineering-academy-/security/advisories/new), que está ativo e configurado como canal privado oficial. Se houver qualquer impedimento técnico no envio pelo GitHub, entre em contato privadamente com o mantenedor para orientações de divulgação coordenada, sem incluir detalhes exploráveis em público.
 
 Inclua impacto, versão/commit, passos mínimos para reproduzir e possíveis mitigações. Não envie senhas, tokens ou dados pessoais.
 

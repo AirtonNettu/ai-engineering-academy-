@@ -59,7 +59,7 @@ npm run test:e2e
 
 Leia [CONTRIBUTING.md](CONTRIBUTING.md), [SECURITY.md](SECURITY.md) e [AGENTS.md](AGENTS.md). Mudanças passam por revisão; sem publicação automática de textos de IA, merge, deploy ou release. Progresso e revisões ficam neste navegador, sem sincronização ou telemetria; exporte backups.
 
-[Guia completo](docs/platform-guide.md) · [Arquitetura](docs/architecture.md) · [Manutenção](docs/maintenance.md) · [Testes](docs/testing.md) · [Relatório de consolidação](docs/consolidation/report.md) · [Publicação](docs/deployment.md) · [Changelog](CHANGELOG.md)
+[Índice de documentação](docs/README.md) · [Guia completo](docs/platform-guide.md) · [Arquitetura](docs/architecture.md) · [Manutenção](docs/maintenance.md) · [Testes](docs/testing.md) · [Publicação](docs/deployment.md) · [Changelog](CHANGELOG.md)
 
 A renomeação para `ai-engineering-academy` está apenas [preparada](docs/repository-rename-checklist.md), sujeita a autorização. O pacote npm `ia-engineer-academy` e a versão 1.0.0 foram preservados.
 
