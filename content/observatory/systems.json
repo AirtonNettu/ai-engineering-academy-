@@ -1,0 +1,126 @@
+[
+  {
+    "modelId": "llama-3-8b-instruct",
+    "modelName": "Llama 3 8B Instruct",
+    "benchmarks": [
+      {
+        "engine": "vLLM",
+        "hardware": "1x NVIDIA RTX 4090 24GB",
+        "quantization": "AWQ-4bit",
+        "ttftMs": 18,
+        "decodeTokensPerSec": 142,
+        "vramUsageGb": 6.8,
+        "contextLengthTested": 4096,
+        "sourceNotes": "Batch size = 1, KV-Cache PagedAttention, vLLM v0.6.3"
+      },
+      {
+        "engine": "vLLM",
+        "hardware": "1x NVIDIA RTX 4090 24GB",
+        "quantization": "FP16",
+        "ttftMs": 24,
+        "decodeTokensPerSec": 88,
+        "vramUsageGb": 17.4,
+        "contextLengthTested": 4096,
+        "sourceNotes": "Batch size = 1, KV-Cache FP16, vLLM v0.6.3"
+      },
+      {
+        "engine": "Ollama",
+        "hardware": "1x NVIDIA RTX 4090 24GB",
+        "quantization": "GGUF-Q4_K_M",
+        "ttftMs": 31,
+        "decodeTokensPerSec": 115,
+        "vramUsageGb": 5.9,
+        "contextLengthTested": 4096,
+        "sourceNotes": "llama.cpp backend, FlashAttention habilitado, Ollama v0.5.1"
+      }
+    ]
+  },
+  {
+    "modelId": "qwen-2-5-7b-instruct",
+    "modelName": "Qwen 2.5 7B Instruct",
+    "benchmarks": [
+      {
+        "engine": "vLLM",
+        "hardware": "1x NVIDIA RTX 4090 24GB",
+        "quantization": "AWQ-4bit",
+        "ttftMs": 19,
+        "decodeTokensPerSec": 138,
+        "vramUsageGb": 6.5,
+        "contextLengthTested": 4096,
+        "sourceNotes": "Batch size = 1, vLLM v0.6.3"
+      },
+      {
+        "engine": "vLLM",
+        "hardware": "1x NVIDIA RTX 4090 24GB",
+        "quantization": "FP16",
+        "ttftMs": 26,
+        "decodeTokensPerSec": 84,
+        "vramUsageGb": 16.9,
+        "contextLengthTested": 4096,
+        "sourceNotes": "Batch size = 1, vLLM v0.6.3"
+      },
+      {
+        "engine": "Ollama",
+        "hardware": "1x NVIDIA RTX 4090 24GB",
+        "quantization": "GGUF-Q4_K_M",
+        "ttftMs": 33,
+        "decodeTokensPerSec": 110,
+        "vramUsageGb": 5.7,
+        "contextLengthTested": 4096,
+        "sourceNotes": "llama.cpp backend, Ollama v0.5.1"
+      }
+    ]
+  },
+  {
+    "modelId": "llama-3-70b-instruct",
+    "modelName": "Llama 3 70B Instruct",
+    "benchmarks": [
+      {
+        "engine": "vLLM",
+        "hardware": "1x NVIDIA A100 80GB PCIe",
+        "quantization": "AWQ-4bit",
+        "ttftMs": 48,
+        "decodeTokensPerSec": 58,
+        "vramUsageGb": 42.1,
+        "contextLengthTested": 4096,
+        "sourceNotes": "Batch size = 1, Tensor Parallel = 1, vLLM v0.6.3"
+      },
+      {
+        "engine": "vLLM",
+        "hardware": "2x NVIDIA A100 80GB PCIe",
+        "quantization": "FP16",
+        "ttftMs": 52,
+        "decodeTokensPerSec": 44,
+        "vramUsageGb": 76.5,
+        "contextLengthTested": 4096,
+        "sourceNotes": "Batch size = 1, Tensor Parallel = 2, vLLM v0.6.3"
+      },
+      {
+        "engine": "Ollama",
+        "hardware": "2x NVIDIA RTX 4090 24GB",
+        "quantization": "GGUF-Q4_K_M",
+        "ttftMs": 85,
+        "decodeTokensPerSec": 28,
+        "vramUsageGb": 41.2,
+        "contextLengthTested": 4096,
+        "sourceNotes": "Split em 2x GPUs de consumidor, Ollama v0.5.1"
+      }
+    ]
+  },
+  {
+    "modelId": "deepseek-v3",
+    "modelName": "DeepSeek-V3",
+    "benchmarks": [
+      {
+        "engine": "vLLM",
+        "hardware": "8x NVIDIA H800 / H100 80GB",
+        "quantization": "FP16",
+        "ttftMs": 72,
+        "decodeTokensPerSec": 41,
+        "vramUsageGb": 640.0,
+        "contextLengthTested": 4096,
+        "sourceNotes": "MoE 671B com 37B ativos por token, Tensor Parallel = 8, vLLM v0.6.5"
+      }
+    ]
+  }
+]

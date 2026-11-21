@@ -4,6 +4,8 @@ import { slug } from './slug';
 export const publicRoutes = [
   '/',
   '/biblioteca',
+  '/pesquisa',
+  '/observatorio',
   '/trilhas',
   '/arquiteturas',
   '/projetos/fastapi-ollama',

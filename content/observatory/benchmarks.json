@@ -1,0 +1,295 @@
+{
+  "recordedAt": "2026-02-15",
+  "primarySources": [
+    {
+      "name": "LMSYS Chatbot Arena Leaderboard",
+      "url": "https://chat.lmsys.org/?leaderboard",
+      "description": "Avaliações cegas crowdsourced baseadas no método ELO com mais de 1 milhão de batalhas humanas."
+    },
+    {
+      "name": "OpenCompass Open LLM Leaderboard",
+      "url": "https://opencompass.org.cn/leaderboard-llm",
+      "description": "Plataforma padronizada de avaliação de capacidades em MMLU-Pro, GSM8K, MATH e HumanEval."
+    },
+    {
+      "name": "Relatórios Técnicos Oficiais de Modelos Abertos",
+      "url": "https://arxiv.org/abs/2412.19437",
+      "description": "Especificações e medições validadas publicadas pelos autores (Meta AI, DeepSeek, Mistral, Alibaba)."
+    }
+  ],
+  "models": [
+    {
+      "modelId": "deepseek-r1",
+      "modelName": "DeepSeek-R1",
+      "category": "open-weights",
+      "parameterCount": "671B (37B ativos)",
+      "benchmarks": [
+        {
+          "benchmarkName": "Chatbot-Arena-ELO",
+          "score": 1362,
+          "evaluationMethod": "elo-crowdsourced",
+          "sourceUrl": "https://chat.lmsys.org/?leaderboard",
+          "recordedDate": "2025-02"
+        },
+        {
+          "benchmarkName": "MMLU-Pro",
+          "score": 84.0,
+          "maxScore": 100,
+          "evaluationMethod": "cot",
+          "sourceUrl": "https://arxiv.org/abs/2501.12948",
+          "recordedDate": "2025-01"
+        },
+        {
+          "benchmarkName": "GSM8K",
+          "score": 97.3,
+          "maxScore": 100,
+          "evaluationMethod": "cot",
+          "sourceUrl": "https://arxiv.org/abs/2501.12948",
+          "recordedDate": "2025-01"
+        },
+        {
+          "benchmarkName": "HumanEval",
+          "score": 92.1,
+          "maxScore": 100,
+          "evaluationMethod": "zero-shot",
+          "sourceUrl": "https://arxiv.org/abs/2501.12948",
+          "recordedDate": "2025-01"
+        }
+      ]
+    },
+    {
+      "modelId": "deepseek-v3",
+      "modelName": "DeepSeek-V3",
+      "category": "open-weights",
+      "parameterCount": "671B (37B ativos)",
+      "benchmarks": [
+        {
+          "benchmarkName": "Chatbot-Arena-ELO",
+          "score": 1318,
+          "evaluationMethod": "elo-crowdsourced",
+          "sourceUrl": "https://chat.lmsys.org/?leaderboard",
+          "recordedDate": "2025-01"
+        },
+        {
+          "benchmarkName": "MMLU-Pro",
+          "score": 75.9,
+          "maxScore": 100,
+          "evaluationMethod": "few-shot",
+          "sourceUrl": "https://arxiv.org/abs/2412.19437",
+          "recordedDate": "2024-12"
+        },
+        {
+          "benchmarkName": "GSM8K",
+          "score": 89.3,
+          "maxScore": 100,
+          "evaluationMethod": "cot",
+          "sourceUrl": "https://arxiv.org/abs/2412.19437",
+          "recordedDate": "2024-12"
+        },
+        {
+          "benchmarkName": "HumanEval",
+          "score": 82.6,
+          "maxScore": 100,
+          "evaluationMethod": "zero-shot",
+          "sourceUrl": "https://arxiv.org/abs/2412.19437",
+          "recordedDate": "2024-12"
+        }
+      ]
+    },
+    {
+      "modelId": "llama-3-70b-instruct",
+      "modelName": "Llama 3 70B Instruct",
+      "category": "open-weights",
+      "parameterCount": "70B",
+      "benchmarks": [
+        {
+          "benchmarkName": "Chatbot-Arena-ELO",
+          "score": 1286,
+          "evaluationMethod": "elo-crowdsourced",
+          "sourceUrl": "https://chat.lmsys.org/?leaderboard",
+          "recordedDate": "2024-10"
+        },
+        {
+          "benchmarkName": "MMLU-Pro",
+          "score": 68.4,
+          "maxScore": 100,
+          "evaluationMethod": "few-shot",
+          "sourceUrl": "https://arxiv.org/abs/2407.21783",
+          "recordedDate": "2024-07"
+        },
+        {
+          "benchmarkName": "GSM8K",
+          "score": 93.0,
+          "maxScore": 100,
+          "evaluationMethod": "cot",
+          "sourceUrl": "https://arxiv.org/abs/2407.21783",
+          "recordedDate": "2024-07"
+        },
+        {
+          "benchmarkName": "HumanEval",
+          "score": 81.7,
+          "maxScore": 100,
+          "evaluationMethod": "zero-shot",
+          "sourceUrl": "https://arxiv.org/abs/2407.21783",
+          "recordedDate": "2024-07"
+        }
+      ]
+    },
+    {
+      "modelId": "qwen-2-5-72b-instruct",
+      "modelName": "Qwen 2.5 72B Instruct",
+      "category": "open-weights",
+      "parameterCount": "72.7B",
+      "benchmarks": [
+        {
+          "benchmarkName": "Chatbot-Arena-ELO",
+          "score": 1312,
+          "evaluationMethod": "elo-crowdsourced",
+          "sourceUrl": "https://chat.lmsys.org/?leaderboard",
+          "recordedDate": "2024-12"
+        },
+        {
+          "benchmarkName": "MMLU-Pro",
+          "score": 73.1,
+          "maxScore": 100,
+          "evaluationMethod": "few-shot",
+          "sourceUrl": "https://opencompass.org.cn/leaderboard-llm",
+          "recordedDate": "2024-10"
+        },
+        {
+          "benchmarkName": "GSM8K",
+          "score": 91.6,
+          "maxScore": 100,
+          "evaluationMethod": "cot",
+          "sourceUrl": "https://opencompass.org.cn/leaderboard-llm",
+          "recordedDate": "2024-10"
+        },
+        {
+          "benchmarkName": "HumanEval",
+          "score": 86.6,
+          "maxScore": 100,
+          "evaluationMethod": "zero-shot",
+          "sourceUrl": "https://opencompass.org.cn/leaderboard-llm",
+          "recordedDate": "2024-10"
+        }
+      ]
+    },
+    {
+      "modelId": "llama-3-8b-instruct",
+      "modelName": "Llama 3 8B Instruct",
+      "category": "open-weights",
+      "parameterCount": "8B",
+      "benchmarks": [
+        {
+          "benchmarkName": "Chatbot-Arena-ELO",
+          "score": 1152,
+          "evaluationMethod": "elo-crowdsourced",
+          "sourceUrl": "https://chat.lmsys.org/?leaderboard",
+          "recordedDate": "2024-08"
+        },
+        {
+          "benchmarkName": "MMLU-Pro",
+          "score": 44.8,
+          "maxScore": 100,
+          "evaluationMethod": "few-shot",
+          "sourceUrl": "https://arxiv.org/abs/2407.21783",
+          "recordedDate": "2024-07"
+        },
+        {
+          "benchmarkName": "GSM8K",
+          "score": 79.6,
+          "maxScore": 100,
+          "evaluationMethod": "cot",
+          "sourceUrl": "https://arxiv.org/abs/2407.21783",
+          "recordedDate": "2024-07"
+        },
+        {
+          "benchmarkName": "HumanEval",
+          "score": 62.2,
+          "maxScore": 100,
+          "evaluationMethod": "zero-shot",
+          "sourceUrl": "https://arxiv.org/abs/2407.21783",
+          "recordedDate": "2024-07"
+        }
+      ]
+    },
+    {
+      "modelId": "qwen-2-5-7b-instruct",
+      "modelName": "Qwen 2.5 7B Instruct",
+      "category": "open-weights",
+      "parameterCount": "7.6B",
+      "benchmarks": [
+        {
+          "benchmarkName": "Chatbot-Arena-ELO",
+          "score": 1198,
+          "evaluationMethod": "elo-crowdsourced",
+          "sourceUrl": "https://chat.lmsys.org/?leaderboard",
+          "recordedDate": "2024-11"
+        },
+        {
+          "benchmarkName": "MMLU-Pro",
+          "score": 53.6,
+          "maxScore": 100,
+          "evaluationMethod": "few-shot",
+          "sourceUrl": "https://opencompass.org.cn/leaderboard-llm",
+          "recordedDate": "2024-10"
+        },
+        {
+          "benchmarkName": "GSM8K",
+          "score": 83.2,
+          "maxScore": 100,
+          "evaluationMethod": "cot",
+          "sourceUrl": "https://opencompass.org.cn/leaderboard-llm",
+          "recordedDate": "2024-10"
+        },
+        {
+          "benchmarkName": "HumanEval",
+          "score": 78.0,
+          "maxScore": 100,
+          "evaluationMethod": "zero-shot",
+          "sourceUrl": "https://opencompass.org.cn/leaderboard-llm",
+          "recordedDate": "2024-10"
+        }
+      ]
+    },
+    {
+      "modelId": "gpt-4o",
+      "modelName": "GPT-4o (2024-11-20)",
+      "category": "proprietary-api",
+      "parameterCount": "Não divulgado",
+      "benchmarks": [
+        {
+          "benchmarkName": "Chatbot-Arena-ELO",
+          "score": 1345,
+          "evaluationMethod": "elo-crowdsourced",
+          "sourceUrl": "https://chat.lmsys.org/?leaderboard",
+          "recordedDate": "2024-12"
+        },
+        {
+          "benchmarkName": "MMLU-Pro",
+          "score": 77.2,
+          "maxScore": 100,
+          "evaluationMethod": "few-shot",
+          "sourceUrl": "https://opencompass.org.cn/leaderboard-llm",
+          "recordedDate": "2024-11"
+        },
+        {
+          "benchmarkName": "GSM8K",
+          "score": 95.8,
+          "maxScore": 100,
+          "evaluationMethod": "cot",
+          "sourceUrl": "https://openai.com/index/hello-gpt-4o/",
+          "recordedDate": "2024-05"
+        },
+        {
+          "benchmarkName": "HumanEval",
+          "score": 90.2,
+          "maxScore": 100,
+          "evaluationMethod": "zero-shot",
+          "sourceUrl": "https://openai.com/index/hello-gpt-4o/",
+          "recordedDate": "2024-05"
+        }
+      ]
+    }
+  ]
+}

@@ -16,6 +16,8 @@ Este diretório reúne o plano mestre, as decisões arquiteturais, os contratos 
 | [Avaliação de APIs Científicas](scientific-apis-evaluation.md)               | Análise de viabilidade de OpenAlex, arXiv, Hugging Face Hub e Papers with Code (Cotas R$ 0, licenças, rate limits e fallback estático).                       |
 | [Arquitetura e Contratos de Dados](architecture-and-contracts.md)            | Arquitetura técnica (Static Ingestion + Client-Side Cache), diagramas mermaid e contratos TypeScript estritos para Pesquisa, Atlas, Observatório e Editorial. |
 | [Critérios de Aceite e Quality Gates](acceptance-criteria.md)                | Critérios de aceite rastreáveis, checklist de auditoria independente e Definition of Done (DoD).                                                              |
+| [Relatório de Auditoria Independente](audit-report.md)                       | Avaliação técnica de segurança (OWASP), acessibilidade, proveniência dos dados, performance e ausência de regressões (Agente 20).                             |
+| [Relatório de Execução Multiagente](multi-agent-execution-report.md)         | Registro consolidado das atividades efetivamente executadas pelos 21 agentes nas 7 equipes especializadas.                                                    |
 
 ---
 

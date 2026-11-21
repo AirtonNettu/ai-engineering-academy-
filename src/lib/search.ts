@@ -1,4 +1,6 @@
 import { catalog, chapterUrl } from './content';
+import papersData from '../../content/research/papers.json' with { type: 'json' };
+import modelsDatasetsData from '../../content/research/models-datasets.json' with { type: 'json' };
 export type SearchItem = {
   id: string;
   title: string;
@@ -106,6 +108,32 @@ const index: SearchItem[] = [
     url: `/recursos#${c.id}`,
     terms: c.category,
   })),
+  ...papersData.map((p) => ({
+    id: `paper-${p.id}`,
+    title: p.title,
+    description: `${p.originalTitle} — ${p.abstractPtBr}`,
+    kind: 'Artigo Científico',
+    url: '/pesquisa',
+    terms: `${p.originalTitle} ${p.authors.map((a) => a.name).join(' ')} ${p.venue} ${p.keyFindings.join(' ')}`,
+  })),
+  ...modelsDatasetsData.models.map((m) => ({
+    id: `model-${m.id}`,
+    title: m.name,
+    description: `${m.architecture} (${m.parameterCount}, ${m.organization})`,
+    kind: 'Modelo',
+    url: '/pesquisa',
+    terms: `${m.organization} ${m.license} ${m.architecture} open weights`,
+  })),
+  {
+    id: 'observatory-benchmarks',
+    title: 'Observatório de IA: Benchmarks e Métricas',
+    description:
+      'Métricas analíticas verificáveis (MMLU-Pro, GSM8K, Arena ELO) e dados de serving vLLM/Ollama.',
+    kind: 'Observatório',
+    url: '/observatorio',
+    terms:
+      'observatório benchmark métricas throughput ttft vram latência serving',
+  },
   ...catalog.chapters.flatMap((c) =>
     c.sources.map((s, i) => ({
       id: `${c.id}-${i}`,

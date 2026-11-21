@@ -15,6 +15,16 @@ const routes: [string, string, string][] = [
     'Capítulos aprofundados, código e fontes para estudar engenharia de IA.',
   ],
   [
+    '/pesquisa',
+    'Centro de Pesquisa Científica',
+    'Artigos seminais, modelos de ML e datasets abertos para engenharia de IA.',
+  ],
+  [
+    '/observatorio',
+    'Observatório de Inteligência Artificial',
+    'Métricas verificáveis de benchmarks e medições de serving em produção.',
+  ],
+  [
     '/trilhas',
     'Trilhas profissionais',
     'Trilhas para AI Application Engineer, MLOps e desenvolvimento de modelos.',
