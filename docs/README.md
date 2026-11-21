@@ -51,7 +51,22 @@ Guia central de navegação para estudar, desenvolver, testar, manter e operar a
 
 ---
 
-## 5. Registros históricos e decisões de arquitetura
+## 5. IA Engineer Academy 2.0 (Planejamento e Arquitetura)
+
+| Documento                                                                      | Descrição                                                                                   |
+| :----------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------ |
+| [Índice Geral do Academy 2.0](v2/index.md)                                     | Visão geral do plano de evolução 2.0, centro de pesquisa, observatório e expansão do Atlas. |
+| [Plano Mestre de Implementação](v2/master-plan.md)                             | Cronograma em 5 fases, modelo operacional multiagente e matriz de dependências.             |
+| [Matriz de Responsabilidade dos 21 Agentes](v2/agent-responsibility-matrix.md) | Distribuição dos papéis, propriedade de arquivos (`File Ownership`) e revisão cruzada.      |
+| [Requisitos do Sistema 2.0](v2/requirements.md)                                | Requisitos funcionais, não funcionais e salvaguardas de não duplicação.                     |
+| [Avaliação de APIs Científicas](v2/scientific-apis-evaluation.md)              | Análise de viabilidade (OpenAlex, arXiv, Hugging Face, etc.), cotas R$ 0 e governança.      |
+| [Arquitetura e Contratos de Dados](v2/architecture-and-contracts.md)           | Topologia estática, diagramas de fluxo e interfaces TypeScript estritas.                    |
+| [Critérios de Aceite e Quality Gates](v2/acceptance-criteria.md)               | Critérios de aceite rastreáveis, quality gates por equipe e Definition of Done.             |
+| [ADRs da Versão 2.0](v2/adrs/ADR-001-static-research-center-offline-first.md)  | Decisões arquiteturais fundamentais para a evolução 2.0.                                    |
+
+---
+
+## 6. Registros históricos e decisões de arquitetura
 
 > [!IMPORTANT]
 > Os documentos a seguir são **registros históricos** de auditorias, entregas e decisões tomadas em marcos específicos do projeto. Eles refletem o estado no momento de sua elaboração e não devem ser interpretados como afirmações de validação em tempo real.
