@@ -53,7 +53,7 @@ npx playwright install chromium
 npm run test:e2e
 ```
 
-`check` reúne lint, formato, testes com cobertura, validação editorial, TypeScript e build. A cobertura exige no mínimo 80% por módulo matemático e de estado local nas quatro métricas. `npm run preview` serve o build. Para o exemplo Python e testes sem Ollama, siga [seu guia](examples/fastapi-ollama/README.md).
+`check` reúne lint, formato, testes com cobertura, validação editorial, TypeScript e build. A cobertura exige no mínimo 80% por arquivo nas quatro métricas **apenas nos cinco módulos selecionados**: `src/labs/neural.ts`, `src/labs/attention.ts`, `src/labs/embeddings.ts`, `src/learning/model.ts` e `src/learning/scheduler.ts`. O resultado de 100% nesses módulos não é cobertura de todo o projeto, da interface ou do Python. Veja [escopo e lacunas de testes](docs/consolidation-coverage.md). `npm run preview` serve o build. Para o exemplo Python e testes sem Ollama, siga [seu guia](examples/fastapi-ollama/README.md).
 
 ## Contribuir e manter
 

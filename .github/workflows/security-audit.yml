@@ -1,11 +1,21 @@
 name: Security Audit
 on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/security-audit.yml'
+      - 'scripts/audit-policy.py'
+      - 'scripts/tests/**'
   schedule:
     - cron: '0 4 * * 1'
   workflow_dispatch:
 
 permissions:
   contents: read
+
+defaults:
+  run:
+    shell: bash
 
 concurrency:
   group: security-audit-${{ github.ref }}
@@ -22,23 +32,25 @@ jobs:
         with:
           node-version: '24'
           cache: npm
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0
+        with:
+          python-version: '3.12'
+      - name: Testar política de auditoria
+        run: python -m unittest discover -s scripts/tests -v
       - name: Verificar vulnerabilidades com npm audit
         run: |
-          AUDIT_OUTPUT=$(npm audit --json 2>&1) || AUDIT_EXIT=$?
-          echo "$AUDIT_OUTPUT" > npm-audit-report.json
-          if [ -z "$AUDIT_EXIT" ] || [ "$AUDIT_EXIT" -eq 0 ]; then
-            echo "Nenhuma vulnerabilidade reportada pelo npm audit."
-          elif [ "$AUDIT_EXIT" -eq 1 ]; then
-            echo "::warning::Vulnerabilidades detectadas pelo npm audit. Consulte o relatório gerado."
-          else
-            echo "::error::Falha de execução na ferramenta npm audit (código de saída: $AUDIT_EXIT)"
-            exit $AUDIT_EXIT
-          fi
+          AUDIT_EXIT=0
+          npm audit --json --audit-level=info --include=dev > npm-audit-report.json 2> npm-audit-stderr.log || AUDIT_EXIT=$?
+          echo "$AUDIT_EXIT" > npm-audit-exit-code.txt
+          python scripts/audit-policy.py npm "$AUDIT_EXIT" npm-audit-report.json | tee -a "$GITHUB_STEP_SUMMARY"
       - uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 # v4.6.1
         if: always()
         with:
           name: npm-audit-report
-          path: npm-audit-report.json
+          path: |
+            npm-audit-report.json
+            npm-audit-stderr.log
+            npm-audit-exit-code.txt
           retention-days: 7
 
   audit-python:
@@ -59,19 +71,16 @@ jobs:
       - name: Verificar vulnerabilidades com pip-audit
         run: |
           python -m pip install pip-audit
-          AUDIT_OUTPUT=$(python -m pip_audit -r examples/fastapi-ollama/requirements.lock.txt --format json 2>&1) || AUDIT_EXIT=$?
-          echo "$AUDIT_OUTPUT" > python-audit-report.json
-          if [ -z "$AUDIT_EXIT" ] || [ "$AUDIT_EXIT" -eq 0 ]; then
-            echo "Nenhuma vulnerabilidade reportada pelo pip-audit."
-          elif [ "$AUDIT_EXIT" -eq 1 ]; then
-            echo "::warning::Vulnerabilidades detectadas pelo pip-audit. Consulte o relatório gerado."
-          else
-            echo "::error::Falha de execução na ferramenta pip-audit (código de saída: $AUDIT_EXIT)"
-            exit $AUDIT_EXIT
-          fi
+          AUDIT_EXIT=0
+          python -m pip_audit -r examples/fastapi-ollama/requirements.lock.txt --format json > python-audit-report.json 2> python-audit-stderr.log || AUDIT_EXIT=$?
+          echo "$AUDIT_EXIT" > python-audit-exit-code.txt
+          python scripts/audit-policy.py python "$AUDIT_EXIT" python-audit-report.json | tee -a "$GITHUB_STEP_SUMMARY"
       - uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 # v4.6.1
         if: always()
         with:
           name: python-audit-report
-          path: python-audit-report.json
+          path: |
+            python-audit-report.json
+            python-audit-stderr.log
+            python-audit-exit-code.txt
           retention-days: 7

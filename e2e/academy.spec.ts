@@ -128,6 +128,7 @@ test('rotas publicadas, links internos e layout sem overflow', async ({
 test('acessibilidade automatizada em páginas representativas e temas', async ({
   page,
 }) => {
+  test.setTimeout(90000);
   for (const path of [
     '/',
     '/capitulos/http-apis',
@@ -149,9 +150,34 @@ test('acessibilidade automatizada em páginas representativas e temas', async ({
       `${path}: ${JSON.stringify(results.violations.map((v) => ({ id: v.id, nodes: v.nodes.map((n) => n.target) })))}`,
     ).toEqual([]);
   }
+  // A transition longer than the old 300 ms delay guards against fixed sleeps.
+  await page.addStyleTag({
+    content: 'button { transition-duration: 1s !important; }',
+  });
   await page.getByRole('button', { name: 'Ativar modo escuro' }).click();
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
-  await page.waitForTimeout(300);
+  await page.evaluate(async () => {
+    // Flush the new theme's styles before collecting CSS transitions.
+    void getComputedStyle(document.body).color;
+    await Promise.all(
+      document
+        .getAnimations()
+        .filter((animation) => animation instanceof CSSTransition)
+        .map((transition) => transition.finished.catch(() => {})),
+    );
+  });
+  expect(
+    await page.evaluate(
+      () =>
+        document
+          .getAnimations()
+          .filter(
+            (animation) =>
+              animation instanceof CSSTransition &&
+              animation.playState === 'running',
+          ).length,
+    ),
+  ).toBe(0);
   const dark = await new AxeBuilder({ page })
     .withTags(['wcag2a', 'wcag2aa', 'wcag21aa'])
     .analyze();
