@@ -2,6 +2,15 @@
 
 ## Comandos
 
+Para testar a política de severidade e a distinção entre achados e falha
+operacional, sem consultar serviços externos:
+
+```bash
+python -m unittest discover -s scripts/tests -v
+```
+
+Os critérios e artefatos estão na [política de segurança](../SECURITY.md).
+
 Node 24+; instale com npm ci. Para a interface:
 
 ```bash
@@ -38,7 +47,7 @@ Para o exemplo Python, instale requirements.lock.txt em um ambiente virtual e ex
 | npm audit       | zero vulnerabilidades conhecidas após atualizar Vitest/ESLint                               |
 | Revisão visual  | capturas inspecionadas em 1440px e 390px; sem overflow nos testes de rotas                  |
 
-As contagens descrevem testes executados, não percentuais de cobertura de código. Não há meta de cobertura artificial. Falhas iniciais de seletores foram corrigidas para distinguir o bloco do explorador do bloco de instruções; os testes continuaram verificando arquivos reais e clipboard.
+As contagens descrevem execuções históricas, não percentuais de cobertura de código. O gate atual é 80% por arquivo nas quatro métricas apenas nos cinco módulos selecionados em `vite.config.ts`; o resultado de 100% desses módulos não se estende à aplicação toda. Veja [escopo e lacunas reais](consolidation-coverage.md). Falhas iniciais de seletores foram corrigidas para distinguir o bloco do explorador do bloco de instruções; os testes continuaram verificando arquivos reais e clipboard.
 
 ## Não comprovado
 

@@ -1,5 +1,12 @@
 # Cobertura da consolidação
 
+**100% aplica-se somente aos cinco arquivos da tabela abaixo.** O denominador
+do V8 é limitado por `coverage.include` em `vite.config.ts`; não é uma medição
+global do repositório. Componentes React, providers, páginas, utilitários de
+`src/lib`, scripts e Python não entram nesse percentual. Ter testes funcionais
+nessas áreas não estabelece sua cobertura de linhas ou branches. O gate continua
+80% por arquivo nas quatro métricas, sem redução do escopo.
+
 `npm run test:coverage` executa a suíte Vitest com V8. O provider
 `@vitest/coverage-v8` está fixado em `5.0.5`, correspondente ao Vitest instalado.
 `npm run check` inclui essa execução, sem executar a suíte unitária duas vezes.
@@ -36,3 +43,28 @@ Cobertura indica execução dos caminhos instrumentados, sem provar ausência de
 bugs nem retenção de aprendizagem.
 
 Os quatro testes adicionais em relação à medição inicial desta frente cobrem origem/HTML estático e semântica de títulos/rótulos. O escopo e os totais dos cinco módulos instrumentados não mudaram. Resumo normalizado versionado em docs/consolidation/coverage-summary.json.
+
+## Lacunas identificadas na revisão do PR #17
+
+- **Cobertura não medida fora dos cinco arquivos:** a suíte monta a aplicação
+  (`ui.test.tsx`, `study-ui.test.tsx`, `labs-ui.test.tsx`), mas não informa um
+  percentual para componentes, `LearningProvider`, páginas, busca e scripts de
+  build. Próximo passo: medição separada dessas áreas, mantendo o gate atual.
+- **Persistência na interface:** `learning.test.ts` verifica quota e acesso
+  bloqueado no modelo; falta um teste de integração que provoque essa falha ao
+  interagir com a aplicação, confira o alerta do `LearningProvider` e exporte
+  o estado mantido em memória. Não confundir teste do modelo com essa jornada.
+- **Clipboard negado:** o E2E concede permissão e valida sucesso de cópia;
+  falta exercitar a rejeição de `navigator.clipboard.writeText` e a mensagem
+  apresentada ao usuário, sem perder o conteúdo original.
+- **Acessibilidade e navegadores:** axe cobre amostras e temas, e há testes de
+  teclado/reduced-motion; falta avaliação por leitor de tela e teste manual de
+  foco/contraste em todas as páginas. Chromium desktop e Pixel 7 emulado não
+  comprovam Firefox, WebKit nem dispositivo físico.
+- **Fronteiras externas:** os 19 casos Python simulam o transporte HTTP do
+  Ollama. Não validam inferência com modelo real, hardware, proxy nem headers
+  aplicados pelo provedor de hospedagem.
+
+O PR acrescenta testes do avaliador de auditoria (severidades, exit code 1 sem
+achados, relatório inválido/inconsistente e dependências puladas). Esses testes
+usam fixtures locais; não comprovam disponibilidade dos serviços de advisories.
