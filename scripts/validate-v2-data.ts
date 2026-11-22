@@ -4,17 +4,17 @@ import { z } from 'zod';
 
 const root = process.cwd();
 
-const httpsUrl = z
+export const httpsUrl = z
   .string()
   .refine((v) => v.startsWith('https://'), 'URL deve ser HTTPS');
 
-const authorSchema = z.object({
+export const authorSchema = z.object({
   name: z.string().min(1),
   institution: z.string().optional(),
   orcid: z.string().optional(),
 });
 
-const paperSchema = z.object({
+export const paperSchema = z.object({
   id: z.string().regex(/^[a-z0-9-]+$/),
   title: z.string().min(1),
   originalTitle: z.string().min(1),
@@ -34,7 +34,7 @@ const paperSchema = z.object({
     'mixture-of-experts',
     'agents-tool-use',
   ]),
-  abstractPtBr: z.string().min(10),
+  abstractPtBr: z.string().min(30),
   keyFindings: z.array(z.string().min(5)).min(1),
   connections: z.object({
     chapterId: z.string().optional(),
@@ -44,7 +44,7 @@ const paperSchema = z.object({
   }),
 });
 
-const modelSchema = z.object({
+export const modelSchema = z.object({
   id: z.string().regex(/^[a-z0-9-]+$/),
   name: z.string().min(1),
   organization: z.string().min(1),
@@ -58,7 +58,7 @@ const modelSchema = z.object({
   openWeights: z.boolean(),
 });
 
-const datasetSchema = z.object({
+export const datasetSchema = z.object({
   id: z.string().regex(/^[a-z0-9-]+$/),
   name: z.string().min(1),
   createdBy: z.string().min(1),
@@ -69,7 +69,7 @@ const datasetSchema = z.object({
   url: httpsUrl,
 });
 
-const benchmarkScoreSchema = z.object({
+export const benchmarkScoreSchema = z.object({
   benchmarkName: z.enum([
     'MMLU-Pro',
     'GSM8K',
@@ -77,7 +77,7 @@ const benchmarkScoreSchema = z.object({
     'MATH',
     'Chatbot-Arena-ELO',
   ]),
-  score: z.number(),
+  score: z.number().positive(),
   maxScore: z.number().optional(),
   evaluationMethod: z.enum([
     'few-shot',
@@ -85,11 +85,12 @@ const benchmarkScoreSchema = z.object({
     'cot',
     'elo-crowdsourced',
   ]),
+  evaluationProtocolNotes: z.string().min(5),
   sourceUrl: httpsUrl,
   recordedDate: z.string().regex(/^\d{4}-\d{2}$/),
 });
 
-const modelObservatoryEntrySchema = z.object({
+export const modelObservatoryEntrySchema = z.object({
   modelId: z.string().min(1),
   modelName: z.string().min(1),
   category: z.enum(['open-weights', 'proprietary-api']),
@@ -97,7 +98,7 @@ const modelObservatoryEntrySchema = z.object({
   benchmarks: z.array(benchmarkScoreSchema).min(1),
 });
 
-const observatorySchema = z.object({
+export const observatorySchema = z.object({
   recordedAt: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
   primarySources: z.array(
     z.object({
@@ -109,7 +110,7 @@ const observatorySchema = z.object({
   models: z.array(modelObservatoryEntrySchema).min(1),
 });
 
-const systemMetricSchema = z.object({
+export const systemMetricSchema = z.object({
   engine: z.enum(['vLLM', 'Ollama', 'TGI', 'SGLang']),
   hardware: z.string().min(1),
   quantization: z.enum(['FP16', 'BF16', 'AWQ-4bit', 'GGUF-Q4_K_M']),
@@ -117,10 +118,16 @@ const systemMetricSchema = z.object({
   decodeTokensPerSec: z.number().positive(),
   vramUsageGb: z.number().positive(),
   contextLengthTested: z.number().positive(),
+  inputPromptTokens: z.number().int().positive(),
+  outputTokens: z.number().int().positive(),
+  concurrency: z.number().int().positive(),
+  testDate: z.string().regex(/^\d{4}-\d{2}(-\d{2})?$/),
+  sourceUrl: httpsUrl,
+  methodology: z.string().min(15),
   sourceNotes: z.string().min(1),
 });
 
-const systemsDataSchema = z.array(
+export const systemsDataSchema = z.array(
   z.object({
     modelId: z.string().min(1),
     modelName: z.string().min(1),
@@ -128,7 +135,7 @@ const systemsDataSchema = z.array(
   }),
 );
 
-function runValidation() {
+export function runValidation() {
   console.log('Iniciando validação estática de dados v2...');
 
   // 1. Papers
@@ -171,9 +178,12 @@ function runValidation() {
   );
 }
 
-try {
-  runValidation();
-} catch (err) {
-  console.error('❌ Falha na validação de dados v2:', err);
-  process.exit(1);
+// Executa automaticamente se invocado como script principal
+if (process.argv[1]?.includes('validate-v2-data')) {
+  try {
+    runValidation();
+  } catch (err) {
+    console.error('❌ Falha na validação de dados v2:', err);
+    process.exit(1);
+  }
 }

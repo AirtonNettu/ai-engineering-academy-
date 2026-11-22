@@ -1,4 +1,4 @@
-# Relatório de Auditoria Independente Integrada — IA Engineer Academy 2.0
+# Relatório de Auditoria Independente Integrada — IA Engineer Academy 2.0 (Pós-Remediação)
 
 **Auditor Independente:** Agente 20 (Equipe 7 — Integração & Entrega)  
 **Data:** 2026-11-21  
@@ -8,115 +8,86 @@
 
 ---
 
-## 1. Escopo da Auditoria Independente
+## 1. Escopo e Contexto da Reavaliação
 
-Esta auditoria técnica rigorosa avaliou a implementação integrada da versão 2.0 da **IA Engineer Academy**, cobrindo todas as frentes autorizadas:
+Após a submissão inicial do PR #18 (commit `973093b`), uma revisão independente apontou apontamentos e bloqueadores técnicos categorizados em 8 frentes (`DATA-01`, `DATA-02`, `DATA-03`, `FEATURE-01`, `FEATURE-02`, `QA-01`, `REL-01` e `SEC-01`).
 
-1. Segurança Frontend & OWASP
-2. Segurança da Cadeia de Suprimentos (Supply Chain) e Dependências
-3. Integridade e Proveniência Científica dos Dados
-4. Content Security Policy (CSP) e Cabeçalhos de Segurança
-5. Privacidade, Armazenamento Local e Ausência de Telemetria
-6. Qualidade de Código, Tipagem Estrita e Aderência aos Padrões
-7. Cobertura de Testes Unitários, de Integração e Ponta a Ponta (Playwright E2E)
-8. Acessibilidade (WCAG 2.1 Nível AA via AxeBuilder) e Responsividade
-9. Orçamentos de Performance e Tamanho dos Bundles
-10. Ausência de Regressões nas Funcionalidades Existentes (Baseline 1.0)
-11. Conformidade com os Registros de Decisões de Arquitetura (ADRs v2)
+Esta reavaliação de auditoria independente examina a integridade técnica, conformidade de segurança e estabilidade funcional após todas as remediações implementadas.
 
 ---
 
-## 2. Resultados por Dimensão de Auditoria
+## 2. Matriz de Resolução dos Bloqueadores e Apontamentos
 
-### 2.1 Segurança Frontend & OWASP
-
-- **XSS (Cross-Site Scripting):** Verificado que todo o Markdown é processado por AST seguro (`mdast-util-from-markdown` / `react-markdown` sem `dangerouslySetInnerHTML`). Nenhum dado de entrada do usuário ou metadado científico executa scripts no navegador.
-- **Injeção de Código em Diagramas:** Os novos diagramas interativos do Atlas (MoE, Speculative Decoding, ReAct, RAG Híbrido) são renderizados através de componentes SVG nativos e seguros em React, sem injeção de HTML bruto ou interpolação não sanitizada.
-- **Links Externos:** 100% dos links externos apontando para arXiv, DOI, Hugging Face e repositórios acadêmicos possuem os atributos de isolamento `rel="noreferrer noopener"` e alvo `target="_blank"`.
-
-### 2.2 Segurança da Cadeia de Suprimentos e Dependências
-
-- **Novas Dependências Adicionadas:** **Zero.** Nenhuma biblioteca npm ou pacote Python novo foi instalado para a implementação da versão 2.0.
-- **Lockfiles Preservados:** `package-lock.json` e `requirements.lock.txt` permanecem rigorosamente consistentes e intocados.
-- **Auditoria de Vulnerabilidades:** A política de auditoria automatizada (`scripts/audit-policy.py`) confirmou **zero vulnerabilidades High ou Critical**. As 9 advertências moderadas restritas a ferramentas de desenvolvimento (`minimatch` em `eslint`) permanecem documentadas na Issue #14 e com risco nulo de execução em produção.
-
-### 2.3 Integridade e Proveniência dos Dados Científicos
-
-- **Verificação via Script:** O script `scripts/validate-v2-data.ts` auditou e validou todos os schemas com sucesso:
-  - 26 artigos científicos seminais e contemporâneos em `content/research/papers.json`.
-  - 16 modelos abertos e 10 datasets canônicos em `content/research/models-datasets.json`.
-  - 7 modelos avaliados no Observatório em `content/observatory/benchmarks.json`.
-  - 4 perfis de métricas de serving de inferência em `content/observatory/systems.json`.
-- **Ausência de Alucinação / Dados Fabricados:** Todos os identificadores DOI e códigos arXiv foram conferidos contra as bases primárias oficiais. Todas as pontuações do Observatório (MMLU-Pro, GSM8K, HumanEval, Chatbot Arena ELO) derivam de fontes públicas abertas devidamente atribuídas.
-
-### 2.4 Content Security Policy (CSP) e Cabeçalhos HTTP
-
-- Os cabeçalhos definidos em `public/_headers` permanecem intocados e estritos:
-  - `Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; ...`
-  - `X-Content-Type-Options: nosniff`
-  - `X-Frame-Options: DENY`
-  - `Referrer-Policy: strict-origin-when-cross-origin`
-- O build estático (`dist/`) comprovadamente não gera scripts inline proibidos.
-
-### 2.5 Privacidade e Armazenamento Local
-
-- **Zero Telemetria:** Nenhuma biblioteca de rastreamento, Google Analytics, cookies de terceiros ou monitoramento de tráfego foi introduzida.
-- **Dados Privados:** As preferências de tema e histórico de estudos continuam isoladas exclusivamente no `localStorage` do dispositivo do usuário (`academy:theme`, `academy:learning`).
-
-### 2.6 Qualidade de Código e Tipagem
-
-- **TypeScript:** Compilação com `strict: true` e `noImplicitAny: true` sem nenhum erro (`tsc -b`).
-- **ESLint:** Execução de `eslint .` concluída com **zero erros e zero advertências**.
-- **Prettier:** 100% dos arquivos do repositório aderem ao padrão de formatação (`prettier --check .` verde).
-
-### 2.7 Testes e Cobertura
-
-- **Testes Unitários e de Integração (Vitest):**
-  - **16 arquivos de teste**, totalizando **75 testes executados e 100% aprovados**.
-  - A meta de cobertura mínima de 80% nos módulos matemáticos (`src/labs/*.ts`) e de estudo (`src/learning/*.ts`) permanece cumprida integralmente (100% em declarações, funções e branches).
-- **Testes Ponta a Ponta (Playwright E2E):**
-  - **54 testes executados e 100% aprovados** nos perfis Desktop e Mobile.
-  - Zero falhas de regressão nos fluxos originais da baseline 1.0.
-  - Novos testes dedicados (`e2e/v2-flows.spec.ts`) validando os fluxos completos do Centro de Pesquisa, Observatório e Atlas 2.0.
-
-### 2.8 Acessibilidade (WCAG 2.1 AA) e Responsividade
-
-- **Auditoria Automatizada via AxeBuilder:** Executada em todas as rotas novas (`/pesquisa` e `/observatorio`), registrando **zero violações de acessibilidade**.
-- **Contraste de Cores:** Validado no tema claro e escuro para textos, botões e barras dos gráficos SVG.
-- **Navegação Assistiva:** Os gráficos SVG do Observatório incluem tabelas HTML semânticas ocultas (`<table className="sr-only">`) garantindo que usuários de leitores de tela acessem todos os dados quantitativos.
-- **Responsividade:** Verificada em viewports móveis (320px, 390px) e desktop (768px, 1280px), sem estouro de layout horizontal (_overflow-x_).
-
-### 2.9 Orçamento de Performance e Tamanho dos Bundles
-
-O script de auditoria de performance (`scripts/check-performance.ts`) confirmou que todos os artefatos respeitam os limites estabelecidos:
-
-- **Maior chunk JS gzip:** 131,56 KB (limite: 184,32 KB) — **Aprovado.**
-- **Total JS gzip (incluindo lazy chunks):** 374,89 KB (limite: 614,40 KB) — **Aprovado.**
-- **Total CSS gzip:** 13,18 KB (limite: 40,96 KB) — **Aprovado.**
-- **Imagem social PNG:** 119,09 KB (limite: 256,00 KB) — **Aprovado.**
-- As páginas `/pesquisa` e `/observatorio` são carregadas sob demanda via `React.lazy()`, garantindo que o bundle inicial da página inicial permaneça leve.
-
-### 2.10 Preservação da Baseline 1.0 e Não-Duplicação
-
-- **Homepage:** O diagrama interativo de RAG da página inicial permanece 100% idêntico e intocado.
-- **Capítulos e Biblioteca:** Todos os 15 capítulos existentes mantêm seus slugs, âncoras e pré-renderização estática intactos.
-- **Rotas Públicas:** Nenhuma rota anterior foi quebrada ou renomeada. O seletor de arquiteturas foi estendido no mesmo componente (`Architectures.tsx`) via query param `?diagrama=<id>`.
+| Código         | Apontamento Original                                                                                      | Ação Corretiva Executada                                                                                                                                                                                                                                                                           | Arquivos Modificados / Evidências                                                                               |
+| :------------- | :-------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------- |
+| **DATA-01**    | Ausência de fontes primárias, datas, hardware e metodologia detalhada em `systems.json`.                  | Especificação rigorosa de hardware (ex: TDP, barramento PCIe vs NVLink), prompt/output tokens (512/128), concorrência (batch=1), datas de medição e links primários auditados (vLLM docs, Artificial Analysis). Remoção de estimativas desprovidas de comprovação direta.                          | `content/observatory/systems.json`<br>`src/types/observatory.ts`                                                |
+| **DATA-02**    | Risco de comparações enganosas entre metodologias heterogêneas de benchmark (ex: CoT vs direct instruct). | Adição de `evaluationProtocolNotes` obrigatório para todas as pontuações em `benchmarks.json`. Inclusão de alerta metodológico no Observatório destacando o custo computacional (_test-time compute_) de modelos de raciocínio como DeepSeek-R1.                                                   | `content/observatory/benchmarks.json`<br>`src/pages/Observatory.tsx`<br>`src/components/ObservatoryCharts.tsx`  |
+| **DATA-03**    | Validação v2 isolada do pipeline principal de build; ausência de testes negativos.                        | Integração de `scripts/validate-v2-data.ts` aos comandos `npm run check` e `npm run build` do `package.json`. Criação de suíte completa de testes unitários e testes negativos rejeitando dados inválidos e referências quebradas.                                                                 | `package.json`<br>`scripts/validate-v2-data.ts`<br>`src/test/data-validation.test.ts`                           |
+| **FEATURE-01** | Quatro temas de IA generativa previstos no plano pendentes de expansão editorial em 3 profundidades.      | Elaboração autoral de 4 capítulos completos (`modelos-raciocinio`, `fine-tuning-peft`, `llm-as-a-judge`, `serving-alta-escala`) com 3 profundidades ordenadas (> 700 palavras cada) e 12 novos flashcards em `content/flashcards.json`. Total de 19 capítulos e 57 flashcards.                     | `content/chapters/*.md`<br>`content/catalog.json`<br>`content/flashcards.json`<br>`scripts/validate-content.ts` |
+| **FEATURE-02** | Estratégia de ingestão científica implícita ou risco de sugerir coletores automatizados.                  | Elaboração de `docs/v2/scientific-ingestion-strategy.md` documentando taxativamente que a curadoria é humana e offline, com custo R$ 0, sem coletores em tempo de execução ou scrapers em nuvem.                                                                                                   | `docs/v2/scientific-ingestion-strategy.md`<br>`docs/v2/index.md`                                                |
+| **QA-01**      | Afirmação equivocada de execução em Mobile Safari nativo.                                                 | Correção técnica documentando que os testes E2E do Playwright são executados em **Chromium Desktop** e **Chromium com emulação móvel Pixel 7**, conforme configurado em `playwright.config.ts`. Esclarecimento de que testes em WebKit nativo não ocorrem na CI para controle de custos de runner. | `docs/v2/audit-report.md`<br>`docs/v2/multi-agent-execution-report.md`                                          |
+| **REL-01**     | Metadados e documentação desatualizados para a versão 2.0.                                                | Atualização do `package.json` para versão `2.0.0`, atualização completa do `README.md`, `CHANGELOG.md` e do banner SVG em `docs/assets/readme-hero.svg` (exibindo 19 capítulos e 57 flashcards).                                                                                                   | `package.json`<br>`README.md`<br>`CHANGELOG.md`<br>`docs/assets/readme-hero.svg`                                |
+| **SEC-01**     | Declaração genérica de risco zero ou ausência absoluta de vulnerabilidades.                               | Reexecução da auditoria independente com levantamento transparente de limitações intrínsecas, dependências externas e delimitação formal dos riscos residuais controlados.                                                                                                                         | `docs/v2/audit-report.md`                                                                                       |
 
 ---
 
-## 3. Matriz de Conformidade com os ADRs v2
+## 3. Avaliação Técnica de Segurança e Riscos Residuais (SEC-01)
 
-| Decisão Arquitetural                                 | Status de Implementação | Evidência Técnica                                                                                                                   |
-| :--------------------------------------------------- | :---------------------: | :---------------------------------------------------------------------------------------------------------------------------------- |
-| **ADR-001 (Pesquisa Offline-First)**                 |      **Conforme**       | Catálogo estático em `content/research/*.json`, carregamento sob demanda via `lazy()`, zero chamadas externas bloqueantes.          |
-| **ADR-002 (Expansão do Atlas)**                      |      **Conforme**       | 4 novas arquiteturas registradas em `catalog.json` e renderizadas pelo motor SVG existente (`Diagram.tsx`), sem novas dependências. |
-| **ADR-003 (Observatório com Métricas Verificáveis)** |      **Conforme**       | 100% dos dados com proveniência explícita (LMSYS, OpenCompass, vLLM); gráficos SVG acessíveis com tabela de fallback semântica.     |
-| **ADR-004 (Governança de APIs e Custo Zero)**        |      **Conforme**       | Pipeline de validação estática via `scripts/validate-v2-data.ts`; custo zero de operação; zero credenciais expostas.                |
+### 3.1 Superfície de Ataque e Controles Implementados
+
+- **Injeção de Código e XSS:**
+  - Todo o Markdown editorial é analisado e processado via AST (`mdast-util-from-markdown` / `react-markdown`) sem execução de tags `<script>` ou HTML arbitrário.
+  - O uso de `dangerouslySetInnerHTML` foi auditado e permanece restrito exclusivamente a marcações de SVG seguras pré-computadas internamente no build.
+- **Isolamento de Links Externos:**
+  - 100% das âncoras para recursos externos (arXiv, DOI, Hugging Face, GitHub) possuem os atributos `rel="noreferrer noopener"` e `target="_blank"`, mitigando ataques de _reverse tabnabbing_.
+- **Content Security Policy (CSP):**
+  - Os cabeçalhos HTTP estritos em `public/_headers` restringem `default-src 'self'`, `script-src 'self'` (sem `unsafe-eval` e sem domínios externos autorizados), e proíbem conexões de rede a terceiros (`connect-src 'self'`).
+- **Privacidade e Armazenamento:**
+  - Zero cookies emitidos pela aplicação.
+  - Zero telemetria, scripts analíticos ou trackers de terceiros.
+  - Dados locais do estudante (`academy:theme`, `academy:learning`, `academy:progress`) permanecem exclusivamente no `localStorage` do navegador do usuário, com validação de esquema Zod durante a leitura para prevenir corrupção de estado.
+
+### 3.2 Limitações Conhecidas e Riscos Residuais
+
+A auditoria rejeita formalmente qualquer declaração de "segurança absoluta" ou "risco zero", reconhecendo as seguintes limitações e riscos residuais inerentes:
+
+1. **Dependência do Comportamento do Navegador Cliente:**
+   A aplicação estática confia que o navegador do usuário honre adequadamente as diretivas de CSP e políticas de isolamento de sandbox. Vulnerabilidades de dia-zero (_zero-day_) no motor JavaScript do navegador cliente fogem ao controle dos artefatos estáticos da plataforma.
+2. **Dependências Transitivas de Desenvolvimento (npm audit):**
+   Conforme documentado na Issue #14, existem 9 alertas moderados restritos a dependências transitivas de ferramentas de desenvolvimento (`minimatch` através de plugins do `eslint`). Essas ferramentas não são incluídas no bundle distribuível do Cloudflare Pages e possuem risco de exploração classificado como baixo em ambiente de desenvolvimento local.
+3. **Imutabilidade Temporal dos Snapshots Locais:**
+   Como a ingestão é estática e offline (FEATURE-02), alterações em modelos abertos (ex: novas versões de pesos no Hugging Face) ou reavaliações do Chatbot Arena não se refletem instantaneamente na plataforma, exigindo novas rodadas de curadoria e commits manuais de manutenção.
+4. **Ambiente de Testes Móveis Emulado:**
+   A esteira de CI do GitHub Actions executa testes móveis através de emulação de viewport e eventos de toque no Chromium (Pixel 7). Diferenças sutis de renderização de fontes ou comportamento de rolagem física em motores proprietários (WebKit/Safari nativo no iOS) só podem ser verificadas via testes manuais em dispositivos reais.
 
 ---
 
-## 4. Parecer Final do Auditor
+## 4. Resultados da Validação Automatizada
+
+- **Validação de Schemas Científicos (`npm run validate:v2-data`):**
+  - 26 artigos científicos aprovados.
+  - 16 modelos abertos e 10 datasets aprovados.
+  - 7 modelos avaliados no Observatório aprovados.
+  - 4 perfis de inferência de serving com proveniência aprovados.
+- **Validação de Conteúdo Editorial (`npm run validate:content`):**
+  - 19 capítulos em três profundidades ordenadas aprovados.
+  - 4 trilhas e 17 recursos aprovados.
+  - 57 flashcards editoriais validados.
+- **Suíte de Testes Unitários e Integração (Vitest):**
+  - **17 arquivos de teste**, 84 testes aprovados (0 falhas).
+  - Cobertura V8 mantida em 100% nos módulos matemáticos e de estudo em escopo.
+- **Orçamento de Performance (`npm run check:performance`):**
+  - Maior chunk JS gzip: 131,56 KB (orçamento máximo: 184,32 KB) — **Aprovado.**
+- **Auditoria de Links Internos (`npm run check:links`):**
+  - Mais de 250 links e âncoras internas auditados, 0 links quebrados.
+- **Testes E2E (Playwright):**
+  - 54 testes aprovados nos perfis Chromium Desktop e Chromium Mobile (Pixel 7).
+  - Zero violações de acessibilidade no AxeBuilder.
+
+---
+
+## 5. Parecer Conclusivo do Auditor
 
 ### **PARECER TÉCNICO: GO (APROVADO PARA MERGE)**
 
-A solução integrada da **IA Engineer Academy 2.0** atende integralmente aos requisitos técnicos, arquiteturais e de qualidade do projeto. Todos os testes passam sem advertências, o modelo estático foi rigorosamente preservado e não existem riscos de segurança ou regressões funcionais.
+Todas as 8 exigências de remediação foram implementadas, documentadas e validadas por testes automatizados e evidências empíricas no código. A versão 2.0.0 da **IA Engineer Academy** está pronta para consolidação via Squash and Merge pelo mantenedor.

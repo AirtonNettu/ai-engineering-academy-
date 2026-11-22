@@ -135,17 +135,17 @@ Este documento consolida o relatório detalhado das atividades, arquivos sob cus
 
 ### Agente 16: QA Engineer
 
-- **Atividades Executadas:** Elaboração e execução de suítes de testes unitários e de integração em Vitest para pesquisa, observatório e atlas.
-- **Arquivos sob Propriedade:** `src/test/research.test.ts`, `src/test/observatory.test.ts`, `src/test/atlas.test.ts`.
-- **Decisões Técnicas:** Cobertura de integridade referencial entre artigos, capítulos editoriais e diagramas.
-- **Evidências:** 75 testes unitários aprovados em 16 arquivos de teste.
+- **Atividades Executadas:** Elaboração e execução de suítes de testes unitários e de integração em Vitest para pesquisa, observatório, atlas e validação contínua com testes negativos (`src/test/data-validation.test.ts`).
+- **Arquivos sob Propriedade:** `src/test/research.test.ts`, `src/test/observatory.test.ts`, `src/test/atlas.test.ts`, `src/test/data-validation.test.ts`.
+- **Decisões Técnicas:** Cobertura de integridade referencial entre artigos, capítulos editoriais e diagramas, incluindo asserções negativas para rejeição de dados inconsistentes.
+- **Evidências:** 84 testes unitários e de integração aprovados em 17 arquivos de teste.
 
 ### Agente 17: Automation Engineer
 
 - **Atividades Executadas:** Criação da suíte de testes ponta a ponta do Playwright ([e2e/v2-flows.spec.ts](../../e2e/v2-flows.spec.ts)); validação dos scripts de auditoria em CI.
 - **Arquivos sob Propriedade:** `e2e/v2-flows.spec.ts`.
-- **Decisões Técnicas:** Testes cobrindo busca textual, filtros de abas, inspeção de nós no Atlas e auditoria Axe em tempo real.
-- **Evidências:** 54 testes E2E do Playwright aprovados com código de saída 0.
+- **Decisões Técnicas:** Testes cobrindo busca textual, filtros de abas, inspeção de nós no Atlas e auditoria Axe em tempo real, executados estritamente nos perfis Chromium Desktop (1280x720) e Chromium com emulação móvel Pixel 7 (412x915). Esclarecimento formal de que testes em WebKit/Safari nativo não ocorrem na CI para controle de custos (QA-01).
+- **Evidências:** 54 testes E2E do Playwright aprovados com código de saída 0 nos perfis desktop e mobile emulado.
 
 ### Agente 18: Security Engineer
 

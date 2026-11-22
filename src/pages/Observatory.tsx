@@ -99,6 +99,32 @@ export default function Observatory() {
           }
           benchmark={selectedBenchmark}
         />
+
+        <div
+          className="notice"
+          style={{
+            marginTop: '1.25rem',
+            padding: '1rem',
+            borderLeft: '4px solid var(--accent, #6366f1)',
+            backgroundColor: 'var(--card-bg, rgba(255, 255, 255, 0.03))',
+            borderRadius: '4px',
+          }}
+        >
+          <strong style={{ display: 'block', marginBottom: '0.25rem' }}>
+            Aviso Metodológico de Comparabilidade (DATA-02):
+          </strong>
+          <p style={{ margin: 0, fontSize: '0.875rem', lineHeight: '1.5' }}>
+            Modelos de raciocínio (<em>Reasoning Models</em>, ex: DeepSeek-R1)
+            geram cadeias de pensamento extensas (<em>Long CoT</em>) antes de
+            emitir a resposta final, alocando mais computação durante a
+            inferência (<em>test-time compute</em>). Já modelos de instrução
+            direta (<em>Standard Instruct</em>, ex: Llama 3.1, GPT-4o) respondem
+            de forma concisa. Comparações diretas de acurácia entre essas
+            categorias devem levar em conta o consumo de tokens, latência de
+            resposta e o protocolo de avaliação utilizado (CoT com verificação
+            formal vs 0-shot pass@1).
+          </p>
+        </div>
       </section>
 
       <section

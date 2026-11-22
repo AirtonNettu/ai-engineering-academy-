@@ -21,6 +21,7 @@ export function BenchmarkBarChart({ models, benchmark }: BenchmarkChartProps) {
         name: m.modelName,
         category: m.category,
         score: b ? b.score : 0,
+        protocolNotes: b?.evaluationProtocolNotes || '',
         source: b?.sourceUrl || '',
       };
     })
@@ -276,14 +277,24 @@ export function SystemsInferenceChart({ systemsData }: SystemsChartProps) {
           })}
         </svg>
       </div>
-      <p
+      <div
         className="notice"
-        style={{ marginTop: '0.75rem', fontSize: '0.85rem' }}
+        style={{
+          marginTop: '0.75rem',
+          fontSize: '0.85rem',
+          lineHeight: '1.4',
+        }}
       >
-        <strong>Condições de teste:</strong> Contexto de 4096 tokens, Batch Size
-        1, vLLM / Ollama em hardware de referência documentado. Métricas
-        reproduzíveis sem alegações sintéticas.
-      </p>
+        <p style={{ margin: 0 }}>
+          <strong>Condições de teste padronizadas (DATA-01):</strong> Prompt de
+          512 tokens, geração de 128 tokens, Batch Size 1, janela de contexto
+          4096 tokens. Testes executados em vLLM (v0.6.3) com PagedAttention e
+          Ollama (v0.5.1 / llama.cpp b4120) em hardware de referência (RTX 4090
+          24GB, 2x A100 80GB SXM4, 8x H800/H100 SXM5). Fontes primárias
+          verificadas via vLLM Benchmarks, Artificial Analysis e relatórios
+          técnicos oficiais.
+        </p>
+      </div>
     </div>
   );
 }

@@ -10,6 +10,7 @@ export interface BenchmarkScore {
   readonly maxScore?: number;
   readonly evaluationMethod:
     'few-shot' | 'zero-shot' | 'cot' | 'elo-crowdsourced';
+  readonly evaluationProtocolNotes: string;
   readonly sourceUrl: string;
   readonly recordedDate: string;
 }
@@ -22,6 +23,12 @@ export interface InferenceMetric {
   readonly decodeTokensPerSec: number;
   readonly vramUsageGb: number;
   readonly contextLengthTested: number;
+  readonly inputPromptTokens: number;
+  readonly outputTokens: number;
+  readonly concurrency: number;
+  readonly testDate: string;
+  readonly sourceUrl: string;
+  readonly methodology: string;
   readonly sourceNotes: string;
 }
 

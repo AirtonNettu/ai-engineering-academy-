@@ -53,7 +53,10 @@ test.describe('IA Engineer Academy 2.0 — Fluxos E2E e Acessibilidade', () => {
     ).toBeVisible();
 
     // Alternar métrica de sistemas de serving para VRAM
-    await page.getByRole('button', { name: 'VRAM (GB)', exact: true }).click();
+    const vramButton = page
+      .getByRole('group', { name: 'Seletor de métrica de sistema' })
+      .getByRole('button', { name: 'VRAM (GB)' });
+    await vramButton.click({ force: true });
     await expect(
       page.getByRole('region', {
         name: 'Gráfico de Métricas de Inferência e Engenharia',

@@ -126,8 +126,8 @@
       "Compartilhamento flexível de memória para amostragem paralela e beam search"
     ],
     "connections": {
-      "chapterId": "inferencia-eficiente",
-      "diagramId": "http",
+      "chapterId": "serving-alta-escala",
+      "diagramId": "speculative",
       "relatedProject": "fastapi-ollama"
     }
   },
@@ -160,7 +160,7 @@
       "Zero latência adicional de inferência ao fundir pesos (W = W0 + BA)"
     ],
     "connections": {
-      "chapterId": "rag-finetuning",
+      "chapterId": "fine-tuning-peft",
       "diagramId": "training",
       "labId": "neural-network"
     }
@@ -190,7 +190,7 @@
       "Paged Optimizers para gerenciar picos de memória sem estouro de VRAM"
     ],
     "connections": {
-      "chapterId": "rag-finetuning",
+      "chapterId": "fine-tuning-peft",
       "diagramId": "training",
       "labId": "neural-network"
     }
@@ -356,8 +356,8 @@
       "Padrão dominante na indústria para alinhamento de modelos abertos"
     ],
     "connections": {
-      "chapterId": "treinamento-avaliacao",
-      "diagramId": "training"
+      "chapterId": "modelos-raciocinio",
+      "diagramId": "agents-react"
     }
   },
   {
@@ -423,8 +423,8 @@
       "Criação do benchmark MT-Bench e metodologia fundacional do Chatbot Arena"
     ],
     "connections": {
-      "chapterId": "producao-evals",
-      "diagramId": "rag"
+      "chapterId": "llm-as-a-judge",
+      "diagramId": "agents"
     }
   },
   {
@@ -471,8 +471,8 @@
       "Desempenho comparável a modelos proprietários fechados em problemas de matemática e programação"
     ],
     "connections": {
-      "chapterId": "treinamento-avaliacao",
-      "diagramId": "training"
+      "chapterId": "modelos-raciocinio",
+      "diagramId": "agents-react"
     }
   },
   {

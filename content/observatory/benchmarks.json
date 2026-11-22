@@ -20,7 +20,7 @@
   "models": [
     {
       "modelId": "deepseek-r1",
-      "modelName": "DeepSeek-R1",
+      "modelName": "DeepSeek-R1 (Full 671B — Reasoning Model)",
       "category": "open-weights",
       "parameterCount": "671B (37B ativos)",
       "benchmarks": [
@@ -28,6 +28,7 @@
           "benchmarkName": "Chatbot-Arena-ELO",
           "score": 1362,
           "evaluationMethod": "elo-crowdsourced",
+          "evaluationProtocolNotes": "Batalhas cegas humanas no LMSYS Chatbot Arena; categoria geral (Jan/2025).",
           "sourceUrl": "https://chat.lmsys.org/?leaderboard",
           "recordedDate": "2025-02"
         },
@@ -36,6 +37,7 @@
           "score": 84.0,
           "maxScore": 100,
           "evaluationMethod": "cot",
+          "evaluationProtocolNotes": "5-shot Chain-of-Thought com tokens ocultos de raciocínio livre (Long CoT).",
           "sourceUrl": "https://arxiv.org/abs/2501.12948",
           "recordedDate": "2025-01"
         },
@@ -44,6 +46,7 @@
           "score": 97.3,
           "maxScore": 100,
           "evaluationMethod": "cot",
+          "evaluationProtocolNotes": "Zero-shot / Few-shot CoT com verificação formal por regra de recompensa.",
           "sourceUrl": "https://arxiv.org/abs/2501.12948",
           "recordedDate": "2025-01"
         },
@@ -52,6 +55,7 @@
           "score": 92.1,
           "maxScore": 100,
           "evaluationMethod": "zero-shot",
+          "evaluationProtocolNotes": "0-shot pass@1 com geração e validação de código Python guiada por reflexão.",
           "sourceUrl": "https://arxiv.org/abs/2501.12948",
           "recordedDate": "2025-01"
         }
@@ -59,7 +63,7 @@
     },
     {
       "modelId": "deepseek-v3",
-      "modelName": "DeepSeek-V3",
+      "modelName": "DeepSeek-V3 (Base MoE 671B — Instruct)",
       "category": "open-weights",
       "parameterCount": "671B (37B ativos)",
       "benchmarks": [
@@ -67,6 +71,7 @@
           "benchmarkName": "Chatbot-Arena-ELO",
           "score": 1318,
           "evaluationMethod": "elo-crowdsourced",
+          "evaluationProtocolNotes": "LMSYS Arena ELO oficial registrado em Jan/2025 antes da versão R1.",
           "sourceUrl": "https://chat.lmsys.org/?leaderboard",
           "recordedDate": "2025-01"
         },
@@ -75,6 +80,7 @@
           "score": 75.9,
           "maxScore": 100,
           "evaluationMethod": "few-shot",
+          "evaluationProtocolNotes": "5-shot padronizado sem raciocínio estendido artificial.",
           "sourceUrl": "https://arxiv.org/abs/2412.19437",
           "recordedDate": "2024-12"
         },
@@ -83,6 +89,7 @@
           "score": 89.3,
           "maxScore": 100,
           "evaluationMethod": "cot",
+          "evaluationProtocolNotes": "8-shot Chain-of-Thought (Maj@1) padrão OpenCompass.",
           "sourceUrl": "https://arxiv.org/abs/2412.19437",
           "recordedDate": "2024-12"
         },
@@ -91,6 +98,7 @@
           "score": 82.6,
           "maxScore": 100,
           "evaluationMethod": "zero-shot",
+          "evaluationProtocolNotes": "0-shot pass@1 direto em Python sem passos adicionais de reflexão.",
           "sourceUrl": "https://arxiv.org/abs/2412.19437",
           "recordedDate": "2024-12"
         }
@@ -98,7 +106,7 @@
     },
     {
       "modelId": "llama-3-70b-instruct",
-      "modelName": "Llama 3 70B Instruct",
+      "modelName": "Meta Llama 3 70B Instruct",
       "category": "open-weights",
       "parameterCount": "70B",
       "benchmarks": [
@@ -106,6 +114,7 @@
           "benchmarkName": "Chatbot-Arena-ELO",
           "score": 1286,
           "evaluationMethod": "elo-crowdsourced",
+          "evaluationProtocolNotes": "Classificação LMSYS Chatbot Arena consolidada em Out/2024.",
           "sourceUrl": "https://chat.lmsys.org/?leaderboard",
           "recordedDate": "2024-10"
         },
@@ -114,6 +123,7 @@
           "score": 68.4,
           "maxScore": 100,
           "evaluationMethod": "few-shot",
+          "evaluationProtocolNotes": "5-shot CoT conforme protocolo de validação da Meta AI.",
           "sourceUrl": "https://arxiv.org/abs/2407.21783",
           "recordedDate": "2024-07"
         },
@@ -122,6 +132,7 @@
           "score": 93.0,
           "maxScore": 100,
           "evaluationMethod": "cot",
+          "evaluationProtocolNotes": "8-shot CoT Maj@1 oficial divulgado no relatório técnico do Llama 3.",
           "sourceUrl": "https://arxiv.org/abs/2407.21783",
           "recordedDate": "2024-07"
         },
@@ -130,6 +141,7 @@
           "score": 81.7,
           "maxScore": 100,
           "evaluationMethod": "zero-shot",
+          "evaluationProtocolNotes": "0-shot pass@1 padrão EvalPlus / HumanEval.",
           "sourceUrl": "https://arxiv.org/abs/2407.21783",
           "recordedDate": "2024-07"
         }
@@ -145,6 +157,7 @@
           "benchmarkName": "Chatbot-Arena-ELO",
           "score": 1312,
           "evaluationMethod": "elo-crowdsourced",
+          "evaluationProtocolNotes": "LMSYS Chatbot Arena ELO em Dez/2024.",
           "sourceUrl": "https://chat.lmsys.org/?leaderboard",
           "recordedDate": "2024-12"
         },
@@ -153,6 +166,7 @@
           "score": 73.1,
           "maxScore": 100,
           "evaluationMethod": "few-shot",
+          "evaluationProtocolNotes": "5-shot CoT avaliado na plataforma OpenCompass.",
           "sourceUrl": "https://opencompass.org.cn/leaderboard-llm",
           "recordedDate": "2024-10"
         },
@@ -161,6 +175,7 @@
           "score": 91.6,
           "maxScore": 100,
           "evaluationMethod": "cot",
+          "evaluationProtocolNotes": "8-shot CoT (Maj@1) padronizado.",
           "sourceUrl": "https://opencompass.org.cn/leaderboard-llm",
           "recordedDate": "2024-10"
         },
@@ -169,6 +184,7 @@
           "score": 86.6,
           "maxScore": 100,
           "evaluationMethod": "zero-shot",
+          "evaluationProtocolNotes": "0-shot pass@1 com prompt padrão HumanEval.",
           "sourceUrl": "https://opencompass.org.cn/leaderboard-llm",
           "recordedDate": "2024-10"
         }
@@ -176,7 +192,7 @@
     },
     {
       "modelId": "llama-3-8b-instruct",
-      "modelName": "Llama 3 8B Instruct",
+      "modelName": "Meta Llama 3 8B Instruct",
       "category": "open-weights",
       "parameterCount": "8B",
       "benchmarks": [
@@ -184,6 +200,7 @@
           "benchmarkName": "Chatbot-Arena-ELO",
           "score": 1152,
           "evaluationMethod": "elo-crowdsourced",
+          "evaluationProtocolNotes": "LMSYS Chatbot Arena oficial consolidado.",
           "sourceUrl": "https://chat.lmsys.org/?leaderboard",
           "recordedDate": "2024-08"
         },
@@ -192,6 +209,7 @@
           "score": 44.8,
           "maxScore": 100,
           "evaluationMethod": "few-shot",
+          "evaluationProtocolNotes": "5-shot CoT padrão.",
           "sourceUrl": "https://arxiv.org/abs/2407.21783",
           "recordedDate": "2024-07"
         },
@@ -200,6 +218,7 @@
           "score": 79.6,
           "maxScore": 100,
           "evaluationMethod": "cot",
+          "evaluationProtocolNotes": "8-shot CoT padrão Meta AI.",
           "sourceUrl": "https://arxiv.org/abs/2407.21783",
           "recordedDate": "2024-07"
         },
@@ -208,6 +227,7 @@
           "score": 62.2,
           "maxScore": 100,
           "evaluationMethod": "zero-shot",
+          "evaluationProtocolNotes": "0-shot pass@1 padrão.",
           "sourceUrl": "https://arxiv.org/abs/2407.21783",
           "recordedDate": "2024-07"
         }
@@ -223,6 +243,7 @@
           "benchmarkName": "Chatbot-Arena-ELO",
           "score": 1198,
           "evaluationMethod": "elo-crowdsourced",
+          "evaluationProtocolNotes": "LMSYS Chatbot Arena oficial.",
           "sourceUrl": "https://chat.lmsys.org/?leaderboard",
           "recordedDate": "2024-11"
         },
@@ -231,6 +252,7 @@
           "score": 53.6,
           "maxScore": 100,
           "evaluationMethod": "few-shot",
+          "evaluationProtocolNotes": "5-shot CoT oficial OpenCompass.",
           "sourceUrl": "https://opencompass.org.cn/leaderboard-llm",
           "recordedDate": "2024-10"
         },
@@ -239,6 +261,7 @@
           "score": 83.2,
           "maxScore": 100,
           "evaluationMethod": "cot",
+          "evaluationProtocolNotes": "8-shot CoT oficial Alibaba Cloud.",
           "sourceUrl": "https://opencompass.org.cn/leaderboard-llm",
           "recordedDate": "2024-10"
         },
@@ -247,6 +270,7 @@
           "score": 78.0,
           "maxScore": 100,
           "evaluationMethod": "zero-shot",
+          "evaluationProtocolNotes": "0-shot pass@1 oficial.",
           "sourceUrl": "https://opencompass.org.cn/leaderboard-llm",
           "recordedDate": "2024-10"
         }
@@ -254,14 +278,15 @@
     },
     {
       "modelId": "gpt-4o",
-      "modelName": "GPT-4o (2024-11-20)",
+      "modelName": "GPT-4o (versão gpt-4o-2024-11-20)",
       "category": "proprietary-api",
-      "parameterCount": "Não divulgado",
+      "parameterCount": "Não divulgado (API Proprietária)",
       "benchmarks": [
         {
           "benchmarkName": "Chatbot-Arena-ELO",
           "score": 1345,
           "evaluationMethod": "elo-crowdsourced",
+          "evaluationProtocolNotes": "LMSYS Arena ELO oficial verificado em Dez/2024.",
           "sourceUrl": "https://chat.lmsys.org/?leaderboard",
           "recordedDate": "2024-12"
         },
@@ -270,6 +295,7 @@
           "score": 77.2,
           "maxScore": 100,
           "evaluationMethod": "few-shot",
+          "evaluationProtocolNotes": "5-shot CoT padrão OpenCompass.",
           "sourceUrl": "https://opencompass.org.cn/leaderboard-llm",
           "recordedDate": "2024-11"
         },
@@ -278,6 +304,7 @@
           "score": 95.8,
           "maxScore": 100,
           "evaluationMethod": "cot",
+          "evaluationProtocolNotes": "8-shot CoT conforme anunciado pela OpenAI.",
           "sourceUrl": "https://openai.com/index/hello-gpt-4o/",
           "recordedDate": "2024-05"
         },
@@ -286,6 +313,7 @@
           "score": 90.2,
           "maxScore": 100,
           "evaluationMethod": "zero-shot",
+          "evaluationProtocolNotes": "0-shot pass@1 padrão OpenAI.",
           "sourceUrl": "https://openai.com/index/hello-gpt-4o/",
           "recordedDate": "2024-05"
         }

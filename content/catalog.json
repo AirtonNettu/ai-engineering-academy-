@@ -889,6 +889,232 @@
         "label": "Contrato HTTP real; consulte os limites no artigo",
         "url": "/projetos/fastapi-ollama?file=app/integrations/ollama.py"
       }
+    },
+    {
+      "id": "modelos-raciocinio",
+      "title": "Modelos de raciocínio e cadeia de pensamento (Reasoning LLMs)",
+      "category": "ia",
+      "description": "Test-time compute, tokens de reflexão, alinhamento por reforço e mitigação de overthinking.",
+      "minutes": 25,
+      "tags": [
+        "raciocínio",
+        "Reasoning",
+        "Chain-of-Thought",
+        "test-time compute",
+        "GRPO",
+        "RL",
+        "DeepSeek-R1",
+        "verificadores"
+      ],
+      "concepts": ["inferencia", "contexto", "token"],
+      "sources": [
+        {
+          "title": "DeepSeek-R1 Technical Report",
+          "url": "https://arxiv.org/abs/2501.12948"
+        },
+        {
+          "title": "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models",
+          "url": "https://arxiv.org/abs/2201.11903"
+        }
+      ],
+      "reviewedAt": "2026-10-20",
+      "status": "revisado-tecnicamente",
+      "codeFiles": ["app/integrations/ollama.py"],
+      "diagrams": ["agents-react", "llm"],
+      "related": ["inferencia-eficiente", "mcp-agentes", "serving-alta-escala"],
+      "labs": ["attention"],
+      "depths": [
+        {
+          "id": "fundamental",
+          "title": "Fundamental",
+          "anchor": "fundamentacao"
+        },
+        {
+          "id": "intermediario",
+          "title": "Intermediário",
+          "anchor": "funcionamento-intermediario"
+        },
+        {
+          "id": "avancado",
+          "title": "Avançado",
+          "anchor": "analise-avancada"
+        }
+      ],
+      "implementation": {
+        "label": "Attention Explorer: visualize projeções QKV e atenção causal",
+        "url": "/laboratorios/attention"
+      }
+    },
+    {
+      "id": "fine-tuning-peft",
+      "title": "Fine-Tuning eficiente: PEFT, LoRA e QLoRA",
+      "category": "ia",
+      "description": "Decomposição matricial de baixo rank, quantização NF4, otimizadores paginados e serving Multi-LoRA.",
+      "minutes": 24,
+      "tags": [
+        "fine-tuning",
+        "PEFT",
+        "LoRA",
+        "QLoRA",
+        "quantização",
+        "NF4",
+        "AdamW",
+        "VRAM"
+      ],
+      "concepts": ["fine-tuning", "loss", "quantizacao"],
+      "sources": [
+        {
+          "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+          "url": "https://arxiv.org/abs/2106.09685"
+        },
+        {
+          "title": "QLoRA: Efficient Finetuning of Quantized LLMs",
+          "url": "https://arxiv.org/abs/2305.14314"
+        }
+      ],
+      "reviewedAt": "2026-10-20",
+      "status": "revisado-tecnicamente",
+      "codeFiles": ["app/integrations/ollama.py"],
+      "diagrams": ["llm", "training"],
+      "related": [
+        "treinamento-avaliacao",
+        "redes-neurais",
+        "inferencia-eficiente"
+      ],
+      "labs": ["neural-network"],
+      "depths": [
+        {
+          "id": "fundamental",
+          "title": "Fundamental",
+          "anchor": "fundamentacao"
+        },
+        {
+          "id": "intermediario",
+          "title": "Intermediário",
+          "anchor": "funcionamento-intermediario"
+        },
+        {
+          "id": "avancado",
+          "title": "Avançado",
+          "anchor": "analise-avancada"
+        }
+      ],
+      "implementation": {
+        "label": "Neural Network Training Lab: gradientes e retropropagação real",
+        "url": "/laboratorios/neural-network"
+      }
+    },
+    {
+      "id": "llm-as-a-judge",
+      "title": "Avaliações contínuas e LLM-as-a-Judge",
+      "category": "operacao",
+      "description": "Julgamento pareado, viés de posição, calibração com Kappa de Cohen e Quality Gates em CI/CD.",
+      "minutes": 22,
+      "tags": [
+        "evals",
+        "LLM-as-a-Judge",
+        "avaliação",
+        "pairwise",
+        "MT-Bench",
+        "viés de posição",
+        "CI/CD"
+      ],
+      "concepts": ["evals", "inferencia", "prompt-injection"],
+      "sources": [
+        {
+          "title": "Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena",
+          "url": "https://arxiv.org/abs/2306.05685"
+        },
+        {
+          "title": "G-Eval: NLG Evaluation using GPT-4 with Better Human Alignment",
+          "url": "https://arxiv.org/abs/2303.16634"
+        }
+      ],
+      "reviewedAt": "2026-10-20",
+      "status": "revisado-tecnicamente",
+      "codeFiles": ["tests/test_chat.py"],
+      "diagrams": ["http", "agents"],
+      "related": ["producao-evals", "seguranca-avaliacao", "mcp-agentes"],
+      "labs": [],
+      "depths": [
+        {
+          "id": "fundamental",
+          "title": "Fundamental",
+          "anchor": "fundamentacao"
+        },
+        {
+          "id": "intermediario",
+          "title": "Intermediário",
+          "anchor": "funcionamento-intermediario"
+        },
+        {
+          "id": "avancado",
+          "title": "Avançado",
+          "anchor": "analise-avancada"
+        }
+      ],
+      "implementation": {
+        "label": "Testes de contrato e avaliação real no backend FastAPI",
+        "url": "/projetos/fastapi-ollama?file=tests/test_chat.py"
+      }
+    },
+    {
+      "id": "serving-alta-escala",
+      "title": "Serving e otimizações de inferência em larga escala",
+      "category": "operacao",
+      "description": "PagedAttention, Continuous Batching, Chunked Prefill, paralelismo tensorial e decodificação especulativa.",
+      "minutes": 26,
+      "tags": [
+        "serving",
+        "PagedAttention",
+        "vLLM",
+        "Continuous Batching",
+        "Chunked Prefill",
+        "Tensor Parallelism",
+        "Speculative Decoding"
+      ],
+      "concepts": ["kv-cache", "inferencia", "quantizacao"],
+      "sources": [
+        {
+          "title": "Efficient Memory Management for Large Language Model Serving with PagedAttention",
+          "url": "https://arxiv.org/abs/2309.06180"
+        },
+        {
+          "title": "Fast Inference from Transformers via Speculative Decoding",
+          "url": "https://arxiv.org/abs/2211.17192"
+        }
+      ],
+      "reviewedAt": "2026-10-20",
+      "status": "revisado-tecnicamente",
+      "codeFiles": ["app/integrations/ollama.py"],
+      "diagrams": ["speculative", "moe"],
+      "related": [
+        "inferencia-eficiente",
+        "llm-inferencia",
+        "modelos-raciocinio"
+      ],
+      "labs": ["attention"],
+      "depths": [
+        {
+          "id": "fundamental",
+          "title": "Fundamental",
+          "anchor": "fundamentacao"
+        },
+        {
+          "id": "intermediario",
+          "title": "Intermediário",
+          "anchor": "funcionamento-intermediario"
+        },
+        {
+          "id": "avancado",
+          "title": "Avançado",
+          "anchor": "analise-avancada"
+        }
+      ],
+      "implementation": {
+        "label": "Attention Explorer: visualize atenção e escalonamento",
+        "url": "/laboratorios/attention"
+      }
     }
   ],
   "glossary": [

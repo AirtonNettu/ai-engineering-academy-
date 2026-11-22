@@ -415,7 +415,7 @@ export default function ResearchCenter() {
               <span className="eyebrow green">Etapa 2: Teoria</span>
               <h3>Capítulos da Biblioteca</h3>
               <p>
-                Aprofunde-se nos 15 capítulos organizados em 3 profundidades
+                Aprofunde-se nos 19 capítulos organizados em 3 profundidades
                 (*Conceito*, *Prática* e *Produção*), entendendo como integrar o
                 modelo em pipelines escaláveis.
               </p>

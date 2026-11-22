@@ -403,5 +403,113 @@
     "difficulty": "avancado",
     "sourceUrl": "https://github.com/AirtonNettu/ai-engineering-academy-/blob/a95ebdc/content/chapters/carreira-ai-engineer.md",
     "reviewedAt": "2026-10-20"
+  },
+  {
+    "id": "modelos-raciocinio-1",
+    "chapterId": "modelos-raciocinio",
+    "front": "Qual é a principal distinção operacional entre modelos de raciocínio e modelos de instrução direta?",
+    "back": "Modelos de raciocínio alocam computação variável durante a inferência (test-time compute), gerando passos intermediários de reflexão que exploram e corrigem hipóteses antes da conclusão final.",
+    "difficulty": "basico",
+    "sourceUrl": "https://arxiv.org/abs/2501.12948",
+    "reviewedAt": "2026-10-20"
+  },
+  {
+    "id": "modelos-raciocinio-2",
+    "chapterId": "modelos-raciocinio",
+    "front": "Por que o treinamento de modelos de raciocínio matemático prioriza verificadores baseados em regras?",
+    "back": "Verificadores determinísticos em código e matemática fornecem recompensas objetivas e livres de manipulação (reward hacking), ao contrário de modelos neurais de preferência humana subjetiva.",
+    "difficulty": "intermediario",
+    "sourceUrl": "https://arxiv.org/abs/2501.12948",
+    "reviewedAt": "2026-10-20"
+  },
+  {
+    "id": "modelos-raciocinio-3",
+    "chapterId": "modelos-raciocinio",
+    "front": "Como o fenômeno do overthinking impacta a infraestrutura de serving e a capacidade de concorrência?",
+    "back": "O overthinking gera cadeias de pensamento longas para perguntas simples, saturando a VRAM e a capacidade de KV-cache, o que exige roteadores semânticos de complexidade na borda da aplicação.",
+    "difficulty": "avancado",
+    "sourceUrl": "https://arxiv.org/abs/2501.12948",
+    "reviewedAt": "2026-10-20"
+  },
+  {
+    "id": "fine-tuning-peft-1",
+    "chapterId": "fine-tuning-peft",
+    "front": "Qual é a premissa matemática fundamental que viabiliza o método de adaptação LoRA?",
+    "back": "A premissa do rank intrínseco: as atualizações de pesos durante a adaptação residem em um subespaço de baixa dimensão, permitindo decompor a matriz densa no produto de duas matrizes finas (B e A).",
+    "difficulty": "basico",
+    "sourceUrl": "https://arxiv.org/abs/2106.09685",
+    "reviewedAt": "2026-10-20"
+  },
+  {
+    "id": "fine-tuning-peft-2",
+    "chapterId": "fine-tuning-peft",
+    "front": "Como a quantização dupla (Double Quantization) do QLoRA reduz o consumo de memória auxiliar?",
+    "back": "Ela quantiza em FP8 as próprias constantes de escala de 32 bits da quantização primária dos pesos, reduzindo o overhead de metadados de memória de 0.5 bit para apenas 0.127 bit por parâmetro.",
+    "difficulty": "intermediario",
+    "sourceUrl": "https://arxiv.org/abs/2305.14314",
+    "reviewedAt": "2026-10-20"
+  },
+  {
+    "id": "fine-tuning-peft-3",
+    "chapterId": "fine-tuning-peft",
+    "front": "Quais são as vantagens operacionais do serving Multi-LoRA dinâmico em relação à fusão estática de pesos?",
+    "back": "O serving Multi-LoRA mantém uma única réplica do modelo base massivo na VRAM da GPU e aplica adaptadores leves dinamicamente sob demanda, permitindo consolidar centenas de especializações.",
+    "difficulty": "avancado",
+    "sourceUrl": "https://arxiv.org/abs/2305.14314",
+    "reviewedAt": "2026-10-20"
+  },
+  {
+    "id": "llm-as-a-judge-1",
+    "chapterId": "llm-as-a-judge",
+    "front": "Por que métricas léxicas como BLEU e ROUGE são insuficientes para avaliar tarefas de geração aberta?",
+    "back": "Elas medem sobreposição exata de n-gramas com referências estáticas, penalizando respostas semanticamente corretas que utilizam paráfrases, sinônimos ou estruturas sintáticas alternativas.",
+    "difficulty": "basico",
+    "sourceUrl": "https://arxiv.org/abs/2306.05685",
+    "reviewedAt": "2026-10-20"
+  },
+  {
+    "id": "llm-as-a-judge-2",
+    "chapterId": "llm-as-a-judge",
+    "front": "Como o protocolo de Swap Evaluation neutraliza o viés de posição em julgamentos pareados?",
+    "back": "Invertendo a ordem de apresentação dos concorrentes e exigindo vitória em ambas as chamadas (A vs B e B vs A); vitórias dependentes da ordem são tratadas como empates ou inconsistências.",
+    "difficulty": "intermediario",
+    "sourceUrl": "https://arxiv.org/abs/2306.05685",
+    "reviewedAt": "2026-10-20"
+  },
+  {
+    "id": "llm-as-a-judge-3",
+    "chapterId": "llm-as-a-judge",
+    "front": "Como integrar avaliações por LLM como Quality Gates em esteiras de integração contínua (CI/CD)?",
+    "back": "Executando o modelo avaliador estruturado sobre suites de regressão congeladas (golden datasets), exigindo calibração estatística mínima (Kappa de Cohen >= 0.70) contra anotações humanas.",
+    "difficulty": "avancado",
+    "sourceUrl": "https://arxiv.org/abs/2306.05685",
+    "reviewedAt": "2026-10-20"
+  },
+  {
+    "id": "serving-alta-escala-1",
+    "chapterId": "serving-alta-escala",
+    "front": "Por que a fase de decode de um LLM opera em regime estritamente limitado por memória (memory-bound)?",
+    "back": "Porque cada token gerado sequencialmente exige a leitura integral de todos os parâmetros do modelo e do KV-cache da VRAM para os núcleos, exibindo intensidade aritmética baixa (FLOPs/byte).",
+    "difficulty": "basico",
+    "sourceUrl": "https://arxiv.org/abs/2309.06180",
+    "reviewedAt": "2026-10-20"
+  },
+  {
+    "id": "serving-alta-escala-2",
+    "chapterId": "serving-alta-escala",
+    "front": "Como a arquitetura PagedAttention elimina a fragmentação interna e externa de memória do KV-cache?",
+    "back": "Dividindo o KV-cache em páginas de tamanho fixo mapeadas dinamicamente por uma tabela virtual, dispensando alocação contígua e reservando espaço na VRAM estritamente sob demanda.",
+    "difficulty": "intermediario",
+    "sourceUrl": "https://arxiv.org/abs/2309.06180",
+    "reviewedAt": "2026-10-20"
+  },
+  {
+    "id": "serving-alta-escala-3",
+    "chapterId": "serving-alta-escala",
+    "front": "Qual é o princípio operacional da decodificação especulativa (Speculative Decoding) em servidores de produção?",
+    "back": "Um modelo rascunho rápido propõe K tokens candidatos sequenciais com baixo custo, e o modelo alvo os valida em uma única passagem paralela densa, mantendo intacta a distribuição estatística.",
+    "difficulty": "avancado",
+    "sourceUrl": "https://arxiv.org/abs/2211.17192",
+    "reviewedAt": "2026-10-20"
   }
 ]
