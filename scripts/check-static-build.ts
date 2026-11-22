@@ -5,18 +5,27 @@ import { siteOrigin } from './site-origin';
 const origin = siteOrigin(process.env.SITE_URL);
 const robots = readFileSync('dist/robots.txt', 'utf8');
 const rewrites = readFileSync('dist/_redirects', 'utf8');
-assert.equal(
-  readFileSync('dist/_headers', 'utf8'),
-  readFileSync('public/_headers', 'utf8'),
+const headers = readFileSync('dist/_headers', 'utf8');
+assert.equal(headers, readFileSync('public/_headers', 'utf8'));
+assert.ok(
+  headers.includes(
+    'Strict-Transport-Security: max-age=2592000; includeSubDomains',
+  ),
 );
-assert.ok(rewrites.trim().endsWith('/* /index.html 200'));
+assert.ok(!headers.includes('preload'));
+assert.ok(headers.includes('upgrade-insecure-requests;'));
+assert.ok(headers.includes('Cross-Origin-Opener-Policy: same-origin'));
+assert.ok(headers.includes('Cross-Origin-Resource-Policy: same-origin'));
+assert.ok(headers.includes('X-Frame-Options: DENY'));
+assert.ok(headers.includes('X-Content-Type-Options: nosniff'));
+assert.equal(rewrites.trim(), '/* /index.html 200');
 for (const chapter of catalog.chapters) {
   const route = `/capitulos/${chapter.id}`;
   const html = readFileSync(`dist${route}.html`, 'utf8');
   assert.ok(html.includes(`data-static-chapter="${chapter.id}"`));
   assert.ok(html.includes('id="referencias"'));
   assert.ok(html.includes('id="fundamentacao"'));
-  assert.ok(rewrites.includes(`${route} ${route}.html 200`));
+  assert.ok(!rewrites.includes(`${route} ${route}.html 200`));
   assert.equal((html.match(/<h1>/g) || []).length, 1);
   if (origin) {
     assert.ok(

@@ -167,13 +167,10 @@ console.log(
   `Metadados para ${routes.length + privateRoutes.length} rotas; ${catalog.chapters.length} capítulos com leitura estática.`,
 );
 
-// Mapeamentos exatos precedem o fallback SPA e preservam URLs sem extensão.
-const rewrites = [...routes, ...privateRoutes]
-  .filter(([path]) => path !== '/')
-  .flatMap(([path]) => [`${path} ${path}.html 200`, `${path}/ ${path} 301`]);
+// Cloudflare Pages resolve nativamente URLs sem extensão para arquivos .html estáticos.
+// Reescrever explicitamente para .html conflita com o mecanismo Pretty URLs da borda e gera loops 308.
+// Mantemos exclusivamente o fallback SPA limpo definido em public/_redirects.
 writeFileSync(
   'dist/_redirects',
-  [...rewrites, readFileSync('public/_redirects', 'utf8').trim(), ''].join(
-    '\n',
-  ),
+  readFileSync('public/_redirects', 'utf8').trim() + '\n',
 );

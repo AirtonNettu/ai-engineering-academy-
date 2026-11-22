@@ -1,5 +1,16 @@
 # Changelog
 
+## 2.0.1 — 2026-11-21 (Cloudflare Security Hardening)
+
+- **Correção de Borda e Roteamento Cloudflare Pages (`_redirects`):**
+  - Remoção de regras conflitantes de reescrita estática (`${path} ${path}.html 200`) em `scripts/static-assets.ts`, eliminando loops de redirecionamento 308 provocados pela sobreposição com o mecanismo _Pretty URLs_ da Cloudflare Pages.
+  - Preservação estrita do fallback limpo de SPA (`/* /index.html 200`) e suporte a todas as 54 rotas estáticas pré-renderizadas com leitura sem JavaScript.
+  - Atualização do validador `scripts/check-static-build.ts` para testar e prevenir regressões de loops de redirecionamento.
+- **Endurecimento de Cabeçalhos HTTP de Segurança (`public/_headers`):**
+  - Implementação de HSTS com adoção gradual: `Strict-Transport-Security: max-age=2592000; includeSubDomains` (30 dias, sem ativação precipitada de `preload`).
+  - Atualização da Content Security Policy (CSP) com a diretiva `upgrade-insecure-requests;`.
+  - Implementação e validação de compatibilidade dos cabeçalhos de isolamento `Cross-Origin-Opener-Policy: same-origin` (COOP) e `Cross-Origin-Resource-Policy: same-origin` (CORP).
+
 ## 2.0.0 — 2026-11-21 (IA Engineer Academy 2.0 — Research & Engineering)
 
 - **Centro de Pesquisa Científica (`/pesquisa`):**
