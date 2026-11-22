@@ -889,6 +889,232 @@
         "label": "Contrato HTTP real; consulte os limites no artigo",
         "url": "/projetos/fastapi-ollama?file=app/integrations/ollama.py"
       }
+    },
+    {
+      "id": "modelos-raciocinio",
+      "title": "Modelos de raciocínio e cadeia de pensamento (Reasoning LLMs)",
+      "category": "ia",
+      "description": "Test-time compute, tokens de reflexão, alinhamento por reforço e mitigação de overthinking.",
+      "minutes": 25,
+      "tags": [
+        "raciocínio",
+        "Reasoning",
+        "Chain-of-Thought",
+        "test-time compute",
+        "GRPO",
+        "RL",
+        "DeepSeek-R1",
+        "verificadores"
+      ],
+      "concepts": ["inferencia", "contexto", "token"],
+      "sources": [
+        {
+          "title": "DeepSeek-R1 Technical Report",
+          "url": "https://arxiv.org/abs/2501.12948"
+        },
+        {
+          "title": "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models",
+          "url": "https://arxiv.org/abs/2201.11903"
+        }
+      ],
+      "reviewedAt": "2026-10-20",
+      "status": "revisado-tecnicamente",
+      "codeFiles": ["app/integrations/ollama.py"],
+      "diagrams": ["agents-react", "llm"],
+      "related": ["inferencia-eficiente", "mcp-agentes", "serving-alta-escala"],
+      "labs": ["attention"],
+      "depths": [
+        {
+          "id": "fundamental",
+          "title": "Fundamental",
+          "anchor": "fundamentacao"
+        },
+        {
+          "id": "intermediario",
+          "title": "Intermediário",
+          "anchor": "funcionamento-intermediario"
+        },
+        {
+          "id": "avancado",
+          "title": "Avançado",
+          "anchor": "analise-avancada"
+        }
+      ],
+      "implementation": {
+        "label": "Attention Explorer: visualize projeções QKV e atenção causal",
+        "url": "/laboratorios/attention"
+      }
+    },
+    {
+      "id": "fine-tuning-peft",
+      "title": "Fine-Tuning eficiente: PEFT, LoRA e QLoRA",
+      "category": "ia",
+      "description": "Decomposição matricial de baixo rank, quantização NF4, otimizadores paginados e serving Multi-LoRA.",
+      "minutes": 24,
+      "tags": [
+        "fine-tuning",
+        "PEFT",
+        "LoRA",
+        "QLoRA",
+        "quantização",
+        "NF4",
+        "AdamW",
+        "VRAM"
+      ],
+      "concepts": ["fine-tuning", "loss", "quantizacao"],
+      "sources": [
+        {
+          "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+          "url": "https://arxiv.org/abs/2106.09685"
+        },
+        {
+          "title": "QLoRA: Efficient Finetuning of Quantized LLMs",
+          "url": "https://arxiv.org/abs/2305.14314"
+        }
+      ],
+      "reviewedAt": "2026-10-20",
+      "status": "revisado-tecnicamente",
+      "codeFiles": ["app/integrations/ollama.py"],
+      "diagrams": ["llm", "training"],
+      "related": [
+        "treinamento-avaliacao",
+        "redes-neurais",
+        "inferencia-eficiente"
+      ],
+      "labs": ["neural-network"],
+      "depths": [
+        {
+          "id": "fundamental",
+          "title": "Fundamental",
+          "anchor": "fundamentacao"
+        },
+        {
+          "id": "intermediario",
+          "title": "Intermediário",
+          "anchor": "funcionamento-intermediario"
+        },
+        {
+          "id": "avancado",
+          "title": "Avançado",
+          "anchor": "analise-avancada"
+        }
+      ],
+      "implementation": {
+        "label": "Neural Network Training Lab: gradientes e retropropagação real",
+        "url": "/laboratorios/neural-network"
+      }
+    },
+    {
+      "id": "llm-as-a-judge",
+      "title": "Avaliações contínuas e LLM-as-a-Judge",
+      "category": "operacao",
+      "description": "Julgamento pareado, viés de posição, calibração com Kappa de Cohen e Quality Gates em CI/CD.",
+      "minutes": 22,
+      "tags": [
+        "evals",
+        "LLM-as-a-Judge",
+        "avaliação",
+        "pairwise",
+        "MT-Bench",
+        "viés de posição",
+        "CI/CD"
+      ],
+      "concepts": ["evals", "inferencia", "prompt-injection"],
+      "sources": [
+        {
+          "title": "Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena",
+          "url": "https://arxiv.org/abs/2306.05685"
+        },
+        {
+          "title": "G-Eval: NLG Evaluation using GPT-4 with Better Human Alignment",
+          "url": "https://arxiv.org/abs/2303.16634"
+        }
+      ],
+      "reviewedAt": "2026-10-20",
+      "status": "revisado-tecnicamente",
+      "codeFiles": ["tests/test_chat.py"],
+      "diagrams": ["http", "agents"],
+      "related": ["producao-evals", "seguranca-avaliacao", "mcp-agentes"],
+      "labs": [],
+      "depths": [
+        {
+          "id": "fundamental",
+          "title": "Fundamental",
+          "anchor": "fundamentacao"
+        },
+        {
+          "id": "intermediario",
+          "title": "Intermediário",
+          "anchor": "funcionamento-intermediario"
+        },
+        {
+          "id": "avancado",
+          "title": "Avançado",
+          "anchor": "analise-avancada"
+        }
+      ],
+      "implementation": {
+        "label": "Testes de contrato e avaliação real no backend FastAPI",
+        "url": "/projetos/fastapi-ollama?file=tests/test_chat.py"
+      }
+    },
+    {
+      "id": "serving-alta-escala",
+      "title": "Serving e otimizações de inferência em larga escala",
+      "category": "operacao",
+      "description": "PagedAttention, Continuous Batching, Chunked Prefill, paralelismo tensorial e decodificação especulativa.",
+      "minutes": 26,
+      "tags": [
+        "serving",
+        "PagedAttention",
+        "vLLM",
+        "Continuous Batching",
+        "Chunked Prefill",
+        "Tensor Parallelism",
+        "Speculative Decoding"
+      ],
+      "concepts": ["kv-cache", "inferencia", "quantizacao"],
+      "sources": [
+        {
+          "title": "Efficient Memory Management for Large Language Model Serving with PagedAttention",
+          "url": "https://arxiv.org/abs/2309.06180"
+        },
+        {
+          "title": "Fast Inference from Transformers via Speculative Decoding",
+          "url": "https://arxiv.org/abs/2211.17192"
+        }
+      ],
+      "reviewedAt": "2026-10-20",
+      "status": "revisado-tecnicamente",
+      "codeFiles": ["app/integrations/ollama.py"],
+      "diagrams": ["speculative", "moe"],
+      "related": [
+        "inferencia-eficiente",
+        "llm-inferencia",
+        "modelos-raciocinio"
+      ],
+      "labs": ["attention"],
+      "depths": [
+        {
+          "id": "fundamental",
+          "title": "Fundamental",
+          "anchor": "fundamentacao"
+        },
+        {
+          "id": "intermediario",
+          "title": "Intermediário",
+          "anchor": "funcionamento-intermediario"
+        },
+        {
+          "id": "avancado",
+          "title": "Avançado",
+          "anchor": "analise-avancada"
+        }
+      ],
+      "implementation": {
+        "label": "Attention Explorer: visualize atenção e escalonamento",
+        "url": "/laboratorios/attention"
+      }
     }
   ],
   "glossary": [
@@ -1841,6 +2067,154 @@
           "id": "update",
           "title": "Atualização SGD",
           "description": "Pesos recebem θ ← θ − η∇L. O loop respeita o orçamento de épocas e precisa de monitoramento de estabilidade.",
+          "file": null
+        }
+      ]
+    },
+    {
+      "id": "moe",
+      "title": "Mixture of Experts (MoE)",
+      "description": "Computação condicional esparsa. Tokens são roteados por gating Top-K para especialistas dedicados.",
+      "nodes": [
+        {
+          "id": "token-input",
+          "title": "Entrada de tokens",
+          "description": "Tokens são projetados nos espaços de ativação da camada oculta.",
+          "file": null
+        },
+        {
+          "id": "router-gate",
+          "title": "Roteador (Gating)",
+          "description": "Camada linear calcula logits de afinidade e seleciona os Top-K especialistas com normalização softmax.",
+          "file": null
+        },
+        {
+          "id": "experts",
+          "title": "Especialistas FFN",
+          "description": "Apenas os especialistas selecionados processam os tokens em paralelo, mantendo computação ativa constante.",
+          "file": null
+        },
+        {
+          "id": "aggregation",
+          "title": "Agregação ponderada",
+          "description": "As saídas dos especialistas ativados são combinadas pela média ponderada dos pesos do roteador.",
+          "file": null
+        },
+        {
+          "id": "residual",
+          "title": "Conexão residual",
+          "description": "O vetor combinado soma-se à representação anterior e segue para a próxima camada do Transformer.",
+          "file": null
+        }
+      ]
+    },
+    {
+      "id": "speculative",
+      "title": "Speculative Decoding",
+      "description": "Aceleração de inferência autoregressiva via modelo rascunho rápido e validação em lote pelo modelo alvo.",
+      "nodes": [
+        {
+          "id": "draft-model",
+          "title": "Modelo rascunho",
+          "description": "Modelo leve gera K tokens candidatos de forma sequencial rápida com baixo consumo de memória.",
+          "file": null
+        },
+        {
+          "id": "candidate-tokens",
+          "title": "Tokens candidatos",
+          "description": "Sequência de tokens especulados é empacotada em um único prompt para o modelo principal.",
+          "file": null
+        },
+        {
+          "id": "target-model",
+          "title": "Validação em lote",
+          "description": "Modelo alvo avalia todos os K candidatos em uma única passada de forward paralela na GPU.",
+          "file": null
+        },
+        {
+          "id": "acceptance-test",
+          "title": "Critério de aceitação",
+          "description": "Amostragem probabilística aceita tokens válidos e ajusta a distribuição do primeiro token rejeitado.",
+          "file": null
+        },
+        {
+          "id": "kv-cache-sync",
+          "title": "Sincronização KV",
+          "description": "O KV-cache do modelo alvo e do rascunho são atualizados apenas com os tokens aceitos.",
+          "file": null
+        }
+      ]
+    },
+    {
+      "id": "agents-react",
+      "title": "Loop Agêntico ReAct",
+      "description": "Ciclo iterativo de raciocínio, chamada de ferramentas (Tool Use) e observação com controle de limites.",
+      "nodes": [
+        {
+          "id": "user-objective",
+          "title": "Objetivo do usuário",
+          "description": "Prompt e restrições de contexto estabelecem a meta e o orçamento de passos do agente.",
+          "file": null
+        },
+        {
+          "id": "thought",
+          "title": "Pensamento (Thought)",
+          "description": "O modelo analisa o estado atual, raciocina sobre evidências e decide se necessita de ferramentas.",
+          "file": null
+        },
+        {
+          "id": "action",
+          "title": "Ação (Action)",
+          "description": "Formata uma chamada estruturada de ferramenta (ex: via protocolo MCP ou schema JSON).",
+          "file": null
+        },
+        {
+          "id": "observation",
+          "title": "Observação (Observation)",
+          "description": "Resultado da ferramenta é sanitizado e retornado ao contexto como dado externo não confiável.",
+          "file": null
+        },
+        {
+          "id": "final-answer",
+          "title": "Resposta final",
+          "description": "Quando o objetivo é concluído ou o orçamento se esgota, sintetiza a resposta auditável para o usuário.",
+          "file": null
+        }
+      ]
+    },
+    {
+      "id": "hybrid-rag",
+      "title": "Pipeline RAG Híbrido",
+      "description": "Combinação de busca vetorial densa com busca léxica BM25 esparsa, fusão de rankings e reclassificação.",
+      "nodes": [
+        {
+          "id": "hybrid-query",
+          "title": "Consulta do usuário",
+          "description": "Pergunta é pré-processada e normalizada para busca vetorial e busca de palavras-chave.",
+          "file": null
+        },
+        {
+          "id": "dense-retrieval",
+          "title": "Busca densa (Embeddings)",
+          "description": "Captura semântica profunda e sinônimos através de proximidade de cosseno em espaço latente.",
+          "file": null
+        },
+        {
+          "id": "sparse-retrieval",
+          "title": "Busca esparsa (BM25)",
+          "description": "Recupera correspondências exatas de termos raros, códigos de produto e identificadores.",
+          "file": null
+        },
+        {
+          "id": "rrf-fusion",
+          "title": "Fusão RRF",
+          "description": "Algoritmo Reciprocal Rank Fusion combina as listas ordenadas sem depender de calibração de escores.",
+          "file": null
+        },
+        {
+          "id": "cross-rerank",
+          "title": "Cross-Encoder Reranker",
+          "description": "Modelo de atenção cruzada reavalia os top candidatos antes da injeção no prompt do gerador.",
           "file": null
         }
       ]

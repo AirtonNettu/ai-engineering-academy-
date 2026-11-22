@@ -44,8 +44,11 @@ const policySource = 'src/lib/agent-cycle.ts';
 const baseView = { x: 0, y: 0, scale: 1 };
 function relatedCode(id: string, node: Node): string {
   if (node.file) return `examples/fastapi-ollama/${node.file}`;
-  if (id === 'agents' || node.id === 'auth') return policySource;
+  if (id === 'agents' || id === 'agents-react' || node.id === 'auth')
+    return policySource;
   if (id === 'training') return neuralSource;
+  if (id === 'moe' || id === 'speculative') return attentionSource;
+  if (id === 'hybrid-rag') return embeddingsSource;
   if (id === 'rag' && node.id === 'question')
     return 'examples/fastapi-ollama/app/models.py';
   if (id === 'rag' && node.id === 'evaluate')
@@ -80,7 +83,9 @@ function iconFor(node: Node) {
                   ? Monitor
                   : /adapter|api|server/.test(name)
                     ? Server
-                    : /tokens|rerank/.test(name)
+                    : /tokens|rerank|gate|router|expert|draft|rrf|fusão/.test(
+                          name,
+                        )
                       ? Layers
                       : Network;
 }
@@ -147,15 +152,19 @@ export function Diagram({ id = 'rag' }: { id?: string }) {
   const node = nodes.find((n) => n.id === selection.id) || nodes[0];
   const file = relatedCode(diagram.id, node);
   const article =
-    diagram.id === 'agents'
+    diagram.id === 'agents' || diagram.id === 'agents-react'
       ? 'mcp-agentes'
       : diagram.id === 'http'
         ? 'ollama-fastapi'
-        : diagram.id === 'llm'
+        : diagram.id === 'llm' || diagram.id === 'speculative'
           ? 'llm-inferencia'
           : diagram.id === 'training'
             ? 'redes-neurais'
-            : 'rag';
+            : diagram.id === 'moe'
+              ? 'inferencia-eficiente'
+              : diagram.id === 'hybrid-rag'
+                ? 'rag'
+                : 'rag';
   useEffect(() => {
     if (!playing) return;
     const t = window.setInterval(

@@ -15,6 +15,8 @@ const ProjectPage = lazy(() => import('./pages/ProjectPage'));
 const Roadmaps = lazy(() => import('./pages/Roadmaps'));
 const Resources = lazy(() => import('./pages/Resources'));
 const Glossary = lazy(() => import('./pages/Glossary'));
+const ResearchCenter = lazy(() => import('./pages/ResearchCenter'));
+const Observatory = lazy(() => import('./pages/Observatory'));
 import { chapterById } from './lib/content';
 export default function App() {
   const location = useLocation();
@@ -22,6 +24,8 @@ export default function App() {
     const routeTitles: Record<string, string> = {
       '/': 'Engenharia de IA, em profundidade',
       '/biblioteca': 'Biblioteca',
+      '/pesquisa': 'Centro de Pesquisa Científica',
+      '/observatorio': 'Observatório de IA',
       '/busca': 'Busca',
       '/trilhas': 'Trilhas profissionais',
       '/arquiteturas': 'Arquiteturas interativas',
@@ -60,6 +64,8 @@ export default function App() {
               element={<Labs key={location.pathname} />}
             />
             <Route path="/biblioteca" element={<Library />} />
+            <Route path="/pesquisa" element={<ResearchCenter />} />
+            <Route path="/observatorio" element={<Observatory />} />
             <Route path="/busca" element={<SearchPage />} />
             <Route
               path="/capitulos/:id"

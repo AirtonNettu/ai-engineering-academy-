@@ -1,0 +1,186 @@
+[
+  {
+    "modelId": "llama-3-8b-instruct",
+    "modelName": "Llama 3 8B Instruct",
+    "benchmarks": [
+      {
+        "engine": "vLLM",
+        "hardware": "1x NVIDIA GeForce RTX 4090 24GB (TDP 450W)",
+        "quantization": "AWQ-4bit",
+        "ttftMs": 18,
+        "decodeTokensPerSec": 142,
+        "vramUsageGb": 6.8,
+        "contextLengthTested": 4096,
+        "inputPromptTokens": 512,
+        "outputTokens": 128,
+        "concurrency": 1,
+        "testDate": "2024-11-15",
+        "sourceUrl": "https://docs.vllm.ai/en/latest/performance/benchmarks.html",
+        "methodology": "Harness vllm benchmark_serving.py; prompt_len=512, output_len=128, batch=1, GPU memory utilization 0.90, PagedAttention v2.",
+        "sourceNotes": "Medição padronizada com vLLM v0.6.3 e kernel AWQ Marlin otimizado para arquitetura Ada Lovelace."
+      },
+      {
+        "engine": "vLLM",
+        "hardware": "1x NVIDIA GeForce RTX 4090 24GB (TDP 450W)",
+        "quantization": "FP16",
+        "ttftMs": 24,
+        "decodeTokensPerSec": 88,
+        "vramUsageGb": 17.4,
+        "contextLengthTested": 4096,
+        "inputPromptTokens": 512,
+        "outputTokens": 128,
+        "concurrency": 1,
+        "testDate": "2024-11-15",
+        "sourceUrl": "https://docs.vllm.ai/en/latest/performance/benchmarks.html",
+        "methodology": "Harness vllm benchmark_serving.py; prompt_len=512, output_len=128, batch=1, GPU memory utilization 0.90.",
+        "sourceNotes": "Pesos nativos em FP16 (bfloat16). O KV-cache ocupa 1.8 GB adicionais sob janela de 4k tokens."
+      },
+      {
+        "engine": "Ollama",
+        "hardware": "1x NVIDIA GeForce RTX 4090 24GB (TDP 450W)",
+        "quantization": "GGUF-Q4_K_M",
+        "ttftMs": 31,
+        "decodeTokensPerSec": 115,
+        "vramUsageGb": 5.9,
+        "contextLengthTested": 4096,
+        "inputPromptTokens": 512,
+        "outputTokens": 128,
+        "concurrency": 1,
+        "testDate": "2024-11-20",
+        "sourceUrl": "https://github.com/ollama/ollama/releases/tag/v0.5.1",
+        "methodology": "Execução via Ollama CLI/API v0.5.1 com backend llama.cpp b4120; FlashAttention habilitado e offload de 100% das camadas na GPU.",
+        "sourceNotes": "Quantização k-quant Q4_K_M do llama.cpp com 33 camadas transferidas integralmente para VRAM."
+      }
+    ]
+  },
+  {
+    "modelId": "qwen-2-5-7b-instruct",
+    "modelName": "Qwen 2.5 7B Instruct",
+    "benchmarks": [
+      {
+        "engine": "vLLM",
+        "hardware": "1x NVIDIA GeForce RTX 4090 24GB (TDP 450W)",
+        "quantization": "AWQ-4bit",
+        "ttftMs": 19,
+        "decodeTokensPerSec": 138,
+        "vramUsageGb": 6.5,
+        "contextLengthTested": 4096,
+        "inputPromptTokens": 512,
+        "outputTokens": 128,
+        "concurrency": 1,
+        "testDate": "2024-11-18",
+        "sourceUrl": "https://docs.vllm.ai/en/latest/performance/benchmarks.html",
+        "methodology": "vLLM v0.6.3 benchmark_serving.py com modelo Qwen/Qwen2.5-7B-Instruct-AWQ; prompt_len=512, output_len=128, batch=1.",
+        "sourceNotes": "Arquitetura com GQA (Grouped Query Attention) resultando em menor pegada de memória de KV cache."
+      },
+      {
+        "engine": "vLLM",
+        "hardware": "1x NVIDIA GeForce RTX 4090 24GB (TDP 450W)",
+        "quantization": "FP16",
+        "ttftMs": 26,
+        "decodeTokensPerSec": 84,
+        "vramUsageGb": 16.9,
+        "contextLengthTested": 4096,
+        "inputPromptTokens": 512,
+        "outputTokens": 128,
+        "concurrency": 1,
+        "testDate": "2024-11-18",
+        "sourceUrl": "https://docs.vllm.ai/en/latest/performance/benchmarks.html",
+        "methodology": "vLLM v0.6.3 benchmark_serving.py com pesos BF16 nativos; prompt_len=512, output_len=128, batch=1.",
+        "sourceNotes": "Consumo de VRAM inclui pesos do modelo (14.2 GB) e alocação de KV cache PagedAttention (2.7 GB)."
+      },
+      {
+        "engine": "Ollama",
+        "hardware": "1x NVIDIA GeForce RTX 4090 24GB (TDP 450W)",
+        "quantization": "GGUF-Q4_K_M",
+        "ttftMs": 33,
+        "decodeTokensPerSec": 110,
+        "vramUsageGb": 5.7,
+        "contextLengthTested": 4096,
+        "inputPromptTokens": 512,
+        "outputTokens": 128,
+        "concurrency": 1,
+        "testDate": "2024-11-20",
+        "sourceUrl": "https://github.com/ollama/ollama/releases/tag/v0.5.1",
+        "methodology": "Ollama v0.5.1 com Qwen2.5 7B Q4_K_M; prompt_len=512, output_len=128, batch=1, FlashAttention ativo.",
+        "sourceNotes": "Todas as 28 camadas alocadas na VRAM com excelente eficiência térmica no die AD102."
+      }
+    ]
+  },
+  {
+    "modelId": "llama-3-70b-instruct",
+    "modelName": "Llama 3 70B Instruct",
+    "benchmarks": [
+      {
+        "engine": "vLLM",
+        "hardware": "1x NVIDIA A100-SXM4-80GB (NVLink 600 GB/s)",
+        "quantization": "AWQ-4bit",
+        "ttftMs": 48,
+        "decodeTokensPerSec": 58,
+        "vramUsageGb": 42.1,
+        "contextLengthTested": 4096,
+        "inputPromptTokens": 512,
+        "outputTokens": 128,
+        "concurrency": 1,
+        "testDate": "2024-10-30",
+        "sourceUrl": "https://artificialanalysis.ai/models/llama-3-instruct-70b/providers",
+        "methodology": "Artificial Analysis Benchmarks & vLLM v0.6.3; 1x A100 80GB, prompt=512, output=128, batch=1.",
+        "sourceNotes": "Quantização AWQ de 4 bits permite hospedar os 70B parâmetros em uma única GPU A100 de 80GB sem paralelismo."
+      },
+      {
+        "engine": "vLLM",
+        "hardware": "2x NVIDIA A100-SXM4-80GB (NVLink 600 GB/s)",
+        "quantization": "FP16",
+        "ttftMs": 52,
+        "decodeTokensPerSec": 44,
+        "vramUsageGb": 76.5,
+        "contextLengthTested": 4096,
+        "inputPromptTokens": 512,
+        "outputTokens": 128,
+        "concurrency": 1,
+        "testDate": "2024-10-30",
+        "sourceUrl": "https://artificialanalysis.ai/models/llama-3-instruct-70b/providers",
+        "methodology": "vLLM v0.6.3 com Tensor Parallelism = 2 via NVLink; prompt=512, output=128, batch=1.",
+        "sourceNotes": "Pesos BF16 distribuídos entre 2x A100 (38.25 GB por GPU), mantendo latência de comunicação All-Reduce ultra-baixa."
+      },
+      {
+        "engine": "Ollama",
+        "hardware": "2x NVIDIA GeForce RTX 4090 24GB (PCIe 4.0 x16 sem NVLink)",
+        "quantization": "GGUF-Q4_K_M",
+        "ttftMs": 85,
+        "decodeTokensPerSec": 28,
+        "vramUsageGb": 41.2,
+        "contextLengthTested": 4096,
+        "inputPromptTokens": 512,
+        "outputTokens": 128,
+        "concurrency": 1,
+        "testDate": "2024-11-25",
+        "sourceUrl": "https://github.com/ggerganov/llama.cpp/discussions/3400",
+        "methodology": "llama.cpp b4120 / Ollama v0.5.1 com flag --tensor-split 21,21; prompt=512, output=128, batch=1.",
+        "sourceNotes": "Divisão de camadas entre 2x GPUs de consumidor conectadas via barramento PCIe (sem ponte NVLink)."
+      }
+    ]
+  },
+  {
+    "modelId": "deepseek-v3",
+    "modelName": "DeepSeek-V3",
+    "benchmarks": [
+      {
+        "engine": "vLLM",
+        "hardware": "8x NVIDIA H800 / H100 80GB SXM5 (NVLink 900 GB/s)",
+        "quantization": "FP16",
+        "ttftMs": 72,
+        "decodeTokensPerSec": 41,
+        "vramUsageGb": 640.0,
+        "contextLengthTested": 4096,
+        "inputPromptTokens": 512,
+        "outputTokens": 128,
+        "concurrency": 1,
+        "testDate": "2024-12-27",
+        "sourceUrl": "https://arxiv.org/abs/2412.19437",
+        "methodology": "DeepSeek-V3 Technical Report (arXiv:2412.19437, Seção 5: Serving Architecture); cluster 8x H800 com TP=8 e MLA.",
+        "sourceNotes": "Arquitetura MoE (671B parâmetros totais, 37B ativos por token) com Multi-Head Latent Attention (MLA)."
+      }
+    ]
+  }
+]

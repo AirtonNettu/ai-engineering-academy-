@@ -1,0 +1,835 @@
+[
+  {
+    "id": "attention-is-all-you-need",
+    "title": "Atenção É Tudo o Que Você Precisa",
+    "originalTitle": "Attention Is All You Need",
+    "authors": [
+      { "name": "Ashish Vaswani", "institution": "Google Brain" },
+      { "name": "Noam Shazeer", "institution": "Google Brain" },
+      { "name": "Niki Parmar", "institution": "Google Research" },
+      { "name": "Jakob Uszkoreit", "institution": "Google Brain" },
+      { "name": "Llion Jones", "institution": "Google Research" },
+      { "name": "Aidan N. Gomez", "institution": "University of Toronto" },
+      { "name": "Łukasz Kaiser", "institution": "Google Brain" },
+      { "name": "Illia Polosukhin", "institution": "Google Research" }
+    ],
+    "publicationDate": "2017-06",
+    "venue": "NeurIPS 2017",
+    "status": "peer-reviewed",
+    "doi": "10.48550/arXiv.1706.03762",
+    "arxivId": "1706.03762",
+    "canonicalUrl": "https://arxiv.org/abs/1706.03762",
+    "openAccessPdfUrl": "https://arxiv.org/pdf/1706.03762",
+    "field": "transformers-attention",
+    "abstractPtBr": "Apresenta a arquitetura Transformer, substituindo completamente recorrência e convoluções por mecanismos de auto-atenção paralelizáveis.",
+    "keyFindings": [
+      "Mecanismo de Scaled Dot-Product Attention e Multi-Head Attention",
+      "Complexidade O(1) de passos sequenciais durante o treinamento",
+      "Fundação universal para modelos de linguagem modernos"
+    ],
+    "connections": {
+      "chapterId": "attention-transformers",
+      "diagramId": "llm",
+      "labId": "attention"
+    }
+  },
+  {
+    "id": "rope-rotary-position-embedding",
+    "title": "RoPE: Incorporação de Posição Rotativa",
+    "originalTitle": "RoFormer: Enhanced Transformer with Rotary Position Embedding",
+    "authors": [
+      { "name": "Jianlin Su", "institution": "Zhuiyi Technology" },
+      { "name": "Yu Lu", "institution": "Zhuiyi Technology" },
+      { "name": "Shengfeng Pan", "institution": "Zhuiyi Technology" },
+      { "name": "Ahmed Murtadha", "institution": "Huazhong UST" },
+      { "name": "Bo Wen", "institution": "Zhuiyi Technology" },
+      { "name": "Yunfeng Liu", "institution": "Zhuiyi Technology" }
+    ],
+    "publicationDate": "2021-04",
+    "venue": "Neurocomputing 2024",
+    "status": "peer-reviewed",
+    "doi": "10.1016/j.neucom.2023.127063",
+    "arxivId": "2104.09864",
+    "canonicalUrl": "https://arxiv.org/abs/2104.09864",
+    "openAccessPdfUrl": "https://arxiv.org/pdf/2104.09864",
+    "field": "transformers-attention",
+    "abstractPtBr": "Codifica a posição relativa através da rotação de vetores no espaço complexo bidimensional, permitindo generalização de contexto sem decaimento de sinal.",
+    "keyFindings": [
+      "Produto escalar sensível à distância relativa relativa m - n",
+      "Base estrutural de posicionamento adotada por Llama, Mistral e Qwen",
+      "Facilidade de extensão de contexto via interpolação de frequências"
+    ],
+    "connections": {
+      "chapterId": "embeddings-busca",
+      "diagramId": "llm",
+      "labId": "embeddings"
+    }
+  },
+  {
+    "id": "flashattention",
+    "title": "FlashAttention: Atenção Exata Consciente de IO",
+    "originalTitle": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+    "authors": [
+      { "name": "Tri Dao", "institution": "Stanford University" },
+      { "name": "Daniel Y. Fu", "institution": "Stanford University" },
+      { "name": "Stefano Ermon", "institution": "Stanford University" },
+      { "name": "Atri Rudra", "institution": "University at Buffalo" },
+      { "name": "Christopher Ré", "institution": "Stanford University" }
+    ],
+    "publicationDate": "2022-05",
+    "venue": "NeurIPS 2022",
+    "status": "peer-reviewed",
+    "doi": "10.48550/arXiv.2205.14135",
+    "arxivId": "2205.14135",
+    "canonicalUrl": "https://arxiv.org/abs/2205.14135",
+    "openAccessPdfUrl": "https://arxiv.org/pdf/2205.14135",
+    "field": "efficient-inference",
+    "abstractPtBr": "Reestrutura o cálculo da atenção para minimizar transferências entre SRAM e HBM na GPU via tiling e recomputação no backward pass.",
+    "keyFindings": [
+      "Redução de complexidade de memória de O(N²) para O(N)",
+      "Aceleração de 2x a 4x em treinamento e inferência sem aproximação numérica",
+      "Técnica fundamental para janelas de contexto longas em produção"
+    ],
+    "connections": {
+      "chapterId": "inferencia-eficiente",
+      "diagramId": "llm",
+      "labId": "attention"
+    }
+  },
+  {
+    "id": "vllm-pagedattention",
+    "title": "vLLM: Gerenciamento Eficiente de Memória com PagedAttention",
+    "originalTitle": "Efficient Memory Management for Large Language Model Serving with PagedAttention",
+    "authors": [
+      { "name": "Woosuk Kwon", "institution": "UC Berkeley" },
+      { "name": "Zhuohan Li", "institution": "UC Berkeley" },
+      { "name": "Siyuan Zhuang", "institution": "UC Berkeley" },
+      { "name": "Ying Sheng", "institution": "Stanford University" },
+      { "name": "Lianmin Zheng", "institution": "UC Berkeley" },
+      { "name": "Cody Hao Yu", "institution": "Independent" },
+      { "name": "Joseph E. Gonzalez", "institution": "UC Berkeley" },
+      { "name": "Hao Zhang", "institution": "UCSD" },
+      { "name": "Ion Stoica", "institution": "UC Berkeley" }
+    ],
+    "publicationDate": "2023-09",
+    "venue": "SOSP 2023",
+    "status": "peer-reviewed",
+    "doi": "10.1145/3600006.3613165",
+    "arxivId": "2309.06180",
+    "canonicalUrl": "https://arxiv.org/abs/2309.06180",
+    "openAccessPdfUrl": "https://arxiv.org/pdf/2309.06180",
+    "field": "efficient-inference",
+    "abstractPtBr": "Inspirado em paginação de memória de sistemas operacionais, elimina a fragmentação do KV-cache em servidores de inferência de LLMs.",
+    "keyFindings": [
+      "Quase 0% de desperdício de memória no KV-cache",
+      "Aumento de 2x a 4x no throughput de requisições concorrentes",
+      "Compartilhamento flexível de memória para amostragem paralela e beam search"
+    ],
+    "connections": {
+      "chapterId": "serving-alta-escala",
+      "diagramId": "speculative",
+      "relatedProject": "fastapi-ollama"
+    }
+  },
+  {
+    "id": "lora-low-rank-adaptation",
+    "title": "LoRA: Adaptação de Baixo Rank para Modelos de Linguagem",
+    "originalTitle": "LoRA: Low-Rank Adaptation of Large Language Models",
+    "authors": [
+      { "name": "Edward J. Hu", "institution": "Microsoft Corporation" },
+      { "name": "Yelong Shen", "institution": "Microsoft Corporation" },
+      { "name": "Phillip Wallis", "institution": "Microsoft Corporation" },
+      { "name": "Zeyuan Allen-Zhu", "institution": "Microsoft Corporation" },
+      { "name": "Yuanzhi Li", "institution": "Microsoft Corporation" },
+      { "name": "Shean Wang", "institution": "Microsoft Corporation" },
+      { "name": "Lu Wang", "institution": "Microsoft Corporation" },
+      { "name": "Weizhu Chen", "institution": "Microsoft Corporation" }
+    ],
+    "publicationDate": "2021-06",
+    "venue": "ICLR 2022",
+    "status": "peer-reviewed",
+    "doi": "10.48550/arXiv.2106.09685",
+    "arxivId": "2106.09685",
+    "canonicalUrl": "https://arxiv.org/abs/2106.09685",
+    "openAccessPdfUrl": "https://arxiv.org/pdf/2106.09685",
+    "field": "reasoning-alignment",
+    "abstractPtBr": "Congela os pesos pré-treinados e injeta matrizes de decomposição de posto reduzido nas camadas de atenção, viabilizando ajuste fino eficiente.",
+    "keyFindings": [
+      "Redução de até 10.000x no número de parâmetros treináveis",
+      "Redução de 3x no consumo de VRAM de gradientes e otimizadores",
+      "Zero latência adicional de inferência ao fundir pesos (W = W0 + BA)"
+    ],
+    "connections": {
+      "chapterId": "fine-tuning-peft",
+      "diagramId": "training",
+      "labId": "neural-network"
+    }
+  },
+  {
+    "id": "qlora-quantized-low-rank",
+    "title": "QLoRA: Fine-Tuning Eficiente de LLMs Quantizados",
+    "originalTitle": "QLoRA: Efficient Finetuning of Quantized LLMs",
+    "authors": [
+      { "name": "Tim Dettmers", "institution": "University of Washington" },
+      { "name": "Artidoro Pagnoni", "institution": "University of Washington" },
+      { "name": "Ari Holtzman", "institution": "University of Chicago" },
+      { "name": "Luke Zettlemoyer", "institution": "University of Washington" }
+    ],
+    "publicationDate": "2023-05",
+    "venue": "NeurIPS 2023",
+    "status": "peer-reviewed",
+    "doi": "10.48550/arXiv.2305.14314",
+    "arxivId": "2305.14314",
+    "canonicalUrl": "https://arxiv.org/abs/2305.14314",
+    "openAccessPdfUrl": "https://arxiv.org/pdf/2305.14314",
+    "field": "reasoning-alignment",
+    "abstractPtBr": "Permite treinar modelos de até 65B parâmetros em uma única GPU de 48GB através de quantização de 4 bits NormalFloat (NF4) e Double Quantization.",
+    "keyFindings": [
+      "Introdução do tipo de dados NF4 ótimo para distribuição normal",
+      "Double Quantization economizando 0.37 bits por parâmetro",
+      "Paged Optimizers para gerenciar picos de memória sem estouro de VRAM"
+    ],
+    "connections": {
+      "chapterId": "fine-tuning-peft",
+      "diagramId": "training",
+      "labId": "neural-network"
+    }
+  },
+  {
+    "id": "retrieval-augmented-generation",
+    "title": "RAG: Geração Aumentada por Recuperação para Tarefas Intensivas em Conhecimento",
+    "originalTitle": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+    "authors": [
+      { "name": "Patrick Lewis", "institution": "Facebook AI Research" },
+      { "name": "Ethan Perez", "institution": "NYU" },
+      { "name": "Aleksandra Piktus", "institution": "Facebook AI Research" },
+      { "name": "Fabio Petroni", "institution": "Facebook AI Research" },
+      { "name": "Vladimir Karpukhin", "institution": "Facebook AI Research" },
+      { "name": "Naman Goyal", "institution": "Facebook AI Research" },
+      { "name": "Heinrich Küttler", "institution": "Facebook AI Research" },
+      { "name": "Mike Lewis", "institution": "Facebook AI Research" },
+      { "name": "Wen-tau Yih", "institution": "Facebook AI Research" },
+      { "name": "Tim Rocktäschel", "institution": "UCL" },
+      { "name": "Sebastian Riedel", "institution": "Facebook AI Research" },
+      { "name": "Douwe Kiela", "institution": "Facebook AI Research" }
+    ],
+    "publicationDate": "2020-05",
+    "venue": "NeurIPS 2020",
+    "status": "peer-reviewed",
+    "doi": "10.48550/arXiv.2005.11401",
+    "arxivId": "2005.11401",
+    "canonicalUrl": "https://arxiv.org/abs/2005.11401",
+    "openAccessPdfUrl": "https://arxiv.org/pdf/2005.11401",
+    "field": "rag-retrieval",
+    "abstractPtBr": "Combina modelos pré-treinados com recuperadores densos não paramétricos para ancorar respostas em fontes externas de conhecimento.",
+    "keyFindings": [
+      "Arquitetura end-to-end com gerador seq2seq e recuperador denso",
+      "Redução drástica de alucinações factuais em domínios específicos",
+      "Atualização de base de conhecimento sem necessidade de re-treinamento"
+    ],
+    "connections": {
+      "chapterId": "rag",
+      "diagramId": "rag",
+      "labId": "embeddings"
+    }
+  },
+  {
+    "id": "react-reason-act-agent",
+    "title": "ReAct: Sinergia entre Raciocínio e Ação em Modelos de Linguagem",
+    "originalTitle": "ReAct: Synergizing Reasoning and Acting in Language Models",
+    "authors": [
+      { "name": "Shunyu Yao", "institution": "Princeton University" },
+      { "name": "Jeffrey Zhao", "institution": "Google Research" },
+      { "name": "Dian Yu", "institution": "Google Research" },
+      { "name": "Nan Du", "institution": "Google Research" },
+      { "name": "Izhak Shafran", "institution": "Google Research" },
+      { "name": "Karthik Narasimhan", "institution": "Princeton University" },
+      { "name": "Yuan Cao", "institution": "Google Research" }
+    ],
+    "publicationDate": "2022-10",
+    "venue": "ICLR 2023",
+    "status": "peer-reviewed",
+    "doi": "10.48550/arXiv.2210.03629",
+    "arxivId": "2210.03629",
+    "canonicalUrl": "https://arxiv.org/abs/2210.03629",
+    "openAccessPdfUrl": "https://arxiv.org/pdf/2210.03629",
+    "field": "agents-tool-use",
+    "abstractPtBr": "Combina geração de pensamentos verbais com ações de busca/ambiente em um ciclo iterativo de tomada de decisão em agentes de IA.",
+    "keyFindings": [
+      "Ciclo Pensamento → Ação → Observação reduz propagação de erros",
+      "Capacidade de interagir com APIs externas e bases dinâmicas",
+      "Rastreabilidade interpretável das etapas de raciocínio do modelo"
+    ],
+    "connections": {
+      "chapterId": "mcp-agentes",
+      "diagramId": "agents",
+      "relatedProject": "fastapi-ollama"
+    }
+  },
+  {
+    "id": "speculative-decoding",
+    "title": "Decodificação Especulativa: Amostragem Rápida para LLMs",
+    "originalTitle": "Fast Inference from Transformers via Speculative Decoding",
+    "authors": [
+      { "name": "Yaniv Leviathan", "institution": "Google Research" },
+      { "name": "Matan Kalman", "institution": "Google Research" },
+      { "name": "Yossi Matias", "institution": "Google Research" }
+    ],
+    "publicationDate": "2022-11",
+    "venue": "ICML 2023",
+    "status": "peer-reviewed",
+    "doi": "10.48550/arXiv.2211.17192",
+    "arxivId": "2211.17192",
+    "canonicalUrl": "https://arxiv.org/abs/2211.17192",
+    "openAccessPdfUrl": "https://arxiv.org/pdf/2211.17192",
+    "field": "efficient-inference",
+    "abstractPtBr": "Acelera a geração de tokens usando um modelo rascunho menor para propor sequências de tokens que o modelo principal valida em lote em um único passo.",
+    "keyFindings": [
+      "Aceleração de 2x a 3x sem nenhuma alteração na distribuição das saídas",
+      "Garantia matemática exata de preservação da qualidade original",
+      "Transformação de etapas limitadas por largura de banda em computação densa"
+    ],
+    "connections": {
+      "chapterId": "inferencia-eficiente",
+      "diagramId": "llm"
+    }
+  },
+  {
+    "id": "outrageously-large-neural-networks-moe",
+    "title": "Redes Neurais Extraordinariamente Grandes: Camada de Mistura de Especialistas",
+    "originalTitle": "Outrageously Large Neural Networks: The Sparsely-Gated Mixture-of-Experts Layer",
+    "authors": [
+      { "name": "Noam Shazeer", "institution": "Google Brain" },
+      { "name": "Azalia Mirhoseini", "institution": "Google Brain" },
+      { "name": "Krzysztof Maziarz", "institution": "Google Brain" },
+      { "name": "Andy Davis", "institution": "Google Brain" },
+      { "name": "Quoc Le", "institution": "Google Brain" },
+      { "name": "Geoffrey Hinton", "institution": "Google Brain" },
+      { "name": "Jeff Dean", "institution": "Google Brain" }
+    ],
+    "publicationDate": "2017-01",
+    "venue": "ICLR 2017",
+    "status": "peer-reviewed",
+    "doi": "10.48550/arXiv.1701.06538",
+    "arxivId": "1701.06538",
+    "canonicalUrl": "https://arxiv.org/abs/1701.06538",
+    "openAccessPdfUrl": "https://arxiv.org/pdf/1701.06538",
+    "field": "mixture-of-experts",
+    "abstractPtBr": "Introduz a computação condicional esparsa onde um mecanismo de roteamento gating ativa apenas um subconjunto de redes neurais especialistas para cada exemplo.",
+    "keyFindings": [
+      "Aumento de 1000x na capacidade de parâmetros com aumento mínimo de FLOPs",
+      "Gating com ruído (Noisy Top-K) para balanceamento de carga de especialistas",
+      "Fundação conceitual para Mixtral, DeepSeek e GPT-4"
+    ],
+    "connections": {
+      "chapterId": "inferencia-eficiente",
+      "diagramId": "llm"
+    }
+  },
+  {
+    "id": "direct-preference-optimization",
+    "title": "DPO: Seu Modelo de Linguagem é Secretamente uma Função de Recompensa",
+    "originalTitle": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model",
+    "authors": [
+      { "name": "Rafael Rafailov", "institution": "Stanford University" },
+      { "name": "Archit Sharma", "institution": "Stanford University" },
+      { "name": "Eric Mitchell", "institution": "Stanford University" },
+      { "name": "Stefano Ermon", "institution": "Stanford University" },
+      {
+        "name": "Christopher D. Manning",
+        "institution": "Stanford University"
+      },
+      { "name": "Chelsea Finn", "institution": "Stanford University" }
+    ],
+    "publicationDate": "2023-05",
+    "venue": "NeurIPS 2023",
+    "status": "peer-reviewed",
+    "doi": "10.48550/arXiv.2305.18290",
+    "arxivId": "2305.18290",
+    "canonicalUrl": "https://arxiv.org/abs/2305.18290",
+    "openAccessPdfUrl": "https://arxiv.org/pdf/2305.18290",
+    "field": "reasoning-alignment",
+    "abstractPtBr": "Substitui o RLHF clássico com PPO por uma perda implícita de preferência de classificação simples, tornando o alinhamento estável e reprodutível.",
+    "keyFindings": [
+      "Elimina a necessidade de treinar e manter um modelo de recompensa separado",
+      "Treinamento estável sem colapso de política comum no PPO",
+      "Padrão dominante na indústria para alinhamento de modelos abertos"
+    ],
+    "connections": {
+      "chapterId": "modelos-raciocinio",
+      "diagramId": "agents-react"
+    }
+  },
+  {
+    "id": "chain-of-thought-prompting",
+    "title": "Cadeia de Pensamento: Elicitando Raciocínio em Modelos de Linguagem",
+    "originalTitle": "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models",
+    "authors": [
+      { "name": "Jason Wei", "institution": "Google Research" },
+      { "name": "Xuezhi Wang", "institution": "Google Research" },
+      { "name": "Dale Schuurmans", "institution": "Google Research" },
+      { "name": "Maarten Bosma", "institution": "Google Research" },
+      { "name": "Brian Ichter", "institution": "Google Research" },
+      { "name": "Fei Xia", "institution": "Google Research" },
+      { "name": "Ed Chi", "institution": "Google Research" },
+      { "name": "Quoc Le", "institution": "Google Research" },
+      { "name": "Denny Zhou", "institution": "Google Research" }
+    ],
+    "publicationDate": "2022-01",
+    "venue": "NeurIPS 2022",
+    "status": "peer-reviewed",
+    "doi": "10.48550/arXiv.2201.11903",
+    "arxivId": "2201.11903",
+    "canonicalUrl": "https://arxiv.org/abs/2201.11903",
+    "openAccessPdfUrl": "https://arxiv.org/pdf/2201.11903",
+    "field": "reasoning-alignment",
+    "abstractPtBr": "Demonstra que instruir modelos a decompor problemas complexos em etapas intermediárias melhora significativamente o desempenho em matemática e lógica.",
+    "keyFindings": [
+      "Propriedade emergente em modelos com escala superior a dezenas de bilhões de parâmetros",
+      "Ganhos exponenciais de acurácia no GSM8K e testes de inferência simbólica",
+      "Ponto de partida para a nova geração de reasoning models com inferência prolongada"
+    ],
+    "connections": {
+      "chapterId": "producao-evals",
+      "diagramId": "llm"
+    }
+  },
+  {
+    "id": "judging-llm-as-a-judge",
+    "title": "Avaliando LLM-as-a-Judge com MT-Bench e Chatbot Arena",
+    "originalTitle": "Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena",
+    "authors": [
+      { "name": "Lianmin Zheng", "institution": "UC Berkeley" },
+      { "name": "Wei-Lin Chiang", "institution": "UC Berkeley" },
+      { "name": "Hao Zhang", "institution": "UCSD" },
+      { "name": "Siyuan Zhuang", "institution": "UC Berkeley" },
+      { "name": "Yonghao Zhuang", "institution": "UC Berkeley" },
+      { "name": "Lingchen Meng", "institution": "UC Berkeley" },
+      { "name": "Ernie Chu", "institution": "National Taiwan University" },
+      { "name": "Ion Stoica", "institution": "UC Berkeley" }
+    ],
+    "publicationDate": "2023-06",
+    "venue": "NeurIPS 2023",
+    "status": "peer-reviewed",
+    "doi": "10.48550/arXiv.2306.05685",
+    "arxivId": "2306.05685",
+    "canonicalUrl": "https://arxiv.org/abs/2306.05685",
+    "openAccessPdfUrl": "https://arxiv.org/pdf/2306.05685",
+    "field": "reasoning-alignment",
+    "abstractPtBr": "Analisa o uso de modelos de linguagem como avaliadores automáticos de qualidade, mapeando concordância humana, viés de posição e verbosidade.",
+    "keyFindings": [
+      "Concordância superior a 80% entre avaliadores LLM e humanos em testes pareados",
+      "Identificação sistemática de vieses de ego-centralismo e tamanho de resposta",
+      "Criação do benchmark MT-Bench e metodologia fundacional do Chatbot Arena"
+    ],
+    "connections": {
+      "chapterId": "llm-as-a-judge",
+      "diagramId": "agents"
+    }
+  },
+  {
+    "id": "deepseek-v3-technical-report",
+    "title": "Relatório Técnico do DeepSeek-V3",
+    "originalTitle": "DeepSeek-V3 Technical Report",
+    "authors": [{ "name": "DeepSeek-AI Team", "institution": "DeepSeek-AI" }],
+    "publicationDate": "2024-12",
+    "venue": "arXiv cs.CL",
+    "status": "technical-report",
+    "doi": "10.48550/arXiv.2412.19437",
+    "arxivId": "2412.19437",
+    "canonicalUrl": "https://arxiv.org/abs/2412.19437",
+    "openAccessPdfUrl": "https://arxiv.org/pdf/2412.19437",
+    "field": "mixture-of-experts",
+    "abstractPtBr": "Apresenta arquitetura MoE com Multi-Head Latent Attention (MLA) e treinamento em precisão mista FP8 de custo de computação ultra-eficiente.",
+    "keyFindings": [
+      "Compressão drástica do KV-cache através de projeção latente de baixa dimensão (MLA)",
+      "Treinamento de modelo de 671B parâmetros com ativação de 37B por token",
+      "Framework DualPipe sobrepondo computação e comunicação de dispersão inter-nós"
+    ],
+    "connections": {
+      "chapterId": "inferencia-eficiente",
+      "diagramId": "llm"
+    }
+  },
+  {
+    "id": "deepseek-r1-incentivizing-reasoning",
+    "title": "DeepSeek-R1: Incentivando Raciocínio via Aprendizado por Reforço",
+    "originalTitle": "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning",
+    "authors": [{ "name": "DeepSeek-AI Team", "institution": "DeepSeek-AI" }],
+    "publicationDate": "2025-01",
+    "venue": "arXiv cs.CL",
+    "status": "technical-report",
+    "doi": "10.48550/arXiv.2501.12948",
+    "arxivId": "2501.12948",
+    "canonicalUrl": "https://arxiv.org/abs/2501.12948",
+    "openAccessPdfUrl": "https://arxiv.org/pdf/2501.12948",
+    "field": "reasoning-alignment",
+    "abstractPtBr": "Demonstra o surgimento de comportamentos de raciocínio profundo e autorreflexão puramente através de aprendizado por reforço em larga escala.",
+    "keyFindings": [
+      "Emergência de auto-verificação sem necessidade de dados supervisionados densos (R1-Zero)",
+      "Destilação bem-sucedida de capacidades de raciocínio para modelos densos de 1.5B a 70B",
+      "Desempenho comparável a modelos proprietários fechados em problemas de matemática e programação"
+    ],
+    "connections": {
+      "chapterId": "modelos-raciocinio",
+      "diagramId": "agents-react"
+    }
+  },
+  {
+    "id": "llama-3-herd-of-models",
+    "title": "O Rebanho de Modelos Llama 3",
+    "originalTitle": "The Llama 3 Herd of Models",
+    "authors": [{ "name": "Meta AI Team", "institution": "Meta AI" }],
+    "publicationDate": "2024-07",
+    "venue": "arXiv cs.AI",
+    "status": "technical-report",
+    "doi": "10.48550/arXiv.2407.21783",
+    "arxivId": "2407.21783",
+    "canonicalUrl": "https://arxiv.org/abs/2407.21783",
+    "openAccessPdfUrl": "https://arxiv.org/pdf/2407.21783",
+    "field": "transformers-attention",
+    "abstractPtBr": "Documenta a arquitetura, curadoria de 15 trilhões de tokens e alinhamento do Llama 3 em versões de 8B, 70B e 405B parâmetros.",
+    "keyFindings": [
+      "Vocabulário expandido de 128k tokens com Grouped-Query Attention (GQA)",
+      "Adoção de dados de alta qualidade e filtragem sintética rigorosa",
+      "Benchmark aberto fundamental para pesquisa acadêmica e aplicações corporativas"
+    ],
+    "connections": {
+      "chapterId": "carreira-ai-engineer",
+      "diagramId": "http",
+      "relatedProject": "fastapi-ollama"
+    }
+  },
+  {
+    "id": "dense-passage-retrieval",
+    "title": "Recuperação Densa de Passagens para Respostas a Perguntas",
+    "originalTitle": "Dense Passage Retrieval for Open-Domain Question Answering",
+    "authors": [
+      { "name": "Vladimir Karpukhin", "institution": "Facebook AI Research" },
+      { "name": "Barlas Oğuz", "institution": "Facebook AI Research" },
+      { "name": "Sewon Min", "institution": "University of Washington" },
+      { "name": "Patrick Lewis", "institution": "Facebook AI Research" },
+      { "name": "Ledell Wu", "institution": "Facebook AI Research" },
+      { "name": "Sergey Edunov", "institution": "Facebook AI Research" },
+      { "name": "Danqi Chen", "institution": "Princeton University" },
+      { "name": "Wen-tau Yih", "institution": "Facebook AI Research" }
+    ],
+    "publicationDate": "2020-04",
+    "venue": "EMNLP 2020",
+    "status": "peer-reviewed",
+    "doi": "10.18653/v1/2020.emnlp-main.550",
+    "arxivId": "2004.04906",
+    "canonicalUrl": "https://arxiv.org/abs/2004.04906",
+    "openAccessPdfUrl": "https://arxiv.org/pdf/2004.04906",
+    "field": "rag-retrieval",
+    "abstractPtBr": "Mostra que representações vetoriais densas obtidas por encoders siameses superam sistemas tradicionais baseados em BM25 em recuperação aberta.",
+    "keyFindings": [
+      "Arquitetura bi-encoder treinada com contraste de pares positivos e negativos",
+      "Recuperação baseada em produto interno com busca de vizinhos mais próximos (MIPS)",
+      "Base estrutural para os embeddings modernos de sistemas de RAG"
+    ],
+    "connections": {
+      "chapterId": "embeddings-busca",
+      "diagramId": "rag",
+      "labId": "embeddings"
+    }
+  },
+  {
+    "id": "reciprocal-rank-fusion-hybrid-search",
+    "title": "Fusão de Ranking Recíproco para Busca Híbrida",
+    "originalTitle": "Reciprocal Rank Fusion outperforms Condorcet and individual Run Methods",
+    "authors": [
+      { "name": "Gordon V. Cormack", "institution": "University of Waterloo" },
+      {
+        "name": "Charles L. A. Clarke",
+        "institution": "University of Waterloo"
+      },
+      { "name": "Stefan Büttcher", "institution": "University of Waterloo" }
+    ],
+    "publicationDate": "2009-07",
+    "venue": "SIGIR 2009",
+    "status": "peer-reviewed",
+    "doi": "10.1145/1571941.1572114",
+    "canonicalUrl": "https://doi.org/10.1145/1571941.1572114",
+    "openAccessPdfUrl": "https://plg.uwaterloo.ca/~gvcormac/cormacksigir09-rrf.pdf",
+    "field": "rag-retrieval",
+    "abstractPtBr": "Propõe o algoritmo RRF para combinar múltiplos rankings ordenados sem exigir calibração de pontuações de similaridade entre métodos distintos.",
+    "keyFindings": [
+      "Fórmula RRF(d) = soma(1 / (k + r(d))) com constante k tipicamente igual a 60",
+      "Imunidade a escalas disparatadas entre escores de BM25 e distância de cosseno",
+      "Padrão ouro para pipelines de busca híbrida em RAG contemporâneo"
+    ],
+    "connections": {
+      "chapterId": "embeddings-busca",
+      "diagramId": "rag",
+      "labId": "embeddings"
+    }
+  },
+  {
+    "id": "toolformer-language-models-can-teach-themselves-tools",
+    "title": "Toolformer: Modelos de Linguagem Podem Ensinar a Si Mesmos a Usar Ferramentas",
+    "originalTitle": "Toolformer: Language Models Can Teach Themselves to Use Tools",
+    "authors": [
+      { "name": "Timo Schick", "institution": "Meta AI" },
+      { "name": "Jane Dwivedi-Yu", "institution": "Meta AI" },
+      { "name": "Roberto Dessì", "institution": "Meta AI" },
+      { "name": "Roberta Raileanu", "institution": "Meta AI" },
+      { "name": "Maria Lomeli", "institution": "Meta AI" },
+      { "name": "Luke Zettlemoyer", "institution": "Meta AI" },
+      { "name": "Nicola Cancedda", "institution": "Meta AI" },
+      { "name": "Thomas Scialom", "institution": "Meta AI" }
+    ],
+    "publicationDate": "2023-02",
+    "venue": "NeurIPS 2023",
+    "status": "peer-reviewed",
+    "doi": "10.48550/arXiv.2302.04761",
+    "arxivId": "2302.04761",
+    "canonicalUrl": "https://arxiv.org/abs/2302.04761",
+    "openAccessPdfUrl": "https://arxiv.org/pdf/2302.04761",
+    "field": "agents-tool-use",
+    "abstractPtBr": "Treina modelos de linguagem para decidir de forma autônoma quais APIs chamar, quando chamá-las e como incorporar os resultados na resposta.",
+    "keyFindings": [
+      "Anotação autosupervisionada de chamadas de API com cálculo de redução de perda",
+      "Uso de calculadoras, mecanismos de busca, conversores de moedas e sistemas de tempo",
+      "Supera modelos significativamente maiores em tarefas factuais e de cálculo"
+    ],
+    "connections": {
+      "chapterId": "mcp-agentes",
+      "diagramId": "agents"
+    }
+  },
+  {
+    "id": "awq-activation-aware-quantization",
+    "title": "AWQ: Quantização Consciente de Ativação para LLMs",
+    "originalTitle": "AWQ: Activation-aware Weight Quantization for On-Device LLM Compression and Acceleration",
+    "authors": [
+      { "name": "Ji Lin", "institution": "MIT" },
+      { "name": "Jiaming Tang", "institution": "MIT" },
+      { "name": "Haotian Tang", "institution": "MIT" },
+      { "name": "Shang Yang", "institution": "MIT" },
+      { "name": "Xingyu Dang", "institution": "MIT" },
+      { "name": "Song Han", "institution": "MIT" }
+    ],
+    "publicationDate": "2023-06",
+    "venue": "MLSys 2024",
+    "status": "peer-reviewed",
+    "doi": "10.48550/arXiv.2306.00978",
+    "arxivId": "2306.00978",
+    "canonicalUrl": "https://arxiv.org/abs/2306.00978",
+    "openAccessPdfUrl": "https://arxiv.org/pdf/2306.00978",
+    "field": "efficient-inference",
+    "abstractPtBr": "Observa que nem todos os pesos são igualmente importantes e protege o 1% de canais mais salientes com base na magnitude de ativação.",
+    "keyFindings": [
+      "Quantização INT4 sem degradação de perplexidade ou acurácia zero-shot",
+      "Aceleração de até 3x na inferência em GPUs móveis e de data center",
+      "Redução pela metade dos custos de hardware para serving de LLMs"
+    ],
+    "connections": {
+      "chapterId": "inferencia-eficiente",
+      "diagramId": "llm"
+    }
+  },
+  {
+    "id": "constitutional-ai-harmlessness",
+    "title": "Constitutional AI: Inocuidade sem Feedback Humano Contínuo",
+    "originalTitle": "Constitutional AI: Harmlessness from AI Feedback",
+    "authors": [
+      { "name": "Yuntao Bai", "institution": "Anthropic" },
+      { "name": "Saurav Kadavath", "institution": "Anthropic" },
+      { "name": "Sandipan Kundu", "institution": "Anthropic" },
+      { "name": "Amanda Askell", "institution": "Anthropic" },
+      { "name": "John Kernion", "institution": "Anthropic" },
+      { "name": "Andy Jones", "institution": "Anthropic" },
+      { "name": "Anna Chen", "institution": "Anthropic" },
+      { "name": "Jared Kaplan", "institution": "Anthropic" }
+    ],
+    "publicationDate": "2022-12",
+    "venue": "arXiv cs.CL",
+    "status": "preprint",
+    "doi": "10.48550/arXiv.2212.08073",
+    "arxivId": "2212.08073",
+    "canonicalUrl": "https://arxiv.org/abs/2212.08073",
+    "openAccessPdfUrl": "https://arxiv.org/pdf/2212.08073",
+    "field": "reasoning-alignment",
+    "abstractPtBr": "Treina sistemas de IA usando um conjunto de princípios e regras constitucionais para criticar e revisar suas próprias respostas automaticamente.",
+    "keyFindings": [
+      "Substitui milhares de rótulos humanos manuais por Reinforcement Learning from AI Feedback (RLAIF)",
+      "Produção de modelos menos evasivos que recusam comandos perigosos com transparência",
+      "Definição de salvaguardas declarativas testáveis por engenharia de software"
+    ],
+    "connections": {
+      "chapterId": "seguranca-avaliacao",
+      "diagramId": "agents"
+    }
+  },
+  {
+    "id": "model-context-protocol-specification",
+    "title": "Model Context Protocol: Especificação Aberta de Contexto para Agentes",
+    "originalTitle": "Model Context Protocol Specification",
+    "authors": [
+      { "name": "Anthropic Protocol Team", "institution": "Anthropic" }
+    ],
+    "publicationDate": "2024-11",
+    "venue": "Open Standard Specification",
+    "status": "technical-report",
+    "canonicalUrl": "https://modelcontextprotocol.io/",
+    "openAccessPdfUrl": "https://modelcontextprotocol.io/specification",
+    "field": "agents-tool-use",
+    "abstractPtBr": "Especificação de protocolo cliente-servidor JSON-RPC que padroniza como modelos de IA descobrem e interagem com recursos, prompts e ferramentas locais e remotas.",
+    "keyFindings": [
+      "Separação formal entre hospedeiro (host), cliente MCP e servidores especializados",
+      "Definição segura de ferramentas (tools), recursos (resources) e modelos de prompt",
+      "Padrão adotado amplamente na indústria para ecossistemas de agentes modulares"
+    ],
+    "connections": {
+      "chapterId": "mcp-agentes",
+      "diagramId": "agents",
+      "relatedProject": "fastapi-ollama"
+    }
+  },
+  {
+    "id": "scaling-laws-neural-language-models",
+    "title": "Leis de Escala para Modelos Neurais de Linguagem",
+    "originalTitle": "Scaling Laws for Neural Language Models",
+    "authors": [
+      { "name": "Jared Kaplan", "institution": "Johns Hopkins / OpenAI" },
+      { "name": "Sam McCandlish", "institution": "OpenAI" },
+      { "name": "Tom Henighan", "institution": "OpenAI" },
+      { "name": "Tom B. Brown", "institution": "OpenAI" },
+      { "name": "Benjamin Chess", "institution": "OpenAI" },
+      { "name": "Rewon Child", "institution": "OpenAI" },
+      { "name": "Scott Gray", "institution": "OpenAI" },
+      { "name": "Alec Radford", "institution": "OpenAI" },
+      { "name": "Jeffrey Wu", "institution": "OpenAI" },
+      { "name": "Dario Amodei", "institution": "OpenAI" }
+    ],
+    "publicationDate": "2020-01",
+    "venue": "arXiv cs.LG",
+    "status": "preprint",
+    "doi": "10.48550/arXiv.2001.08361",
+    "arxivId": "2001.08361",
+    "canonicalUrl": "https://arxiv.org/abs/2001.08361",
+    "openAccessPdfUrl": "https://arxiv.org/pdf/2001.08361",
+    "field": "transformers-attention",
+    "abstractPtBr": "Demonstra que a perda de entropia cruzada em LLMs segue leis de potência precisas em função dos parâmetros, tamanho do dataset e computação total de treino.",
+    "keyFindings": [
+      "Desempenho depende fortemente de escala (N, D, C) e fracamente de detalhes hiperparamétricos",
+      "Previsibilidade matemática do retorno de investimento computacional em pré-treinamento",
+      "Fundação teórica para o dimensionamento ótimo de clusters de computação de IA"
+    ],
+    "connections": {
+      "chapterId": "treinamento-avaliacao",
+      "diagramId": "training",
+      "labId": "neural-network"
+    }
+  },
+  {
+    "id": "mmlu-massive-multitask-language-understanding",
+    "title": "MMLU: Medindo Compreensão de Linguagem Multitarefa Maciça",
+    "originalTitle": "Measuring Massive Multitask Language Understanding",
+    "authors": [
+      { "name": "Dan Hendrycks", "institution": "UC Berkeley" },
+      { "name": "Collin Burns", "institution": "UC Berkeley" },
+      { "name": "Steven Basart", "institution": "UC Berkeley" },
+      { "name": "Andy Zou", "institution": "UC Berkeley" },
+      { "name": "Mantas Mazeika", "institution": "UC Berkeley" },
+      { "name": "Dawn Song", "institution": "UC Berkeley" },
+      { "name": "Jacob Steinhardt", "institution": "UC Berkeley" }
+    ],
+    "publicationDate": "2020-09",
+    "venue": "ICLR 2021",
+    "status": "peer-reviewed",
+    "doi": "10.48550/arXiv.2009.03300",
+    "arxivId": "2009.03300",
+    "canonicalUrl": "https://arxiv.org/abs/2009.03300",
+    "openAccessPdfUrl": "https://arxiv.org/pdf/2009.03300",
+    "field": "reasoning-alignment",
+    "abstractPtBr": "Benchmark de avaliação abrangendo 57 disciplinas acadêmicas e profissionais (humanidades, ciências sociais, exatas e medicina).",
+    "keyFindings": [
+      "Padrão da indústria para medir conhecimento factual e raciocínio multidisciplinar",
+      "Identificação de deficiências de calibração em respostas de múltipla escolha",
+      "Métrica de referência obrigatória para novos lançamentos de modelos de fronteira"
+    ],
+    "connections": {
+      "chapterId": "producao-evals",
+      "diagramId": "llm"
+    }
+  },
+  {
+    "id": "gsm8k-grade-school-math",
+    "title": "Treinando Verificadores para Resolver Problemas de Matemática Escolar (GSM8K)",
+    "originalTitle": "Training Verifiers to Solve Math Word Problems",
+    "authors": [
+      { "name": "Karl Cobbe", "institution": "OpenAI" },
+      { "name": "Vineet Kosaraju", "institution": "OpenAI" },
+      { "name": "Mohammad Bavarian", "institution": "OpenAI" },
+      { "name": "Mark Chen", "institution": "OpenAI" },
+      { "name": "Heewoo Jun", "institution": "OpenAI" },
+      { "name": "Lukasz Kaiser", "institution": "OpenAI" },
+      { "name": "Matthias Plappert", "institution": "OpenAI" },
+      { "name": "Jerry Tworek", "institution": "OpenAI" },
+      { "name": "Jacob Hilton", "institution": "OpenAI" },
+      { "name": "Reiichiro Nakano", "institution": "OpenAI" },
+      { "name": "Christopher Hesse", "institution": "OpenAI" },
+      { "name": "John Schulman", "institution": "OpenAI" }
+    ],
+    "publicationDate": "2021-10",
+    "venue": "arXiv cs.LG",
+    "status": "preprint",
+    "doi": "10.48550/arXiv.2110.14168",
+    "arxivId": "2110.14168",
+    "canonicalUrl": "https://arxiv.org/abs/2110.14168",
+    "openAccessPdfUrl": "https://arxiv.org/pdf/2110.14168",
+    "field": "reasoning-alignment",
+    "abstractPtBr": "Cria o dataset GSM8K de 8.500 problemas matemáticos com soluções passo a passo, impulsionando a pesquisa em raciocínio em múltiplos passos.",
+    "keyFindings": [
+      "Avaliação da capacidade de executar raciocínio simbólico sem atalhos heurísticos",
+      "Uso de verificadores de soluções paralelas para selecionar a resposta mais provável",
+      "Benchmark de referência universal para medição de capacidade lógica de LLMs"
+    ],
+    "connections": {
+      "chapterId": "producao-evals",
+      "diagramId": "llm"
+    }
+  },
+  {
+    "id": "humaneval-evaluating-large-language-models-code",
+    "title": "Avaliando Grandes Modelos de Linguagem Treinados em Código (HumanEval)",
+    "originalTitle": "Evaluating Large Language Models Trained on Code",
+    "authors": [
+      { "name": "Mark Chen", "institution": "OpenAI" },
+      { "name": "Jerry Tworek", "institution": "OpenAI" },
+      { "name": "Heewoo Jun", "institution": "OpenAI" },
+      { "name": "Qiming Yuan", "institution": "OpenAI" },
+      { "name": "Henrique Ponde de Oliveira Pinto", "institution": "OpenAI" },
+      { "name": "Jared Kaplan", "institution": "OpenAI" },
+      { "name": "Harri Edwards", "institution": "OpenAI" },
+      { "name": "Yuri Burda", "institution": "OpenAI" },
+      { "name": "Nicholas Joseph", "institution": "OpenAI" },
+      { "name": "Greg Brockman", "institution": "OpenAI" },
+      { "name": "Alex Ray", "institution": "OpenAI" },
+      { "name": "John Schulman", "institution": "OpenAI" },
+      { "name": "Pamela Vagata", "institution": "OpenAI" },
+      { "name": "Wojciech Zaremba", "institution": "OpenAI" }
+    ],
+    "publicationDate": "2021-07",
+    "venue": "arXiv cs.CL",
+    "status": "preprint",
+    "doi": "10.48550/arXiv.2107.03374",
+    "arxivId": "2107.03374",
+    "canonicalUrl": "https://arxiv.org/abs/2107.03374",
+    "openAccessPdfUrl": "https://arxiv.org/pdf/2107.03374",
+    "field": "reasoning-alignment",
+    "abstractPtBr": "Introduz o benchmark HumanEval e a métrica pass@k para avaliar geração de funções Python com validação rigorosa por testes unitários reais.",
+    "keyFindings": [
+      "Métrica pass@k corrigida para estimador não enviesado",
+      "Substituição de métricas de correspondência textual (BLEU) por testes de execução funcional",
+      "Padrão fundamental para avaliação de ferramentas de codificação assistida por IA"
+    ],
+    "connections": {
+      "chapterId": "python-backend",
+      "diagramId": "http",
+      "relatedProject": "fastapi-ollama"
+    }
+  }
+]

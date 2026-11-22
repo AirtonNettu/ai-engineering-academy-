@@ -17,6 +17,7 @@ import {
   FlaskConical,
   Layers,
   HardDriveDownload,
+  Activity,
 } from 'lucide-react';
 import { readPreference, savePreference } from '../lib/storage';
 
@@ -41,6 +42,8 @@ function GithubIcon({ size = 16 }: { size?: number }) {
 const navigation = [
   { to: '/', title: 'Visão geral', icon: Blocks },
   { to: '/biblioteca', title: 'Biblioteca', icon: BookOpen },
+  { to: '/pesquisa', title: 'Centro de Pesquisa', icon: Library },
+  { to: '/observatorio', title: 'Observatório de IA', icon: Activity },
   { to: '/trilhas', title: 'Trilhas profissionais', icon: Route },
   { to: '/arquiteturas', title: 'Arquiteturas interativas', icon: Blocks },
   {
